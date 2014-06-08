@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BallContoller.js" />
+     <Compile Include="Assets\BlockContoller.js" />
+     <Compile Include="Assets\BottomWallController.js" />
      <Compile Include="Assets\RacketController.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
