@@ -230,3 +230,7 @@ Cmd: compileSnippet
   api=0 type=0 insize=3732 outsize=611 kw=WATER_SIMPLE ok=1
 Cmd: compileSnippet
   api=0 type=1 insize=3732 outsize=705 kw=WATER_SIMPLE ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=3732 outsize=775 kw=WATER_REFLECTIVE ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=3732 outsize=815 kw=WATER_REFLECTIVE ok=1

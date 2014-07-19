@@ -104,6 +104,7 @@
      <Compile Include="Assets\MecanimSample\Scripts\Spawner.cs" />
      <Compile Include="Assets\MecanimSample\Scripts\TargetMatching.cs" />
      <Compile Include="Assets\MecanimSample\Scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\MyGame\ChangeRagdoll.cs" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample.shader" />
