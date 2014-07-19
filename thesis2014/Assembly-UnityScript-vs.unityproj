@@ -46,8 +46,56 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CarMovement.js" />
-     <None Include="Assets\Stockcar\ReadMe.txt" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\BumpTextureTileAnimation.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\Car.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\CrashController.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\FPSCounter.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\LightmapperObjectUV.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\PerformanceTweak.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\ShowOnlyOneWaterObject.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\Skidmarks.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\SoundController.js" />
+     <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\SoundToggler.js" />
+     <Compile Include="Assets\MyGame\CarMovement.js" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\NoiseEffectShaderRGB.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample.shader" />
+     <None Include="Assets\CarTutorial\Shaders\PolyTerrain\FirstPassLightmap.shader" />
+     <None Include="Assets\CarTutorial\Shaders\LightMappedDiffusetDetail.shader" />
+     <None Include="Assets\CarTutorial\Shaders\LightsEmmissive.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\ColorCorrectionEffect.shader" />
+     <None Include="Assets\CarTutorial\Shaders\ShadowProjection.shader" />
+     <None Include="Assets\CarTutorial\~AlternatePhysicsModel\Source Assets\Cars\Car.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\MotionBlur.shader" />
+     <None Include="Assets\CarTutorial\Shaders\GlassReflect.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\MinMaxReduction.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\ColorCorrectionEffect_26.shader" />
+     <None Include="Assets\CarTutorial\~AlternatePhysicsModel\Source Assets\Skidmarks\Skidmarks.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpSpecDistort.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample_26.shader" />
+     <None Include="Assets\CarTutorial\Shaders\Normal-BumpSpec_EnvLightmapped.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\SSAOShader.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\NoiseEffectShaderYUV.shader" />
+     <None Include="Assets\CarTutorial\Shaders\AlphaTest-Diffuse-GEqual.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\Luminance.shader" />
+     <None Include="Assets\CarTutorial\Shaders\Skidmarks.shader" />
+     <None Include="Assets\CarTutorial\Shaders\Glassreflect2D.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Water\Sources\FX-Water.shader" />
+     <None Include="Assets\CarTutorial\Shaders\GlassBuilding.shader" />
+     <None Include="Assets\CarTutorial\Shaders\PolyTerrain\polysplatting.cginc" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GrayscaleEffect.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\SepiaToneEffect.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\TwirlEffect.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\VortexEffect.shader" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\Adaptation.shader" />
+     <None Include="Assets\CarTutorial\Shaders\Alpha-VertexLitGlow02.shader" />
+     <None Include="Assets\MyGame\Stockcar\ReadMe.txt" />
+     <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\EdgeDetectX.shader" />
+     <None Include="Assets\CarTutorial\Shaders\MirrorReflectionLit.shader" />
+     <None Include="Assets\CarTutorial\Textures\VFX\ShadowProjection.shader" />
+     <None Include="Assets\CarTutorial\Shaders\TransparentLightMappedVertexLiZWrite.shader" />
+     <None Include="Assets\CarTutorial\Shaders\Alpha-Diffuse-ZWrite.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
