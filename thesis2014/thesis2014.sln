@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{FA5B5811-2D10-AA9B-CBBF-ADF0EF8C056D}") = "thesis2014", "Assembly-CSharp-firstpass.csproj", "{91EEAFBF-B22B-DA78-948A-04061D52A6DA}"
+EndProject
 Project("{FA5B5811-2D10-AA9B-CBBF-ADF0EF8C056D}") = "thesis2014", "Assembly-CSharp.csproj", "{46259D78-F32F-2795-E50A-35CF9D7C5111}"
 EndProject
 Project("{FA5B5811-2D10-AA9B-CBBF-ADF0EF8C056D}") = "thesis2014", "Assembly-UnityScript.unityproj", "{D301BD17-DA1E-8338-6F41-4B0E11B0CC37}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91EEAFBF-B22B-DA78-948A-04061D52A6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EEAFBF-B22B-DA78-948A-04061D52A6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EEAFBF-B22B-DA78-948A-04061D52A6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EEAFBF-B22B-DA78-948A-04061D52A6DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46259D78-F32F-2795-E50A-35CF9D7C5111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46259D78-F32F-2795-E50A-35CF9D7C5111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46259D78-F32F-2795-E50A-35CF9D7C5111}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-			GlobalSection(MonoDevelopProperties) = preSolution
+														GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
