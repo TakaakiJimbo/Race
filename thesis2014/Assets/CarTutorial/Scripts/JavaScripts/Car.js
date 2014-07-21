@@ -1,6 +1,7 @@
 var obj : GameObject; // GameObject型
 var script : OSCReceiver; //ScriptB型(スクリプト名が型名になる)
-var OSCvalueExample1 : int = 0;
+var OSCvalueEx0 : float = 0;
+var OSCvalueEx2 : float = 0;
 
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
@@ -93,7 +94,8 @@ function Start()
 
 function Update()
 {		
-	OSCvalueExample1 = script.Ex1-OSCvalueExample1;
+	OSCvalueEx0 = script.Ex0;
+	OSCvalueEx2 = script.Ex2;
 
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
 	
@@ -254,10 +256,11 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-	// throttle = Input.GetAxis("Vertical");
-	throttle = OSCvalueExample1;
-	steer = Input.GetAxis("Horizontal");
-	
+	throttle = Input.GetAxis("Vertical");
+	// steer = Input.GetAxis("Horizontal");
+	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
+	if(OSCvalueEx0 < 0.5)
+		steer = (-1)*steer;
 	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else

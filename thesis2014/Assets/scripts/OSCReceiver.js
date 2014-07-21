@@ -6,8 +6,8 @@ public var ListenerPort : int = 57130;
 public var controller : Transform; 
 private var handler : Osc;
 
-public var Ex1 : int = 0;
-public var Ex2 : int = 0;
+public var Ex0 : float = 0;
+public var Ex2 : float = 0;
 
 public function Start ()
 {
@@ -17,24 +17,24 @@ public function Start ()
 	udp.init(RemoteIP, SendToPort, ListenerPort);
 	handler = GetComponent("Osc");
 	handler.init(udp);
-	handler.SetAddressHandler("/wii/1/accel/pry/0", Example1);
-	handler.SetAddressHandler("/wii/1/accel/pry/2", Example2);
+	handler.SetAddressHandler("/wii/1/accel/pry", Example);
+	// handler.SetAddressHandler("/wii/1/accel/pry", Example2);
 }
 
 
 //these fucntions are called when messages are received
-public function Example1(oscMessage : OscMessage) : void
+public function Example(oscMessage : OscMessage) : void
 {	
 	//How to access values: 
 	//oscMessage.Values[0], oscMessage.Values[1], etc
-	Debug.Log("Called Example One > " + Osc.OscMessageToString(oscMessage));
-	Ex1++;
+	Ex0 = oscMessage.Values[0];
+	Ex2 = oscMessage.Values[2];
 } 
 
-//these fucntions are called when messages are received
-public function Example2(oscMessage : OscMessage) : void 
-{
-	//How to access values: 
-	//oscMessage.Values[0], oscMessage.Values[1], etc
-	Debug.Log("Called Example Two > " + Osc.OscMessageToString(oscMessage));
-} 
+////these fucntions are called when messages are received
+//public function Example2(oscMessage : OscMessage) : void 
+//{
+//	//How to access values: 
+//	//oscMessage.Values[0], oscMessage.Values[1], etc
+//	Debug.Log("Called Example Two > " + Osc.OscMessageToString(oscMessage));
+//} 
