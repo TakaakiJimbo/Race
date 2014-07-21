@@ -96,6 +96,10 @@
      <None Include="Assets\CarTutorial\Shaders\TransparentLightMappedVertexLiZWrite.shader" />
      <None Include="Assets\CarTutorial\Shaders\Alpha-Diffuse-ZWrite.shader" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{91EEAFBF-B22B-DA78-948A-04061D52A6DA}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.

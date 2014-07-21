@@ -1,3 +1,7 @@
+var obj : GameObject; // GameObject型
+var script : OSCReceiver; //ScriptB型(スクリプト名が型名になる)
+var OSCvalueExample1 : int = 0;
+
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
 var suspensionDamper : float = 50;
@@ -68,6 +72,9 @@ class Wheel
 
 function Start()
 {	
+	obj = GameObject.Find("OSC");
+	script = obj.GetComponent(OSCReceiver);
+
 	// Measuring 1 - 60
 	accelerationTimer = Time.time;
 	
@@ -86,6 +93,8 @@ function Start()
 
 function Update()
 {		
+	OSCvalueExample1 = script.Ex1-OSCvalueExample1;
+
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
 	
 	GetInput();
@@ -245,7 +254,8 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-	throttle = Input.GetAxis("Vertical");
+	// throttle = Input.GetAxis("Vertical");
+	throttle = OSCvalueExample1;
 	steer = Input.GetAxis("Horizontal");
 	
 	if(throttle < 0.0)

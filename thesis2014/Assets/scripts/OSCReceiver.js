@@ -11,23 +11,24 @@ public var Ex2 : int = 0;
 
 public function Start ()
 {
-	Debug.Log("Called Example One > ");	
 	//Initializes on start up to listen for messages
 	//make sure this game object has both UDPPackIO and OSC script attached
 	var udp : UDPPacketIO = GetComponent("UDPPacketIO");
 	udp.init(RemoteIP, SendToPort, ListenerPort);
 	handler = GetComponent("Osc");
 	handler.init(udp);
-	handler.SetAddressHandler("/wii/1/button/1", Example1);
-	handler.SetAddressHandler("/wii/1/button/2", Example2);
+	handler.SetAddressHandler("/wii/1/accel/pry/0", Example1);
+	handler.SetAddressHandler("/wii/1/accel/pry/2", Example2);
 }
-Debug.Log("Running");
+
+
 //these fucntions are called when messages are received
 public function Example1(oscMessage : OscMessage) : void
 {	
 	//How to access values: 
 	//oscMessage.Values[0], oscMessage.Values[1], etc
 	Debug.Log("Called Example One > " + Osc.OscMessageToString(oscMessage));
+	Ex1++;
 } 
 
 //these fucntions are called when messages are received
