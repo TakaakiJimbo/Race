@@ -257,10 +257,10 @@ function SetUpSkidmarks()
 function GetInput()
 {
 	throttle = Input.GetAxis("Vertical");
-	// steer = Input.GetAxis("Horizontal");
-	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
-	if(OSCvalueEx0 < 0.5)
-		steer = (-1)*steer;
+	steer = Input.GetAxis("Horizontal");
+//	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
+//	if(OSCvalueEx0 < 0.5)
+//		steer = (-1)*steer;
 	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else

@@ -1,0 +1,103 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_4_5_5
+-define:UNITY_4_5
+-define:UNITY_STANDALONE_OSX
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_NEW_HIERARCHY 
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_MONO
+-define:ENABLE_TERRAIN
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:INCLUDE_WP_BLUE_SUPPORT
+-define:ENABLE_WEBCAM
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_GAMECENTER
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+'Assets/CarTutorial/Pro Standard Assets/Image Based/BlurEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffectPCMac_26.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/Contrast Stretch/ContrastStretchEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/EdgeDetectEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GlowEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GlowEffectThreshold_26.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GrayscaleEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ImageEffectBase.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ImageEffects.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/MotionBlur.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/MotionBlurEdge.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/NoiseEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/SSAOEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/SepiaToneEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/TwirlEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/VortexEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Water/Sources/Water.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/BirdsBehaviour.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/BlobShadowController.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/CarCamera.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/CombineChildren.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/DisableObjects.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/EffectController.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/Generate2DReflection.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/MeshCombineUtility.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/MirrorReflection.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/ToggleObjectTrigger.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/AerodynamicResistance.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/AntiRollBar.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/CarController.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Drivetrain.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Skidmarks.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/SoundController.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/TractionHelper.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Wheel.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Wing.cs'
+'Assets/MecanimSample/Locomotion/Scripts/Locomotion.cs'
+'Assets/MecanimSample/Scripts/AnimatorController_UI.cs'
+'Assets/MecanimSample/Scripts/Bazooka.cs'
+'Assets/MecanimSample/Scripts/Bear.cs'
+'Assets/MecanimSample/Scripts/Follow.cs'
+'Assets/MecanimSample/Scripts/FollowAgent.cs'
+'Assets/MecanimSample/Scripts/Follow_UI.cs'
+'Assets/MecanimSample/Scripts/FootPlanting.cs'
+'Assets/MecanimSample/Scripts/IK.cs'
+'Assets/MecanimSample/Scripts/IdleRunJump.cs'
+'Assets/MecanimSample/Scripts/MindBotCamera.cs'
+'Assets/MecanimSample/Scripts/MineBot.cs'
+'Assets/MecanimSample/Scripts/NavMesh_UI.cs'
+'Assets/MecanimSample/Scripts/PreciseTurnOnSpot.cs'
+'Assets/MecanimSample/Scripts/Ragdoll.cs'
+'Assets/MecanimSample/Scripts/RandomCharacters.cs'
+'Assets/MecanimSample/Scripts/Responsive.cs'
+'Assets/MecanimSample/Scripts/ScaleCapsule.cs'
+'Assets/MecanimSample/Scripts/Spawner.cs'
+'Assets/MecanimSample/Scripts/TargetMatching.cs'
+'Assets/MecanimSample/Scripts/ThirdPersonCamera.cs'
+'Assets/MyGame/ChangeRagdoll.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
