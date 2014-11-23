@@ -93,7 +93,6 @@
      <Compile Include="Assets\MecanimSample\scripts\Bazooka.cs" />
      <Compile Include="Assets\MecanimSample\scripts\Bear.cs" />
      <Compile Include="Assets\MecanimSample\scripts\Follow.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\FollowAgent.cs" />
      <Compile Include="Assets\MecanimSample\scripts\Follow_UI.cs" />
      <Compile Include="Assets\MecanimSample\scripts\FootPlanting.cs" />
      <Compile Include="Assets\MecanimSample\scripts\IK.cs" />
@@ -110,6 +109,7 @@
      <Compile Include="Assets\MecanimSample\scripts\TargetMatching.cs" />
      <Compile Include="Assets\MecanimSample\scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\RunningBear\ChangeRagdoll.cs" />
+     <Compile Include="Assets\MyGame\OriginalPrefabSetting\RunningBear\FollowAgent.cs" />
      <Compile Include="Assets\ZRNAssets\005339_08932_25_14\Scripts\AmbientController.cs" />
      <Compile Include="Assets\ZRNAssets\005339_08932_25_14\Scripts\CameraController.cs" />
      <Compile Include="Assets\ZRNAssets\005339_08932_25_14\Scripts\FlyThroughController.cs" />
