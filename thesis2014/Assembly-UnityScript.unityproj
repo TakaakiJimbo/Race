@@ -56,7 +56,7 @@
      <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\Skidmarks.js" />
      <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\SoundController.js" />
      <Compile Include="Assets\CarTutorial\Scripts\JavaScripts\SoundToggler.js" />
-     <Compile Include="Assets\scripts\OSCReceiver.js" />
+     <Compile Include="Assets\MecanimSample\scripts\OSCReceiver.js" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\ZRNAssets\license_en.txt" />
