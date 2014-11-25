@@ -1,0 +1,145 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
+-r:'Assets/EasyRoads3D Free/lib/EasyRoads3D.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_4_5_5
+-define:UNITY_4_5
+-define:UNITY_STANDALONE_OSX
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_NEW_HIERARCHY 
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_MONO
+-define:ENABLE_TERRAIN
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:INCLUDE_WP_BLUE_SUPPORT
+-define:ENABLE_WEBCAM
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_GAMECENTER
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+'Assets/CarTutorial/Pro Standard Assets/Image Based/BlurEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffectPCMac_26.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/Contrast Stretch/ContrastStretchEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/EdgeDetectEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GlowEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GlowEffectThreshold_26.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/GrayscaleEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ImageEffectBase.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/ImageEffects.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/MotionBlur.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/MotionBlurEdge.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/NoiseEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/SSAOEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/SepiaToneEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/TwirlEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Image Based/VortexEffect.cs'
+'Assets/CarTutorial/Pro Standard Assets/Water/Sources/Water.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/BirdsBehaviour.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/BlobShadowController.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/CarCamera.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/CombineChildren.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/DisableObjects.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/EffectController.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/Generate2DReflection.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/MeshCombineUtility.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/MirrorReflection.cs'
+'Assets/CarTutorial/Scripts/CSharpScripts/ToggleObjectTrigger.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/AerodynamicResistance.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/AntiRollBar.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/CarController.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Drivetrain.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Skidmarks.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/SoundController.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/TractionHelper.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Wheel.cs'
+'Assets/CarTutorial/~AlternatePhysicsModel/Scripts/Wing.cs'
+'Assets/EasyRoads3D Free/scripts/EasyRoads3DTerrainID.cs'
+'Assets/EasyRoads3D Free/scripts/MarkerScript.cs'
+'Assets/EasyRoads3D Free/scripts/RoadObjectScript.cs'
+'Assets/EasyRoads3D Free/scripts/SurfaceScript.cs'
+'Assets/MecanimSample/Locomotion/Scripts/Locomotion.cs'
+'Assets/MecanimSample/scripts/Agent.cs'
+'Assets/MecanimSample/scripts/AnimatorController_UI.cs'
+'Assets/MecanimSample/scripts/Bazooka.cs'
+'Assets/MecanimSample/scripts/Bear.cs'
+'Assets/MecanimSample/scripts/Follow.cs'
+'Assets/MecanimSample/scripts/Follow_UI.cs'
+'Assets/MecanimSample/scripts/FootPlanting.cs'
+'Assets/MecanimSample/scripts/IK.cs'
+'Assets/MecanimSample/scripts/IdleRunJump.cs'
+'Assets/MecanimSample/scripts/MindBotCamera.cs'
+'Assets/MecanimSample/scripts/MineBot.cs'
+'Assets/MecanimSample/scripts/NavMesh_UI.cs'
+'Assets/MecanimSample/scripts/PreciseTurnOnSpot.cs'
+'Assets/MecanimSample/scripts/Ragdoll.cs'
+'Assets/MecanimSample/scripts/RandomCharacters.cs'
+'Assets/MecanimSample/scripts/Responsive.cs'
+'Assets/MecanimSample/scripts/ScaleCapsule.cs'
+'Assets/MecanimSample/scripts/Spawner.cs'
+'Assets/MecanimSample/scripts/TargetMatching.cs'
+'Assets/MecanimSample/scripts/ThirdPersonCamera.cs'
+'Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdoll.cs'
+'Assets/MyGame/OriginalPrefabSetting/People/FollowAgent.cs'
+'Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs'
+'Assets/OVR/Scripts/OVRCameraRig.cs'
+'Assets/OVR/Scripts/OVRCommon.cs'
+'Assets/OVR/Scripts/OVRDisplay.cs'
+'Assets/OVR/Scripts/OVRManager.cs'
+'Assets/OVR/Scripts/OVRPluginEvent.cs'
+'Assets/OVR/Scripts/OVRTracker.cs'
+'Assets/OVR/Scripts/OvrCapi.cs'
+'Assets/OVR/Scripts/Util/OVRCrosshair.cs'
+'Assets/OVR/Scripts/Util/OVRGUI.cs'
+'Assets/OVR/Scripts/Util/OVRGamepadController.cs'
+'Assets/OVR/Scripts/Util/OVRGridCube.cs'
+'Assets/OVR/Scripts/Util/OVRMainMenu.cs'
+'Assets/OVR/Scripts/Util/OVRPlayerController.cs'
+'Assets/OVR/Scripts/Util/OVRUGUI.cs'
+'Assets/OVR/Scripts/Util/OVRVisionGuide.cs'
+'Assets/Tuscany/Scripts/BoatBehavior.cs'
+'Assets/Tuscany/Scripts/Butterfly.cs'
+'Assets/Tuscany/Scripts/LightFlicker.cs'
+'Assets/Tuscany/Scripts/RandomAnimationStart.cs'
+'Assets/Tuscany/Scripts/ScrollUVs.cs'
+'Assets/Tuscany/Water (Basic)/Sources/Scripts/WaterSimple.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/AmbientController.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/CameraController.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/FlyThroughController.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/MoveCamera.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/Util/SetFPS.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/Util/ViewFPS.cs'
+'Assets/ZRNAssets/005339_08932_25_14/Scripts/ZRNGUIController.cs'
+'Assets/ZRNAssets/Cars/Scripts/AICarMove.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/CameraAction.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/GUIController.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/GUIControllerFlying.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/QueryAnimationController.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/QueryEmotionalController.cs'
+'Assets/ZRNAssets/PQAssets/Query-Chan/Scripts/QuerySoundController.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
