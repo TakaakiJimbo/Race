@@ -10,12 +10,13 @@ public class MovingAgent : MonoBehaviour {
 	protected Locomotion locomotion;
 //	protected Object particleClone;
 
-	public float agentdestX;
-	public float agentdestY;
-	public float agentdestZ;
-	protected Vector3 agentdest;
+	public float agentDestX;
+	public float agentDestY;
+	public float agentDestZ;
+	protected Vector3 agentDest;
+	protected Vector3 agentStart;
 
-	public float agentspeedLevel;	// 1:run, 2:walk ......
+	public float agentSpeedLevel;	// 1:run, 2:walk ......
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +26,11 @@ public class MovingAgent : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		locomotion = new Locomotion(animator);
 
-		agentdest = new Vector3(agentdestX, agentdestY, agentdestZ);
-		agent.destination = agentdest;
-		agent.speed = agent.speed / agentspeedLevel;
+//		agentStart = agent.nextPosition;
+		agentStart = this.transform.position;
+		agentDest = new Vector3(agentDestX, agentDestY, agentDestZ);
+		agent.destination = agentDest;
+		agent.speed = agent.speed / agentSpeedLevel;
 
 //		particleClone = null;
 	}
@@ -91,6 +94,18 @@ public class MovingAgent : MonoBehaviour {
 		transform.rotation = animator.rootRotation;
     }
 
+	void ChangeDestination()
+	{
+		if (AgentStopping())
+		{
+			agent.destination = agentStart;
+			agentStart = agentDest;
+			agentDest = agent.destination;
+
+		}
+	}
+
+
 	protected bool AgentDone()
 	{
 		return !agent.pathPending && AgentStopping();
@@ -106,7 +121,8 @@ public class MovingAgent : MonoBehaviour {
 	{
 //		if (Input.GetButtonDown ("Fire1")) 
 //			SetDestination();
-		Debug.Log (agent.desiredVelocity.magnitude);
+//		Debug.Log (agentStart);
+		ChangeDestination ();
 		SetupAgentLocomotion();
 	}
 }
