@@ -9,7 +9,7 @@ public class ChangeRagdoll : MonoBehaviour {
 	{
 		GetComponent<Animator>().enabled = false;
 		GetComponent<NavMeshAgent>().enabled = false;
-		GetComponent<FollowAgent>().enabled = false;
+		GetComponent<MovingAgent>().enabled = false;
 		GetComponent<CapsuleCollider>().enabled = false;
 		GetComponent<SphereCollider>().enabled = false;
 		

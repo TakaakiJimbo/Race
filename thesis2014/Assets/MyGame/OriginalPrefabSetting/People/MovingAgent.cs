@@ -15,6 +15,7 @@ public class MovingAgent : MonoBehaviour {
 	public float agentdestZ;
 	protected Vector3 agentdest;
 
+	public float agentspeedLevel;	// 1:run, 2:walk ......
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class MovingAgent : MonoBehaviour {
 
 		agentdest = new Vector3(agentdestX, agentdestY, agentdestZ);
 		agent.destination = agentdest;
+		agent.speed = agent.speed / agentspeedLevel;
 
 //		particleClone = null;
 	}
@@ -104,7 +106,7 @@ public class MovingAgent : MonoBehaviour {
 	{
 //		if (Input.GetButtonDown ("Fire1")) 
 //			SetDestination();
-
+		Debug.Log (agent.desiredVelocity.magnitude);
 		SetupAgentLocomotion();
 	}
 }
