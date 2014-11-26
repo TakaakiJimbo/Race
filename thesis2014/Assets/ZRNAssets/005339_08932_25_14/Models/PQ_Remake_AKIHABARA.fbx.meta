@@ -2749,6 +2749,8 @@ ModelImporter:
     105486: walk_Block_H
     105488: walk_Block_I
     105490: WalkRoad
+    105492: walk_Block_A1
+    105494: WalkRoad_walk_Block_ASmoothProxyGroup
     400000: 005339_08932_-10159601
     400002: 005339_08932_-10160101
     400004: 005339_08932_-10162301
@@ -5495,6 +5497,8 @@ ModelImporter:
     405486: walk_Block_H
     405488: walk_Block_I
     405490: WalkRoad
+    405492: walk_Block_A1
+    405494: WalkRoad_walk_Block_ASmoothProxyGroup
     2300000: 005339_08932_-10159601
     2300002: 005339_08932_-10160101
     2300004: 005339_08932_-10162301
@@ -8228,6 +8232,7 @@ ModelImporter:
     2305460: walk_Block_G
     2305462: walk_Block_H
     2305464: walk_Block_I
+    2305466: walk_Block_A1
     3300000: 005339_08932_-10159601
     3300002: 005339_08932_-10160101
     3300004: 005339_08932_-10162301
@@ -10961,6 +10966,7 @@ ModelImporter:
     3305460: walk_Block_G
     3305462: walk_Block_H
     3305464: walk_Block_I
+    3305466: walk_Block_A1
     4300000: 005339_08932_train
     4300002: 005339_08932_roadcityhighway
     4300004: 005339_08932_water
@@ -13694,6 +13700,7 @@ ModelImporter:
     4305460: walk_Block_H
     4305462: walk_Block_I
     4305464: walk_Block_E
+    4305466: walk_Block_A1
     9500000: //RootNode
   materials:
     importMaterials: 1
