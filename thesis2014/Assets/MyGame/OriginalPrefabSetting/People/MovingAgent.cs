@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class MovingAgent : MonoBehaviour {
@@ -10,9 +11,8 @@ public class MovingAgent : MonoBehaviour {
 	protected Locomotion locomotion;
 //	protected Object particleClone;
 
-	public float agentDestX;
-	public float agentDestY;
-	public float agentDestZ;
+	public int agentDestLocation;
+	protected float[] agentDestPos = new float[3];
 	protected Vector3 agentDest;
 	protected Vector3 agentStart;
 
@@ -26,18 +26,66 @@ public class MovingAgent : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		locomotion = new Locomotion(animator);
 
-//		agentStart = agent.nextPosition;
+		switch (agentDestLocation) 
+		{
+			case 0:	// BlockA : convenience store
+				agentDestPos[0] = -981.9131f;
+				agentDestPos[1] = 7.907458f;
+				agentDestPos[2] = -104.3788f;
+				break;
+			case 1:	// BlockB : family restaurant
+				agentDestPos[0] = -791.6163f;
+				agentDestPos[1] = 7.650063f;
+				agentDestPos[2] = -139.248f;
+				break;
+			case 2:	//  BlockC : tall building
+				agentDestPos[0] = -374.0801f;
+				agentDestPos[1] = 8.129205f;
+				agentDestPos[2] = -142.1313f;
+				break;
+			case 3:	// BlockD : grenn and blue something
+				agentDestPos[0] = -969.7093f;
+				agentDestPos[1] = 4.226419f;
+				agentDestPos[2] = -421.7555f;
+				break;
+			case 4:	// BlockE : wanted advertisement
+				agentDestPos[0] = -223.357f;
+				agentDestPos[1] = 6.180432f;
+				agentDestPos[2] = -638.4968f;
+				break;
+			case 5:	// BlockF : street
+				agentDestPos[0] = -141.5191f;
+				agentDestPos[1] = 6.16483f;
+				agentDestPos[2] = -414.2057f;
+				break;
+			case 6:	// BlockG : CVS24
+				agentDestPos[0] = -1174.267f;
+				agentDestPos[1] = 4.207728f;
+				agentDestPos[2] = -970.4562f;
+				break;
+			case 7:	// BlockH : potato
+				agentDestPos[0] = -240.7657f;
+				agentDestPos[1] = 6.173015f;
+				agentDestPos[2] = -862.8098f;
+				break;
+			case 8:	// BlockI : donuts shop
+				agentDestPos[0] = -184.5517f;
+				agentDestPos[1] = 6.12671f;
+				agentDestPos[2] = -946.6146f;
+				break;
+		}
+	
 		agentStart = this.transform.position;
-		agentDest = new Vector3(agentDestX, agentDestY, agentDestZ);
+		agentDest = new Vector3(agentDestPos[0], agentDestPos[1], agentDestPos[2]);
 		agent.destination = agentDest;
 		agent.speed = agent.speed / agentSpeedLevel;
-
-//		particleClone = null;
+		
+		//		particleClone = null;
 	}
-
+	
 	protected void SetDestination()
 	{
-//		// Construct a ray from the current mouse coordinates
+		//		// Construct a ray from the current mouse coordinates
 //		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 //		RaycastHit hit = new RaycastHit();
 //		if (Physics.Raycast(ray, out hit))
