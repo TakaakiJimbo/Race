@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChangeRagdollForBear : MonoBehaviour {
+public class ChangeRagdoll : MonoBehaviour {
 	
 	public float forceDegree = 1.0f;
 	

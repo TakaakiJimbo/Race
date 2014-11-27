@@ -108,7 +108,7 @@
      <Compile Include="Assets\MecanimSample\scripts\Spawner.cs" />
      <Compile Include="Assets\MecanimSample\scripts\TargetMatching.cs" />
      <Compile Include="Assets\MecanimSample\scripts\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\ChangeRagdollForBear.cs" />
+     <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\ChangeRagdoll.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\MovingAgent.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />
