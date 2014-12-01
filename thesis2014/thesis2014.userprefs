@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdollForBigBear.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarTutorial/Scripts/JavaScripts/Car.js">
     <Files>
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdollForBear.cs" Line="4" Column="34" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdollForBigBear.cs" Line="25" Column="27" />
+      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="30" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
