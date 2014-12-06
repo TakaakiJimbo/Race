@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarTutorial/Scripts/JavaScripts/Car.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Vehicle Physics Toolkit v1.4/Scripts/Player/CarControleNitro.js">
     <Files>
-      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="30" Column="27" />
+      <File FileName="Assets/Vehicle Physics Toolkit v1.4/Scripts/Player/CarControleNitro.js" Line="9" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

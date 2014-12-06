@@ -3,8 +3,8 @@ guid: f16fac36c2bebf649ac8a6fa423112ba
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: Road_Coll
-    100002: //RootNode
+    100000: //RootNode
+    100002: Road_Coll
     100004: Road_Coll01
     100006: Road_Coll01_Side
     100008: Road_Coll02
@@ -12,8 +12,8 @@ ModelImporter:
     100012: Road_Coll03
     100014: Road_Coll03_Side
     100016: Road_Coll_Side
-    400000: //RootNode
-    400002: Road_Coll
+    400000: Road_Coll
+    400002: //RootNode
     400004: Road_Coll01
     400006: Road_Coll01_Side
     400008: Road_Coll02
@@ -110,5 +110,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
-  additionalBone: 0
+  additionalBone: 1
   userData: 
