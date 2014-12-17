@@ -2,6 +2,8 @@ var obj : GameObject; // GameObject型
 var script : OSCReceiver; //ScriptB型(スクリプト名が型名になる)
 var OSCvalueEx0 : float = 0;
 var OSCvalueEx2 : float = 0;
+var OSCvalueButtonA : float = 0;
+var OSCvalueButton2 : float = 0;
 
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
@@ -96,6 +98,8 @@ function Update()
 {		
 	OSCvalueEx0 = script.Ex0;
 	OSCvalueEx2 = script.Ex2;
+	OSCvalueButtonA = script.ButtonA;
+	OSCvalueButton2 = script.Button2;
 
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
 	

@@ -8,6 +8,8 @@ private var handler : Osc;
 
 public var Ex0 : float = 0;
 public var Ex2 : float = 0;
+public var ButtonA : float = 0;
+public var Button2 : float = 0;
 
 public function Start ()
 {
@@ -18,7 +20,8 @@ public function Start ()
 	handler = GetComponent("Osc");
 	handler.init(udp);
 	handler.SetAddressHandler("/wii/1/accel/pry", Example);
-	// handler.SetAddressHandler("/wii/1/accel/pry", Example2);
+	handler.SetAddressHandler("/wii/1/button/A", Example1);
+	handler.SetAddressHandler("/wii/1/button/2", Example2);
 }
 
 
@@ -29,12 +32,20 @@ public function Example(oscMessage : OscMessage) : void
 	//oscMessage.Values[0], oscMessage.Values[1], etc
 	Ex0 = oscMessage.Values[0];
 	Ex2 = oscMessage.Values[2];
-} 
+}
 
-////these fucntions are called when messages are received
-//public function Example2(oscMessage : OscMessage) : void 
-//{
-//	//How to access values: 
-//	//oscMessage.Values[0], oscMessage.Values[1], etc
-//	Debug.Log("Called Example Two > " + Osc.OscMessageToString(oscMessage));
-//} 
+//these fucntions are called when messages are received
+public function Example1(oscMessage : OscMessage) : void
+{	
+	//How to access values: 
+	//oscMessage.Values[0], oscMessage.Values[1], etc
+	ButtonA = oscMessage.Values[0];
+}
+
+//these fucntions are called when messages are received
+public function Example2(oscMessage : OscMessage) : void
+{	
+	//How to access values: 
+	//oscMessage.Values[0], oscMessage.Values[1], etc
+	Button2 = oscMessage.Values[0];
+}
