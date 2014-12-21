@@ -260,20 +260,22 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
-//	throttle = Input.GetAxis("Vertical");
-	if(OSCvalueButtonA == 1) 
-	{
-		throttle =OSCvalueButtonA;
-	}
-	else if(OSCvalueButton2 == 1) 
-	{
-		throttle = (-1)*OSCvalueButton2;	
-	}
-//	steer = Input.GetAxis("Horizontal");
-	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
-	if(OSCvalueEx0 < 0.5)
-		steer = (-1.2)*steer;
-	if(throttle < 0.0)
+	throttle = Input.GetAxis("Vertical");
+	steer = Input.GetAxis("Horizontal");
+
+//	if(OSCvalueButtonA == 1) 
+//	{
+//		throttle =OSCvalueButtonA;
+//	}
+//	else if(OSCvalueButton2 == 1) 
+//	{
+//		throttle = (-1)*OSCvalueButton2;	
+//	}
+//	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
+//	if(OSCvalueEx0 < 0.5)
+//		steer = (-1)*steer;
+
+		if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else
 		brakeLights.SetFloat("_Intensity", 0.0);
