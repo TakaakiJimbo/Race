@@ -2,7 +2,7 @@
 //You can set these variables in the scene because they are public 
 public var RemoteIP : String = "127.0.0.1";
 public var SendToPort : int = 57131;
-public var ListenerPort : int = 57130;
+public var ListenerPort : int = 9000;
 public var controller : Transform; 
 private var handler : Osc;
 
@@ -40,6 +40,7 @@ public function Example1(oscMessage : OscMessage) : void
 	//How to access values: 
 	//oscMessage.Values[0], oscMessage.Values[1], etc
 	ButtonA = oscMessage.Values[0];
+	Debug.Log("SUCCESS");
 }
 
 //these fucntions are called when messages are received
