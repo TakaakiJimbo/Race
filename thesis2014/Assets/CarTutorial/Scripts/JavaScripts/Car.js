@@ -5,8 +5,9 @@ var OSCvalueEx2 : float = 0;
 var OSCvalueButtonA : float = 0;
 var OSCvalueButton2 : float = 0;
 
-var text:GameObject;
-var tm:TextMesh;
+var speedtext:GameObject;
+var speedtm:TextMesh;
+var speedfloat: float = 0;
 
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
@@ -79,9 +80,8 @@ class Wheel
 
 function Start()
 {	
-	obj = GameObject.Find("OSC");
-	script = obj.GetComponent(OSCReceiver);
-
+	SetupOSC();
+	
 	// Measuring 1 - 60
 	accelerationTimer = Time.time;
 	
@@ -96,6 +96,8 @@ function Start()
 	SetUpSkidmarks();
 	
 	initialDragMultiplierX = dragMultiplier.x;
+	
+	SetupSpeedMeter();
 }
 
 function Update()
@@ -110,6 +112,8 @@ function Update()
 	UpdateWheelGraphics(relativeVelocity);
 	
 	UpdateGear(relativeVelocity);
+	
+	ShowSpeedMeter(relativeVelocity);
 }
 
 function FixedUpdate()
@@ -133,6 +137,12 @@ function FixedUpdate()
 /**************************************************/
 /* Functions called from Start()                  */
 /**************************************************/
+
+function SetupOSC()
+{
+	obj = GameObject.Find("OSC");
+	script = obj.GetComponent(OSCReceiver);
+}
 
 function SetupWheelColliders()
 {
@@ -254,6 +264,12 @@ function SetUpSkidmarks()
 	skidmarkTime = new float[4];
 	for (var f : float in skidmarkTime)
 		f = 0.0;
+}
+
+function SetupSpeedMeter()
+{
+	speedtext = GameObject.Find("Speed");
+	speedtm = speedtext.GetComponent("TextMesh");
 }
 
 /**************************************************/
@@ -461,6 +477,12 @@ function UpdateGear(relativeVelocity : Vector3)
 		if(relativeVelocity.z > gearSpeeds[i])
 			currentGear = i + 1;
 	}
+}
+
+function ShowSpeedMeter(relativeVelocity : Vector3)
+{
+	speedfloat = relativeVelocity.z;
+	speedtm.text = speedfloat.ToString("f2");
 }
 
 /**************************************************/
