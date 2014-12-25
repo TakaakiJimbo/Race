@@ -34,7 +34,7 @@ var wheelCount : float;
 
 private var wfc : WheelFrictionCurve;
 
-var topSpeed : float = 160;
+var topSpeed : float = 210;
 var numberOfGears : int = 5;
 
 var maximumTurn : int = 15;
@@ -481,7 +481,7 @@ function UpdateGear(relativeVelocity : Vector3)
 
 function ShowSpeedMeter(relativeVelocity : Vector3)
 {
-	speedfloat = relativeVelocity.z;
+	speedfloat = relativeVelocity.z * 3.6;
 	speedtm.text = speedfloat.ToString("f2");
 }
 
