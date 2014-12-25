@@ -176,10 +176,12 @@
      <None Include="Assets\ZRNAssets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
      <None Include="Assets\CarTutorial\~AlternatePhysicsModel\Source Assets\Skidmarks\Skidmarks.shader" />
+     <None Include="Assets\MyGame\OriginalPrefabSetting\SpeedMeter\3DTextOneSided.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpSpecDistort.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample_26.shader" />
      <None Include="Assets\CarTutorial\Shaders\Normal-BumpSpec_EnvLightmapped.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
+     <None Include="Assets\MyGame\OriginalPrefabSetting\SpeedMeter\3DText.shader" />
      <None Include="Assets\ZRNAssets\005339_08932_25_14\Shaders\su_Double_and_Clip.shader" />
      <None Include="Assets\Vehicle Physics Toolkit v1.4\compendium.txt" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\SSAOShader.shader" />

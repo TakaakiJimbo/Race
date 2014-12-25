@@ -5,6 +5,9 @@ var OSCvalueEx2 : float = 0;
 var OSCvalueButtonA : float = 0;
 var OSCvalueButton2 : float = 0;
 
+var text:GameObject;
+var tm:TextMesh;
+
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
 var suspensionDamper : float = 50;
@@ -26,6 +29,7 @@ var rearWheels : Transform[];
 
 private var wheels : Wheel[];
 wheels = new Wheel[frontWheels.Length + rearWheels.Length];
+var wheelCount : float;
 
 private var wfc : WheelFrictionCurve;
 
@@ -96,10 +100,6 @@ function Start()
 
 function Update()
 {		
-	OSCvalueEx0 = script.Ex0;
-	OSCvalueEx2 = script.Ex2;
-	OSCvalueButtonA = script.ButtonA;
-	OSCvalueButton2 = script.Button2;
 
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
 	
@@ -226,8 +226,9 @@ function SetupGears()
 			gearSpeeds[i] = tempTopSpeed / 4 + gearSpeeds[i-1];
 		else
 			gearSpeeds[i] = tempTopSpeed / 4;
-		
+				
 		tempTopSpeed -= tempTopSpeed / 4;
+		
 	}
 	
 	var engineFactor : float = topSpeed / gearSpeeds[gearSpeeds.Length - 1];
@@ -237,6 +238,7 @@ function SetupGears()
 		var maxLinearDrag : float = gearSpeeds[i] * gearSpeeds[i];// * dragMultiplier.z;
 		engineForceValues[i] = maxLinearDrag * engineFactor;
 	}
+	
 }
 
 function SetUpSkidmarks()
@@ -260,27 +262,37 @@ function SetUpSkidmarks()
 
 function GetInput()
 {
+//	GetOSC();
 	throttle = Input.GetAxis("Vertical");
 	steer = Input.GetAxis("Horizontal");
-
-//	if(OSCvalueButtonA == 1) 
-//	{
-//		throttle =OSCvalueButtonA;
-//	}
-//	else if(OSCvalueButton2 == 1) 
-//	{
-//		throttle = (-1)*OSCvalueButton2;	
-//	}
-//	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
-//	if(OSCvalueEx0 < 0.5)
-//		steer = (-1)*steer;
-
-		if(throttle < 0.0)
+	
+	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else
 		brakeLights.SetFloat("_Intensity", 0.0);
 	
 	CheckHandbrake();
+}
+
+function GetOSC()
+{
+	OSCvalueEx0 = script.Ex0;
+	OSCvalueEx2 = script.Ex2;
+	OSCvalueButtonA = script.ButtonA;
+	OSCvalueButton2 = script.Button2;
+	if(OSCvalueButtonA == 1) 
+	{
+		throttle =OSCvalueButtonA;
+	}
+	else if(OSCvalueButton2 == 1) 
+	{
+		throttle = (-1)*OSCvalueButton2;	
+	}
+	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
+	if(OSCvalueEx0 < 0.5)
+	{
+		steer = (-1)*steer;	
+	}
 }
 
 function CheckHandbrake()
@@ -339,7 +351,6 @@ function FlipCar()
 	currentEnginePower = 0;
 }
 
-var wheelCount : float;
 function UpdateWheelGraphics(relativeVelocity : Vector3)
 {
 	wheelCount = -1;
