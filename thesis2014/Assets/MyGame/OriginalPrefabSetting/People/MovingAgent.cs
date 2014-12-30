@@ -15,9 +15,7 @@ public class MovingAgent : MonoBehaviour {
 	protected float[] agentDestPos = new float[3];
 	protected Vector3 agentDest;
 	protected Vector3 agentStart;
-
-	public float agentSpeedLevel;	// 1:run, 2:walk ......
-
+	
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
@@ -78,8 +76,6 @@ public class MovingAgent : MonoBehaviour {
 		agentStart = this.transform.position;
 		agentDest = new Vector3(agentDestPos[0], agentDestPos[1], agentDestPos[2]);
 		agent.destination = agentDest;
-		agent.speed = agent.speed / agentSpeedLevel;
-		
 		//		particleClone = null;
 	}
 	

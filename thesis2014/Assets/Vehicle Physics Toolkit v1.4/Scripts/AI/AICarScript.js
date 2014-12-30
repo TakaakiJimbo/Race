@@ -26,7 +26,7 @@ var activeBreakLight : Material;
 var isBreaking : boolean;  
 var inSector : boolean;  
 var isControll = false;
-var gearRatio : int[];
+var gearRatio = new int[128];
 function Start () {  
 rigidbody.centerOfMass = centerOfMass;  
 GetPath();  
@@ -42,22 +42,22 @@ for (var path_obj : Transform in path_objs){
 }  
  
 function EngineSound(){
-for (var i = 0; i < gearRatio.length; i++){
-if(gearRatio[i]> currentSpeed){
-break;
-}
-}
-var gearMinValue : float = 0.00;
-var gearMaxValue : float = 0.00;
-if (i == 0){
-gearMinValue = 0;
-}
-else {
-gearMinValue = gearRatio[i-1];
-}
-gearMaxValue = gearRatio[i];
-var enginePitch : float = ((currentSpeed - gearMinValue)/(gearMaxValue - gearMinValue))+1;
-audio.pitch = enginePitch;
+	for (var i = 0; i < gearRatio.length; i++){
+		if(gearRatio[i]> currentSpeed){
+			break;
+		}
+	}
+	var gearMinValue : float = 0.00;
+	var gearMaxValue : float = 0.00;
+	if (i == 0){
+		gearMinValue = 0;
+	}
+	else {
+		gearMinValue = gearRatio[i-1];
+	}
+	gearMaxValue = gearRatio[i];
+	var enginePitch : float = ((currentSpeed - gearMinValue)/(gearMaxValue - gearMinValue))+1;
+	audio.pitch = enginePitch;
 }
 
     
