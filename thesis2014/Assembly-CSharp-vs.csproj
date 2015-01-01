@@ -85,10 +85,6 @@
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\TractionHelper.cs" />
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wheel.cs" />
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wing.cs" />
-     <Compile Include="Assets\EasyRoads3D Free\scripts\EasyRoads3DTerrainID.cs" />
-     <Compile Include="Assets\EasyRoads3D Free\scripts\MarkerScript.cs" />
-     <Compile Include="Assets\EasyRoads3D Free\scripts\RoadObjectScript.cs" />
-     <Compile Include="Assets\EasyRoads3D Free\scripts\SurfaceScript.cs" />
      <Compile Include="Assets\MecanimSample\Locomotion\Scripts\Locomotion.cs" />
      <Compile Include="Assets\MecanimSample\scripts\Agent.cs" />
      <Compile Include="Assets\MecanimSample\scripts\AnimatorController_UI.cs" />
@@ -112,6 +108,7 @@
      <Compile Include="Assets\MecanimSample\scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\ChangeRagdoll.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\MovingAgent.cs" />
+     <Compile Include="Assets\MyGame\OriginalPrefabSetting\Traffic Signal\OnOff.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRDisplay.cs" />
@@ -155,7 +152,6 @@
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample.shader" />
      <None Include="Assets\CarTutorial\Shaders\PolyTerrain\FirstPassLightmap.shader" />
      <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 3.shader" />
-     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
      <None Include="Assets\CarTutorial\Shaders\LightMappedDiffusetDetail.shader" />
      <None Include="Assets\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_Skin.shader" />
      <None Include="Assets\CarTutorial\Shaders\LightsEmmissive.shader" />
@@ -176,13 +172,11 @@
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\Apply.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\ColorCorrectionEffect_26.shader" />
      <None Include="Assets\ZRNAssets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
      <None Include="Assets\CarTutorial\~AlternatePhysicsModel\Source Assets\Skidmarks\Skidmarks.shader" />
      <None Include="Assets\MyGame\OriginalPrefabSetting\SpeedMeter\3DTextOneSided.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Glass Refraction\Glass-Stained-BumpSpecDistort.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\GlowEffectDownsample_26.shader" />
      <None Include="Assets\CarTutorial\Shaders\Normal-BumpSpec_EnvLightmapped.shader" />
-     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
      <None Include="Assets\MyGame\OriginalPrefabSetting\SpeedMeter\3DText.shader" />
      <None Include="Assets\ZRNAssets\005339_08932_25_14\Shaders\su_Double_and_Clip.shader" />
      <None Include="Assets\Vehicle Physics Toolkit v1.4\compendium.txt" />
@@ -194,7 +188,6 @@
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\ZRNAssets\PQAssets\Query-Chan\Shaders\PQ_TransBlue.shader" />
      <None Include="Assets\CarTutorial\Shaders\Skidmarks.shader" />
-     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
      <None Include="Assets\CarTutorial\Shaders\Glassreflect2D.shader" />
      <None Include="Assets\Tuscany\Models\Materials\DoubleSided ButterFly.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Water\Sources\FX-Water.shader" />
@@ -217,11 +210,8 @@
      <None Include="Assets\Plugins\x86\donotdelete.txt" />
      <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 2.shader" />
      <None Include="Assets\Vehicle Physics Toolkit v1.4\videoTutorial.txt" />
-     <None Include="Assets\EasyRoads3D Free\_readme.txt" />
      <None Include="Assets\Vehicle Physics Toolkit v1.4\settings physics.txt" />
-     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
      <None Include="Assets\Tuscany\Models\Materials\Vertex color unlit 7.shader" />
-     <None Include="Assets\Stockcar\ReadMe.txt" />
      <None Include="Assets\Tuscany\Particles\Shaders\Add_Layer.shader" />
      <None Include="Assets\CarTutorial\Pro Standard Assets\Image Based\EdgeDetectX.shader" />
      <None Include="Assets\CarTutorial\Shaders\MirrorReflectionLit.shader" />
@@ -232,9 +222,6 @@
      <None Include="Assets\CarTutorial\Shaders\Alpha-Diffuse-ZWrite.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="EasyRoads3D">
- <HintPath>/Users/akhr5884/Github/Unity/thesis2014/Assets/EasyRoads3D Free/lib/EasyRoads3D.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
