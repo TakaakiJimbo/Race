@@ -71,8 +71,13 @@ public class MovingAgent : MonoBehaviour {
 				agentDestPos[1] = 6.12671f;
 				agentDestPos[2] = -946.6146f;
 				break;
+			case 9:	// akb electric shop
+				agentDestPos[0] = -206.8f;
+				agentDestPos[1] = 6.85f;
+				agentDestPos[2] = -384.41f;
+				break;
 		}
-	
+		
 		agentStart = this.transform.position;
 		agentDest = new Vector3(agentDestPos[0], agentDestPos[1], agentDestPos[2]);
 		agent.destination = agentDest;

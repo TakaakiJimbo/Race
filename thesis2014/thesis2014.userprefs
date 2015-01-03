@@ -1,6 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs">
+    <Files>
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs" Line="76" Column="11" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig0OnOff.cs" Line="85" Column="3" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig1OnOff.cs" Line="81" Column="3" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig1OnOff.cs" Line="84" Column="3" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs" Line="18" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

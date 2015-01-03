@@ -77,6 +77,7 @@ public class OnlySig0OnOff : MonoBehaviour {
 		//      onoff (walker_OnlySignalParentColor [1, 0] , signal_flag_a);
 		//      onoff (walker_OnlySignalParentColor [1, 1] , signal_flag_b);
 		signal_flashing ();
+		change_collider ();
 	}
 	
 	void onoff(GameObject obj, int signal)
@@ -110,6 +111,11 @@ public class OnlySig0OnOff : MonoBehaviour {
 		//          onoff (SignalParentColor [1, 0], 0);
 		//          onoff (SignalParentColor [1, 1], 1);
 		//      }
-		//  }
+	}
+
+	void change_collider()
+	{
+		collider.isTrigger = signal_flag;
+		GetComponent<BoxCollider>().enabled = signal_flag;
 	}
 }

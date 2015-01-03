@@ -50,8 +50,7 @@ public class Sig1OnOff : MonoBehaviour {
 		SignalParentColor [1, 1]            = gameObject.transform.FindChild("signal_yellow").gameObject;
 		SignalParentColor [1, 2]            = gameObject.transform.FindChild("signal_red").gameObject;
 		walker_SignalParentColor [1, 0]     = gameObject.transform.FindChild("walker_signal_blue").gameObject;
-		walker_SignalParentColor [1, 1]     = gameObject.transform.FindChild("walker_signal_red").gameObject;
-		
+		walker_SignalParentColor [1, 1]     = gameObject.transform.FindChild("walker_signal_red").gameObject;	
 	}
 	
 	// Update is called once per frame
@@ -81,6 +80,7 @@ public class Sig1OnOff : MonoBehaviour {
 		//      onoff (walker_OnlySignalParentColor [1, 0] , signal_flag_a);
 		//      onoff (walker_OnlySignalParentColor [1, 1] , signal_flag_b);
 		signal_flashing ();
+		change_collider ();
 	}
 	
 	void onoff(GameObject obj, int signal)
@@ -114,5 +114,11 @@ public class Sig1OnOff : MonoBehaviour {
 			onoff (SignalParentColor [1, 0], 0);
 			onoff (SignalParentColor [1, 1], 1);
 		}
+	}
+
+	void change_collider()
+	{
+		collider.isTrigger = !signal_flag;
+		GetComponent<BoxCollider>().enabled = !signal_flag;
 	}
 }
