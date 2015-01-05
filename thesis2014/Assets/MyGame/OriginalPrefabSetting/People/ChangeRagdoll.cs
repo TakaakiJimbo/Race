@@ -4,7 +4,9 @@ using System.Collections;
 public class ChangeRagdoll : MonoBehaviour {
 	
 	public float forceDegree = 1.0f;
-	
+	protected float agentSpeed = 1;
+
+
 	void OnCollisionEnter(Collision collision) 
 	{
 		GetComponent<Animator>().enabled = false;
@@ -27,4 +29,17 @@ public class ChangeRagdoll : MonoBehaviour {
 		}
 		this.enabled = false;
 	}
+
+	void OnTriggerEnter(Collider other){
+		agentSpeed = GetComponent<NavMeshAgent> ().speed;
+	}
+
+	void OnTriggerStay(Collider other){
+		GetComponent<NavMeshAgent>().speed = 0;
+	}
+
+	void OnTriggerExit(Collider other){
+		GetComponent<NavMeshAgent>().speed = agentSpeed;
+	}
+
 }

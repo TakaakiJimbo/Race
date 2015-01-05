@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs">
     <Files>
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs" Line="76" Column="11" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig0OnOff.cs" Line="85" Column="3" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig1OnOff.cs" Line="81" Column="3" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig1OnOff.cs" Line="84" Column="3" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs" Line="18" Column="2" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig0OnOff.cs" Line="113" Column="38" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs" Line="1" Column="1" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdoll.cs" Line="40" Column="3" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs" Line="80" Column="13" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig1OnOff.cs" Line="1" Column="1" />
+      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig1OnOff.cs" Line="24" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

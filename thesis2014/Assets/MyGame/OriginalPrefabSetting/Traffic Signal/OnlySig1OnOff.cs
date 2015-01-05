@@ -17,7 +17,11 @@ public class OnlySig1OnOff : MonoBehaviour {
 //	protected GameObject[,] SignalParentColor = new GameObject[2,3];    // blue, yellow, red;
 //	protected GameObject[,] walker_SignalParentColor = new GameObject[2,2]; // blue, red
 	protected GameObject[,] walker_OnlySignalParentColor = new GameObject[2, 2];    // blue, red
-	
+
+	protected GameObject walker_signal_collider;
+	protected Rigidbody walker_signal_collider_rigidbody;
+	protected Vector3 walker_signal_collider_rigidbody_position_default;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -47,7 +51,10 @@ public class OnlySig1OnOff : MonoBehaviour {
 		//      walker_OnlySignalParentColor [1, 1] = OnlySignalParent[1].transform.FindChild("walker_signal_red").gameObject;
 		walker_OnlySignalParentColor [1, 0] = gameObject.transform.FindChild("walker_signal_blue").gameObject;
 		walker_OnlySignalParentColor [1, 1] = gameObject.transform.FindChild("walker_signal_red").gameObject;
-		
+	
+		walker_signal_collider = gameObject.transform.FindChild("walker_signal_collider").gameObject;
+		walker_signal_collider_rigidbody = walker_signal_collider.rigidbody;
+		walker_signal_collider_rigidbody_position_default = walker_signal_collider_rigidbody.position;
 	}
 	
 	// Update is called once per frame
@@ -57,6 +64,11 @@ public class OnlySig1OnOff : MonoBehaviour {
 			signal_flag = !signal_flag;
 			change_state();
 			nextTime += change_color_time;
+		}
+
+		if (!signal_flag)
+		{
+			walker_signal_collider_rigidbody.rigidbody.WakeUp();
 		}
 	}
 	
@@ -115,6 +127,10 @@ public class OnlySig1OnOff : MonoBehaviour {
 
 	void change_collider()
 	{
-		collider.isTrigger = !signal_flag;
+		if (!signal_flag) {
+			walker_signal_collider_rigidbody.transform.position = walker_signal_collider_rigidbody_position_default;
+		} else {
+			walker_signal_collider_rigidbody.transform.Translate(0, 10, 0);
+		}
 	}
 }
