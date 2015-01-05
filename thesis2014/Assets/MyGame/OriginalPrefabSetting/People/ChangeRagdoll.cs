@@ -31,15 +31,24 @@ public class ChangeRagdoll : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		agentSpeed = GetComponent<NavMeshAgent> ().speed;
+		if (other.gameObject.tag == "walker_signal_collider")
+		{
+			agentSpeed = GetComponent<NavMeshAgent> ().speed;
+		}
 	}
 
 	void OnTriggerStay(Collider other){
-		GetComponent<NavMeshAgent>().speed = 0;
+		if (other.gameObject.tag == "walker_signal_collider")
+		{
+			GetComponent<NavMeshAgent>().speed = 0;
+		}
 	}
 
 	void OnTriggerExit(Collider other){
-		GetComponent<NavMeshAgent>().speed = agentSpeed;
+		if (other.gameObject.tag == "walker_signal_collider")
+		{
+			GetComponent<NavMeshAgent>().speed = agentSpeed;
+		}
 	}
 
 }
