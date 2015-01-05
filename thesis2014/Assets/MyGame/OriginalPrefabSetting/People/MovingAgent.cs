@@ -145,12 +145,11 @@ public class MovingAgent : MonoBehaviour {
 
 	void ChangeDestination()
 	{
-		if (AgentStopping())
+		if (AgentDone())
 		{
 			agent.destination = agentStart;
 			agentStart = agentDest;
 			agentDest = agent.destination;
-
 		}
 	}
 

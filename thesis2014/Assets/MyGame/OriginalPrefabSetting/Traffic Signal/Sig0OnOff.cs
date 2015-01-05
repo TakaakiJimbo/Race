@@ -22,6 +22,10 @@ public class Sig0OnOff : MonoBehaviour {
 	protected Rigidbody walker_signal_collider_rigidbody;
 	protected Vector3 walker_signal_collider_rigidbody_position_default;
 
+	protected GameObject signal_collider;
+	protected Rigidbody signal_collider_rigidbody;
+	protected Vector3 signal_collider_rigidbody_position_default;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -59,6 +63,10 @@ public class Sig0OnOff : MonoBehaviour {
 		walker_signal_collider = gameObject.transform.FindChild("walker_signal_collider").gameObject;
 		walker_signal_collider_rigidbody = walker_signal_collider.rigidbody;
 		walker_signal_collider_rigidbody_position_default = walker_signal_collider_rigidbody.position;
+
+		signal_collider = gameObject.transform.FindChild("signal_collider").gameObject;
+		signal_collider_rigidbody = signal_collider.rigidbody;
+		signal_collider_rigidbody_position_default = signal_collider_rigidbody.position;
 	}
 	
 	// Update is called once per frame
@@ -132,8 +140,10 @@ public class Sig0OnOff : MonoBehaviour {
 	{
 		if (signal_flag) {
 			walker_signal_collider_rigidbody.transform.position = walker_signal_collider_rigidbody_position_default;
+			signal_collider_rigidbody.transform.Translate(0, 10, 0);
 		} else {
 			walker_signal_collider_rigidbody.transform.Translate(0, 10, 0);
+			signal_collider_rigidbody.transform.position = signal_collider_rigidbody_position_default;
 		}
 	}
 }

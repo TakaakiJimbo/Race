@@ -28,23 +28,48 @@ public class ChangeRagdoll : MonoBehaviour {
 			rb.AddForce( vec * forceDegree, ForceMode.Impulse );
 		}
 		this.enabled = false;
+		Invoke ("DestroyComponent", 3);
+	}
+
+	void DestroyComponent(){
+		Debug.Log("deleted");
+		Destroy (gameObject);
 	}
 
 	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Player")
+		{
+			agentSpeed = GetComponent<NavMeshAgent> ().speed;
+			GetComponent<NavMeshAgent>().speed = 0;
+		}
+		if (other.gameObject.tag == "AI")
+		{
+			agentSpeed = GetComponent<NavMeshAgent> ().speed;
+			GetComponent<NavMeshAgent>().speed = 0;
+		}
 		if (other.gameObject.tag == "walker_signal_collider")
 		{
 			agentSpeed = GetComponent<NavMeshAgent> ().speed;
-		}
-	}
-
-	void OnTriggerStay(Collider other){
-		if (other.gameObject.tag == "walker_signal_collider")
-		{
 			GetComponent<NavMeshAgent>().speed = 0;
 		}
 	}
 
+//	void OnTriggerStay(Collider other){
+//		if (other.gameObject.tag == "walker_signal_collider")
+//		{
+//
+//		}
+//	}
+
 	void OnTriggerExit(Collider other){
+		if (other.gameObject.tag == "Player")
+		{
+			GetComponent<NavMeshAgent>().speed = agentSpeed;
+		}
+		if (other.gameObject.tag == "AI")
+		{
+			GetComponent<NavMeshAgent>().speed = agentSpeed;
+		}
 		if (other.gameObject.tag == "walker_signal_collider")
 		{
 			GetComponent<NavMeshAgent>().speed = agentSpeed;

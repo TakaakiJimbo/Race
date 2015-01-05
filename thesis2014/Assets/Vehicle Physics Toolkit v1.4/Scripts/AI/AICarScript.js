@@ -17,9 +17,13 @@ var currentPathObj : int;
 var distFromPath : float = 20;  
 var maxTorque : float = 50;  
 var currentSpeed : float;  
+
 var topSpeed : float = 150;  
 var decellarationSpeed : float = 10;  
-	
+
+var temptopSpeed : float = 150;  
+var tempdecellarationSpeed : float = 10;  
+		
 var breakingMesh : Renderer;  
 var idleBreakLight : Material;  
 var activeBreakLight : Material;  
@@ -29,7 +33,11 @@ var isControll = false;
 var gearRatio = new int[128];
 
 function Start () {  
-	rigidbody.centerOfMass = centerOfMass;  
+	rigidbody.centerOfMass = centerOfMass;
+
+	temptopSpeed = topSpeed;
+	tempdecellarationSpeed = decellarationSpeed;
+	
 	GetPath();  
 }  
   
@@ -118,12 +126,25 @@ function BreakingEffect (){
 } 
 
 function OnTriggerEnter(other: Collider) {
-//	topSpeed = 15;
-//	decellarationSpeed = 30;
+	if(other.tag == "Player"){
+		topSpeed = 15;
+		isBreaking = true;
+		decellarationSpeed = 30;
+	}
+	if(other.tag == "AI"){
+		topSpeed = 15;
+		isBreaking = true;
+		decellarationSpeed = 30;
+	}
+
+	if(other.tag == "AIPeople_collider"){
+		topSpeed = 15;
+		isBreaking = true;
+		decellarationSpeed = 30;
+	}
 }
 
 function OnTriggerStay(other: Collider) {
-	
 	if(other.tag == "Player"){
 		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
 			currentSpeed = 0;
@@ -131,14 +152,26 @@ function OnTriggerStay(other: Collider) {
 			decellarationSpeed = 10000;
 		}	
 	}
-	if(other.tag == "AIPeople_collider"){
-		Debug.Log(other.name);
+	if(other.tag == "AI"){
 		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
-		Debug.Log("aaa");
 			currentSpeed = 0;
 			topSpeed = -1;
 			decellarationSpeed = 10000;
 		}	
 	}
+
+	if(other.tag == "AIPeople_collider"){
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
+			currentSpeed = 0;
+			topSpeed = -1;
+			decellarationSpeed = 10000;
+		}	
+	}
+}
+
+function OnTriggerExit(other: Collider) {
+	decellarationSpeed = tempdecellarationSpeed;
+	topSpeed = temptopSpeed;
+	isBreaking = false;
 }
  
