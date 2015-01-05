@@ -27,18 +27,19 @@ var isBreaking : boolean;
 var inSector : boolean;  
 var isControll = false;
 var gearRatio = new int[128];
+
 function Start () {  
-rigidbody.centerOfMass = centerOfMass;  
-GetPath();  
+	rigidbody.centerOfMass = centerOfMass;  
+	GetPath();  
 }  
   
 function GetPath (){  
-var path_objs : Array = pathGroup.GetComponentsInChildren(Transform);  
-path = new Array();  
-  
-for (var path_obj : Transform in path_objs){  
-  path.Add(path_obj);  
-}  
+	var path_objs : Array = pathGroup.GetComponentsInChildren(Transform);  
+	path = new Array();  
+	  
+	for (var path_obj : Transform in path_objs){  
+	  path.Add(path_obj);  
+	}  
 }  
  
 function EngineSound(){
@@ -63,60 +64,81 @@ function EngineSound(){
     
       
 function Update () {
-GetSteer(); 
-if(isControll){
-Move(); 
-}
-BreakingEffect ();  
-EngineSound();
+	GetSteer(); 
+	if(isControll){
+		Move(); 
+	}
+	BreakingEffect ();  
+	EngineSound();
 }  
  
 function FixedUpdate () {
 }  
+
 function GetSteer(){  
-var inUse: Transform = path[currentPathObj]as Transform;
+	var inUse: Transform = path[currentPathObj]as Transform;
 
-var steerVector : Vector3 = transform.InverseTransformPoint(Vector3(inUse.position.x, inUse.position.y,inUse.position.z));
-var newSteer : float = maxSteer * (steerVector.x / steerVector.magnitude);  
-wheelFL.steerAngle = newSteer;  
-wheelFR.steerAngle = newSteer;  
+	var steerVector : Vector3 = transform.InverseTransformPoint(Vector3(inUse.position.x, inUse.position.y,inUse.position.z));
+	var newSteer : float = maxSteer * (steerVector.x / steerVector.magnitude);  
+	wheelFL.steerAngle = newSteer;  
+	wheelFR.steerAngle = newSteer;  
 
-if (steerVector.magnitude <= distFromPath){  
-currentPathObj++;
-}  
-if (currentPathObj >= path.length ){  
-currentPathObj = 0; 
-} 
-
-  
+	if (steerVector.magnitude <= distFromPath){  
+		currentPathObj++;
+	}  
+	if (currentPathObj >= path.length ){  
+		currentPathObj = 0; 
+	}   
 }  
   
 function Move (){  
-currentSpeed = 2*(22/7)*wheelRL.radius*wheelRL.rpm * 60 / 1000;  
-currentSpeed = Mathf.Round (currentSpeed);  
-if (currentSpeed <= topSpeed && !inSector){  
-wheelRL.motorTorque = maxTorque;  
-wheelRR.motorTorque = maxTorque;  
-wheelRL.brakeTorque = 0;  
-wheelRR.brakeTorque = 0;  
-}  
-else if (!inSector){  
-wheelRL.motorTorque = 0;  
-wheelRR.motorTorque = 0;  
-wheelRL.brakeTorque = decellarationSpeed;  
-wheelRR.brakeTorque = decellarationSpeed;  
-}  
+	currentSpeed = 2*(22/7)*wheelRL.radius*wheelRL.rpm * 60 / 1000;   
+	currentSpeed = Mathf.Round (currentSpeed); 
+	if (currentSpeed <= topSpeed && !inSector){  
+		wheelRL.motorTorque = maxTorque;  
+		wheelRR.motorTorque = maxTorque;  
+		wheelRL.brakeTorque = 0;  
+		wheelRR.brakeTorque = 0;  
+	}  
+	else if (!inSector){  
+		wheelRL.motorTorque = 0;  
+		wheelRR.motorTorque = 0;  
+		wheelRL.brakeTorque = decellarationSpeed;
+		wheelRR.brakeTorque = decellarationSpeed;  
+	}  
 }  
   
 function BreakingEffect (){  
-if (isBreaking){  
-breakingMesh.material = activeBreakLight;  
-}  
-else {  
-breakingMesh.material = idleBreakLight;  
-}  
-  
+	if (isBreaking){  
+		breakingMesh.material = activeBreakLight;  
+	}  
+	else {  
+		breakingMesh.material = idleBreakLight;  
+	} 
 } 
 
+function OnTriggerEnter(other: Collider) {
+//	topSpeed = 15;
+//	decellarationSpeed = 30;
+}
 
+function OnTriggerStay(other: Collider) {
+	
+	if(other.tag == "Player"){
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
+			currentSpeed = 0;
+			topSpeed = -1;
+			decellarationSpeed = 10000;
+		}	
+	}
+	if(other.tag == "AIPeople_collider"){
+		Debug.Log(other.name);
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
+		Debug.Log("aaa");
+			currentSpeed = 0;
+			topSpeed = -1;
+			decellarationSpeed = 10000;
+		}	
+	}
+}
  
