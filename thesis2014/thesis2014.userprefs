@@ -1,16 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AICarScript.js">
-    <Files>
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig0OnOff.cs" Line="21" Column="1" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/MovingAgent.cs" Line="1" Column="1" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/People/ChangeRagdoll.cs" Line="40" Column="17" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs" Line="1" Column="1" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig1OnOff.cs" Line="1" Column="1" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig1OnOff.cs" Line="133" Column="1" />
-      <File FileName="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AICarScript.js" Line="110" Column="3" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

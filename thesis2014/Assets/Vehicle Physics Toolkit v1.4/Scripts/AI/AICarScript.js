@@ -23,6 +23,7 @@ var decellarationSpeed : float = 10;
 
 var temptopSpeed : float = 150;  
 var tempdecellarationSpeed : float = 10;  
+var temptimer : int = 0;
 		
 var breakingMesh : Renderer;  
 var idleBreakLight : Material;  
@@ -68,8 +69,6 @@ function EngineSound(){
 	var enginePitch : float = ((currentSpeed - gearMinValue)/(gearMaxValue - gearMinValue))+1;
 	audio.pitch = enginePitch;
 }
-
-    
       
 function Update () {
 	GetSteer(); 
@@ -78,6 +77,23 @@ function Update () {
 	}
 	BreakingEffect ();  
 	EngineSound();
+	if(currentSpeed < 5){
+		temptimer++;
+		Debug.Log(temptimer);
+	} else {
+		temptimer = 0;
+	}
+	if(temptimer > 50){
+		transform.rotation = Quaternion.LookRotation(transform.forward);
+		transform.position += Vector3.up * 15;
+		decellarationSpeed = tempdecellarationSpeed;
+		topSpeed = temptopSpeed;
+		currentSpeed = 10;
+		wheelRL.motorTorque = maxTorque;  
+		wheelRR.motorTorque = maxTorque;
+		isBreaking = false;
+		temptimer = 0;
+	}
 }  
  
 function FixedUpdate () {
@@ -99,9 +115,7 @@ function GetSteer(){
 	}   
 }  
   
-function Move (){  
-	currentSpeed = 2*(22/7)*wheelRL.radius*wheelRL.rpm * 60 / 1000;   
-	currentSpeed = Mathf.Round (currentSpeed); 
+function Move (){ 
 	if (currentSpeed <= topSpeed && !inSector){  
 		wheelRL.motorTorque = maxTorque;  
 		wheelRR.motorTorque = maxTorque;  
@@ -114,6 +128,9 @@ function Move (){
 		wheelRL.brakeTorque = decellarationSpeed;
 		wheelRR.brakeTorque = decellarationSpeed;  
 	}  
+	currentSpeed = 2*(22/7)*wheelRL.radius*wheelRL.rpm * 60 / 1000;   
+	currentSpeed = Mathf.Round (currentSpeed); 
+
 }  
   
 function BreakingEffect (){  
@@ -129,49 +146,79 @@ function OnTriggerEnter(other: Collider) {
 	if(other.tag == "Player"){
 		topSpeed = 15;
 		isBreaking = true;
-		decellarationSpeed = 30;
-	}
-	if(other.tag == "AI"){
+		decellarationSpeed = 40;
+	}else if(other.tag == "AI"){
 		topSpeed = 15;
 		isBreaking = true;
-		decellarationSpeed = 30;
-	}
-
-	if(other.tag == "AIPeople_collider"){
+		decellarationSpeed = 40;
+	}else if(other.tag == "AIPeople_collider"){
+	Debug.Log("find");
 		topSpeed = 15;
 		isBreaking = true;
-		decellarationSpeed = 30;
+		decellarationSpeed = 40;
 	}
 }
 
 function OnTriggerStay(other: Collider) {
-	if(other.tag == "Player"){
-		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
-			currentSpeed = 0;
-			topSpeed = -1;
-			decellarationSpeed = 10000;
-		}	
-	}
-	if(other.tag == "AI"){
-		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
-			currentSpeed = 0;
-			topSpeed = -1;
-			decellarationSpeed = 10000;
-		}	
-	}
+//	if(other.tag == "Player"){
+//		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
+//			currentSpeed = 0;
+//			topSpeed = -1;
+//			decellarationSpeed = 10000;
+//		}	
+//	}else if(other.tag == "AI"){
+//		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10 ){
+//			if((((rigidbody.position - other.rigidbody.position)/(rigidbody.position - other.rigidbody.position).magnitude).z) < 0){
+//				Debug.Log(gameObject.name);
+//				currentSpeed = 0;
+//				topSpeed = -1;
+//				decellarationSpeed = 10000;	
+//			}
+//		}
+//	}else if(other.tag == "AIPeople_collider"){
+//		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
+//			currentSpeed = 0;
+//			topSpeed = -1;
+//			decellarationSpeed = 10000;
+//		}
+//	}
 
-	if(other.tag == "AIPeople_collider"){
-		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10){
-			currentSpeed = 0;
-			topSpeed = -1;
-			decellarationSpeed = 10000;
-		}	
+	if(other.tag == "Player"){
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10 ){
+			if((((rigidbody.position - other.rigidbody.position)/(rigidbody.position - other.rigidbody.position).magnitude).z) < 0){
+				Debug.Log(gameObject.name);
+				currentSpeed = 0;
+				topSpeed = -1;
+				decellarationSpeed = 10000;	
+			}
+		}
+	}else if(other.tag == "AI"){
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10 ){
+			if((((rigidbody.position - other.rigidbody.position)/(rigidbody.position - other.rigidbody.position).magnitude).z) < 0){
+				Debug.Log(gameObject.name);
+				currentSpeed = 0;
+				topSpeed = -1;
+				decellarationSpeed = 10000;
+			}
+		}
+	}else if(other.tag == "AIPeople_collider"){
+		if(Vector3.Distance(rigidbody.position, other.rigidbody.position) < 10 ){
+			if((((rigidbody.position - other.rigidbody.position)/(rigidbody.position - other.rigidbody.position).magnitude).z) < 0){
+				Debug.Log(gameObject.name);
+				currentSpeed = 0;
+				topSpeed = -1;
+				decellarationSpeed = 10000;	
+			}
+		}
 	}
 }
 
 function OnTriggerExit(other: Collider) {
 	decellarationSpeed = tempdecellarationSpeed;
 	topSpeed = temptopSpeed;
+	currentSpeed = 10;
+	wheelRL.motorTorque = maxTorque;  
+	wheelRR.motorTorque = maxTorque;
 	isBreaking = false;
 }
  
