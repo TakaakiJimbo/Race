@@ -185,8 +185,10 @@ function Update()
 	}
 	LButtonSignal.renderer.enabled = LButtonTrigger;
 	LButtonSignal.GetComponent("BlinkerForDirection").enabled = LButtonTrigger;
+	LButtonSignal.GetComponent("AudioSource").mute = !LButtonTrigger;
 	RButtonSignal.renderer.enabled = RButtonTrigger;
 	RButtonSignal.GetComponent("BlinkerForDirection").enabled = RButtonTrigger;
+	RButtonSignal.GetComponent("AudioSource").mute = !RButtonTrigger;
 }
 
 function FixedUpdate()
