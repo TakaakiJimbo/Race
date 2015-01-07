@@ -39,41 +39,42 @@ public class ChangeRagdoll : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player")
 		{
-			agentSpeed = GetComponent<NavMeshAgent> ().speed;
-			GetComponent<NavMeshAgent>().speed = 0;
+			OnTriggerEnterSetSpeed();
 		}
-		if (other.gameObject.tag == "AI")
+		else if (other.gameObject.tag == "AI")
 		{
-			agentSpeed = GetComponent<NavMeshAgent> ().speed;
-			GetComponent<NavMeshAgent>().speed = 0;
+			OnTriggerEnterSetSpeed();
 		}
-		if (other.gameObject.tag == "walker_signal_collider")
+		else if (other.gameObject.tag == "walker_signal_collider")
 		{
-			agentSpeed = GetComponent<NavMeshAgent> ().speed;
-			GetComponent<NavMeshAgent>().speed = 0;
+			OnTriggerEnterSetSpeed();
 		}
+	}
+
+	void OnTriggerEnterSetSpeed(){
+		agentSpeed = GetComponent<NavMeshAgent> ().speed;
+		GetComponent<NavMeshAgent>().speed = 0;
 	}
 
 	void OnTriggerStay(Collider other){
 		if (other.gameObject.tag == "AI")
 		{
-			GetComponent<NavMeshAgent>().speed = 3;
+			GetComponent<NavMeshAgent>().speed = 8;
 		}
 	}
-
-	void SetSpeed(){
-		GetComponent<NavMeshAgent> ().speed = agentSpeed;
-	}
-
+	
 	void OnTriggerExit(Collider other){
 		if (other.gameObject.tag == "Player")
 		{
-			GetComponent<NavMeshAgent>().speed = agentSpeed;
+			OnTriggerExitSetSpeed();
 		}
-		if (other.gameObject.tag == "walker_signal_collider")
+		else if (other.gameObject.tag == "walker_signal_collider")
 		{
-			GetComponent<NavMeshAgent>().speed = agentSpeed;
+			OnTriggerExitSetSpeed();
 		}
 	}
 
+	void OnTriggerExitSetSpeed(){
+		GetComponent<NavMeshAgent> ().speed = agentSpeed;
+	}
 }

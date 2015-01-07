@@ -17,12 +17,10 @@ public class Sig1OnOff : MonoBehaviour {
 	protected GameObject[,] SignalParentColor = new GameObject[2,3];    // blue, yellow, red;
 	protected GameObject[,] walker_SignalParentColor = new GameObject[2,2]; // blue, red
 //	protected GameObject[,] walker_OnlySignalParentColor = new GameObject[2, 2];    // blue, red
-
-	protected GameObject walker_signal_collider;
+	
 	protected Rigidbody walker_signal_collider_rigidbody;
 	protected Vector3 walker_signal_collider_rigidbody_position_default;
-
-	protected GameObject signal_collider;
+	
 	protected Rigidbody signal_collider_rigidbody;
 	protected Vector3 signal_collider_rigidbody_position_default;
 
@@ -60,12 +58,10 @@ public class Sig1OnOff : MonoBehaviour {
 		walker_SignalParentColor [1, 0]     = gameObject.transform.FindChild("walker_signal_blue").gameObject;
 		walker_SignalParentColor [1, 1]     = gameObject.transform.FindChild("walker_signal_red").gameObject;
 
-		walker_signal_collider = gameObject.transform.FindChild("walker_signal_collider").gameObject;
-		walker_signal_collider_rigidbody = walker_signal_collider.rigidbody;
+		walker_signal_collider_rigidbody = gameObject.transform.FindChild("walker_signal_collider").gameObject.rigidbody;
 		walker_signal_collider_rigidbody_position_default = walker_signal_collider_rigidbody.position;
 
-		signal_collider = gameObject.transform.FindChild("signal_collider").gameObject;
-		signal_collider_rigidbody = signal_collider.rigidbody;
+		signal_collider_rigidbody = gameObject.transform.FindChild("signal_collider").gameObject.rigidbody;
 		signal_collider_rigidbody_position_default = signal_collider_rigidbody.position;
 	}
 	

@@ -3,11 +3,28 @@ var script : OSCReceiver; //ScriptB型(スクリプト名が型名になる)
 var OSCvalueEx0 : float = 0;
 var OSCvalueEx2 : float = 0;
 var OSCvalueButtonA : float = 0;
+var OSCvalueButton1 : float = 0;
 var OSCvalueButton2 : float = 0;
+var OSCvalueButtonUp : float = 0;
+var OSCvalueButtonDown : float = 0;
+var OSCvalueButtonLeft : float = 0;
+var OSCvalueButtonRight : float = 0;
+
+var DRTrigger : boolean;
+
+var LButtonTrigger : boolean;
+var RButtonTrigger : boolean;
+var LButtonSignal : GameObject;
+var RButtonSignal : GameObject;
+
+var handbrakeTrigger : boolean = false;	//for OSC
 
 var speedtext:GameObject;
 var speedtm:TextMesh;
 var speedfloat: float = 0;
+
+var Drivetm:Renderer;
+var Reversetm:Renderer;
 
 private var wheelRadius : float = 0.4;
 var suspensionRange : float = 0.1;
@@ -98,6 +115,8 @@ function Start()
 	initialDragMultiplierX = dragMultiplier.x;
 	
 	SetupSpeedMeter();
+	
+	SetupLRButtonSignal();
 }
 
 function Update()
@@ -107,6 +126,15 @@ function Update()
 	
 	GetInput();
 	
+
+	if(!DRTrigger)
+	{
+		throttle = (-1) * throttle; 
+	}
+	Drivetm.enabled = DRTrigger;
+	Reversetm.enabled = !DRTrigger;
+
+	
 	Check_If_Car_Is_Flipped();
 	
 	UpdateWheelGraphics(relativeVelocity);
@@ -114,6 +142,21 @@ function Update()
 	UpdateGear(relativeVelocity);
 	
 	ShowSpeedMeter(relativeVelocity);
+	
+	if(handbrake){
+		if(speedfloat > 1)
+		{
+			throttle = -1;
+		}
+		else
+		{
+			throttle = 0;
+		}	
+	}
+	LButtonSignal.renderer.enabled = LButtonTrigger;
+	LButtonSignal.GetComponent("BlinkerForDirection").enabled = LButtonTrigger;
+	RButtonSignal.renderer.enabled = RButtonTrigger;
+	RButtonSignal.GetComponent("BlinkerForDirection").enabled = RButtonTrigger;
 }
 
 function FixedUpdate()
@@ -225,6 +268,8 @@ function SetupCenterOfMass()
 
 function SetupGears()
 {
+	DRTrigger = true;	// false : D, true : R
+	
 	engineForceValues = new float[numberOfGears];
 	gearSpeeds = new float[numberOfGears];
 	
@@ -233,10 +278,10 @@ function SetupGears()
 	for(var i = 0; i < numberOfGears; i++)
 	{
 		if(i > 0)
-			gearSpeeds[i] = tempTopSpeed / 4 + gearSpeeds[i-1];
+//			gearSpeeds[i] = tempTopSpeed / 4 + gearSpeeds[i-1];
+			gearSpeeds[i] = tempTopSpeed / 9 + gearSpeeds[i-1] / 2;
 		else
-			gearSpeeds[i] = tempTopSpeed / 4;
-				
+			gearSpeeds[i] = tempTopSpeed / 9;
 		tempTopSpeed -= tempTopSpeed / 4;
 		
 	}
@@ -247,7 +292,7 @@ function SetupGears()
 	{
 		var maxLinearDrag : float = gearSpeeds[i] * gearSpeeds[i];// * dragMultiplier.z;
 		engineForceValues[i] = maxLinearDrag * engineFactor;
-	}
+		}
 	
 }
 
@@ -270,7 +315,18 @@ function SetupSpeedMeter()
 {
 	speedtext = GameObject.Find("Speed");
 	speedtm = speedtext.GetComponent("TextMesh");
+	Drivetm = GameObject.Find("DriveMesh").renderer;
+	Reversetm = GameObject.Find("ReverseMesh").renderer;
 }
+
+function SetupLRButtonSignal()
+{
+	LButtonSignal = GameObject.Find("LeftButton");
+	RButtonSignal = GameObject.Find("RightButton");
+	LButtonTrigger = false;
+	RButtonTrigger = false;
+}
+
 
 /**************************************************/
 /* Functions called from Update()                 */
@@ -295,25 +351,52 @@ function GetOSC()
 	OSCvalueEx0 = script.Ex0;
 	OSCvalueEx2 = script.Ex2;
 	OSCvalueButtonA = script.ButtonA;
+	OSCvalueButton1 = script.Button1;
 	OSCvalueButton2 = script.Button2;
-	if(OSCvalueButtonA == 1) 
-	{
-		throttle =OSCvalueButtonA;
-	}
-	else if(OSCvalueButton2 == 1) 
-	{
-		throttle = (-1)*OSCvalueButton2;	
-	}
+	OSCvalueButtonUp = script.ButtonUp;
+	OSCvalueButtonDown = script.ButtonDown;
+	OSCvalueButtonLeft = script.ButtonLeft;
+	OSCvalueButtonRight = script.ButtonRight;
+
 	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
 	if(OSCvalueEx0 < 0.5)
 	{
 		steer = (-1)*steer;	
+	}
+	if(OSCvalueButtonA > 0) 
+	{
+		throttle =OSCvalueButtonA;
+	}
+	if(OSCvalueButton2 > 0)
+	{
+		handbrakeTrigger = true;
+	}
+	else
+	{
+		handbrakeTrigger = false;
+	}
+	if(OSCvalueButtonUp > 0) 
+	{
+		DRTrigger = true;	
+	}
+	if(OSCvalueButtonDown > 0) 
+	{
+		DRTrigger = false;	
+	}
+	if(OSCvalueButtonLeft > 0) 
+	{
+		LButtonTrigger = !LButtonTrigger;	
+	}
+	if(OSCvalueButtonDown > 0) 
+	{
+		RButtonTrigger = !RButtonTrigger;	
 	}
 }
 
 function CheckHandbrake()
 {
 	if(Input.GetKey("space"))
+//	if(handbrakeTrigger)
 	{
 		if(!handbrake)
 		{
@@ -482,7 +565,7 @@ function UpdateGear(relativeVelocity : Vector3)
 function ShowSpeedMeter(relativeVelocity : Vector3)
 {
 	speedfloat = relativeVelocity.z * 3.6;
-	speedtm.text = speedfloat.ToString("f2");
+	speedtm.text = speedfloat.ToString("f0");
 }
 
 /**************************************************/
@@ -500,7 +583,7 @@ function UpdateDrag(relativeVelocity : Vector3)
 	if(initialDragMultiplierX > dragMultiplier.x) // Handbrake code
 	{			
 		drag.x /= (relativeVelocity.magnitude / (topSpeed / ( 1 + 2 * handbrakeXDragFactor ) ) );
-		drag.z *= (1 + Mathf.Abs(Vector3.Dot(rigidbody.velocity.normalized, transform.forward)));
+		drag.z /= (1 + Mathf.Abs(Vector3.Dot(rigidbody.velocity.normalized, transform.forward)));
 		drag += rigidbody.velocity * Mathf.Clamp01(rigidbody.velocity.magnitude / topSpeed);
 	}
 	else // No handbrake
@@ -534,22 +617,22 @@ function CalculateEnginePower(relativeVelocity : Vector3)
 {
 	if(throttle == 0)
 	{
-		currentEnginePower -= Time.deltaTime * 200;
+		currentEnginePower -= Time.deltaTime * 30;
 	}
 	else if( HaveTheSameSign(relativeVelocity.z, throttle) )
 	{
 		normPower = (currentEnginePower / engineForceValues[engineForceValues.Length - 1]) * 2;
-		currentEnginePower += Time.deltaTime * 200 * EvaluateNormPower(normPower);
+		currentEnginePower += Time.deltaTime * 100 * EvaluateNormPower(normPower);
 	}
 	else
 	{
-		currentEnginePower -= Time.deltaTime * 300;
+		currentEnginePower -= Time.deltaTime * 200;
 	}
-	
-	if(currentGear == 0)
-		currentEnginePower = Mathf.Clamp(currentEnginePower, 0, engineForceValues[0]);
-	else
-		currentEnginePower = Mathf.Clamp(currentEnginePower, engineForceValues[currentGear - 1], engineForceValues[currentGear]);
+	currentEnginePower = Mathf.Clamp(currentEnginePower, 0, engineForceValues[currentGear]);
+//	if(currentGear == 0)
+//		currentEnginePower = Mathf.Clamp(currentEnginePower, 0, engineForceValues[0]);
+//	else
+//		currentEnginePower = Mathf.Clamp(currentEnginePower, engineForceValues[currentGear - 1], engineForceValues[currentGear]);
 }
 
 function CalculateState()
@@ -579,11 +662,11 @@ function ApplyThrottle(canDrive : boolean, relativeVelocity : Vector3)
 		if (HaveTheSameSign(relativeVelocity.z, throttle))
 		{
 			if (!handbrake)
-				throttleForce = Mathf.Sign(throttle) * currentEnginePower * rigidbody.mass;
+				throttleForce = Mathf.Sign(throttle) * currentEnginePower * rigidbody.mass ;
 		}
 		else
-			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass;
-		
+			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass ;	// braking
+
 		rigidbody.AddForce(transform.forward * Time.deltaTime * (throttleForce + brakeForce));
 	}
 }

@@ -77,7 +77,6 @@ public class MovingAgent : MonoBehaviour {
 				agentDestPos[2] = -384.41f;
 				break;
 		}
-		
 		agentStart = this.transform.position;
 		agentDest = new Vector3(agentDestPos[0], agentDestPos[1], agentDestPos[2]);
 		agent.destination = agentDest;
@@ -119,6 +118,7 @@ public class MovingAgent : MonoBehaviour {
 		if (AgentDone())
 		{
 			locomotion.Do(0, 0);
+			ChangeDestination ();
 //			if (particleClone != null)
 //			{
 //				GameObject.Destroy(particleClone);
@@ -145,14 +145,10 @@ public class MovingAgent : MonoBehaviour {
 
 	void ChangeDestination()
 	{
-		if (AgentDone())
-		{
 			agent.destination = agentStart;
 			agentStart = agentDest;
 			agentDest = agent.destination;
-		}
 	}
-
 
 	protected bool AgentDone()
 	{
@@ -170,7 +166,6 @@ public class MovingAgent : MonoBehaviour {
 //		if (Input.GetButtonDown ("Fire1")) 
 //			SetDestination();
 //		Debug.Log (agentStart);
-		ChangeDestination ();
 		SetupAgentLocomotion();
 	}
 }
