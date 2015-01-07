@@ -16,6 +16,8 @@ var LButtonTrigger : boolean;
 var RButtonTrigger : boolean;
 var LButtonSignal : GameObject;
 var RButtonSignal : GameObject;
+var tempLButtonTrigger : boolean;
+var tempRButtonTrigger : boolean;
 
 var handbrakeTrigger : boolean = false;	//for OSC
 
@@ -123,10 +125,36 @@ function Update()
 {		
 
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
-	
+	Debug.Log(relativeVelocity.x);
 	GetInput();
 	
-
+	if(LButtonTrigger)
+	{
+		if(relativeVelocity.x > 0.5)
+		{
+			tempLButtonTrigger = true;
+		}
+		if(tempLButtonTrigger && relativeVelocity.x < 0.1)
+		{
+			LButtonTrigger = false;
+			tempLButtonTrigger = false;
+		}
+	}
+	
+	if(RButtonTrigger)
+	{
+		if(relativeVelocity.x < -0.5)
+		{
+			tempRButtonTrigger = true;
+		}
+		if(tempRButtonTrigger && relativeVelocity.x > -0.1)
+		{
+			RButtonTrigger = false;
+			tempRButtonTrigger = false;
+		}
+	}
+		
+		
 	if(!DRTrigger)
 	{
 		throttle = (-1) * throttle; 
@@ -143,7 +171,8 @@ function Update()
 	
 	ShowSpeedMeter(relativeVelocity);
 	
-	if(handbrake){
+	if(handbrake)
+	{
 		if(speedfloat > 1)
 		{
 			throttle = -1;
@@ -151,6 +180,7 @@ function Update()
 		else
 		{
 			throttle = 0;
+			currentEnginePower = 10;
 		}	
 	}
 	LButtonSignal.renderer.enabled = LButtonTrigger;
@@ -279,7 +309,7 @@ function SetupGears()
 	{
 		if(i > 0)
 //			gearSpeeds[i] = tempTopSpeed / 4 + gearSpeeds[i-1];
-			gearSpeeds[i] = tempTopSpeed / 9 + gearSpeeds[i-1] / 2;
+			gearSpeeds[i] = tempTopSpeed / 9 + gearSpeeds[i-1] / 3;
 		else
 			gearSpeeds[i] = tempTopSpeed / 9;
 		tempTopSpeed -= tempTopSpeed / 4;
@@ -324,7 +354,10 @@ function SetupLRButtonSignal()
 	LButtonSignal = GameObject.Find("LeftButton");
 	RButtonSignal = GameObject.Find("RightButton");
 	LButtonTrigger = false;
-	RButtonTrigger = false;
+	RButtonTrigger = true;
+	tempLButtonTrigger = false;
+	tempRButtonTrigger = false;
+
 }
 
 
@@ -337,7 +370,7 @@ function GetInput()
 //	GetOSC();
 	throttle = Input.GetAxis("Vertical");
 	steer = Input.GetAxis("Horizontal");
-	
+	steer = steer / 2;
 	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else
