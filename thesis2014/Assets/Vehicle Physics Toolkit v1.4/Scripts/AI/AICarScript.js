@@ -81,7 +81,7 @@ function Update () {
 	
 	if(currentSpeed < 5){
 		temptimer++;
-		Debug.Log( gameObject.name + " : " + temptimer);
+//		Debug.Log( gameObject.name + " : " + temptimer);
 	} else {
 		temptimer = 0;
 	}

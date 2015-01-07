@@ -9,6 +9,7 @@ var OSCvalueButtonUp : float = 0;
 var OSCvalueButtonDown : float = 0;
 var OSCvalueButtonLeft : float = 0;
 var OSCvalueButtonRight : float = 0;
+var tempOSC : float = 0;
 
 var DRTrigger : boolean;
 
@@ -125,7 +126,6 @@ function Update()
 {		
 
 	var relativeVelocity : Vector3 = transform.InverseTransformDirection(rigidbody.velocity);
-	Debug.Log(relativeVelocity.x);
 	GetInput();
 	
 	if(LButtonTrigger)
@@ -140,6 +140,10 @@ function Update()
 			tempLButtonTrigger = false;
 		}
 	}
+	else
+	{
+		tempLButtonTrigger = false;
+	}
 	
 	if(RButtonTrigger)
 	{
@@ -152,6 +156,10 @@ function Update()
 			RButtonTrigger = false;
 			tempRButtonTrigger = false;
 		}
+	}
+	else
+	{
+		tempRButtonTrigger = false;
 	}
 		
 		
@@ -300,7 +308,7 @@ function SetupCenterOfMass()
 
 function SetupGears()
 {
-	DRTrigger = true;	// false : D, true : R
+	DRTrigger = true;	// true : D, false : R
 	
 	engineForceValues = new float[numberOfGears];
 	gearSpeeds = new float[numberOfGears];
@@ -356,7 +364,7 @@ function SetupLRButtonSignal()
 	LButtonSignal = GameObject.Find("LeftButton");
 	RButtonSignal = GameObject.Find("RightButton");
 	LButtonTrigger = false;
-	RButtonTrigger = true;
+	RButtonTrigger = false;
 	tempLButtonTrigger = false;
 	tempRButtonTrigger = false;
 
@@ -369,10 +377,10 @@ function SetupLRButtonSignal()
 
 function GetInput()
 {
-//	GetOSC();
-	throttle = Input.GetAxis("Vertical");
-	steer = Input.GetAxis("Horizontal");
-	steer = steer / 2;
+	GetOSC();
+//	throttle = Input.GetAxis("Vertical");
+//	steer = Input.GetAxis("Horizontal");
+	steer = steer / 1.5;
 	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else
@@ -393,14 +401,24 @@ function GetOSC()
 	OSCvalueButtonLeft = script.ButtonLeft;
 	OSCvalueButtonRight = script.ButtonRight;
 
-	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
-	if(OSCvalueEx0 < 0.5)
+//	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
+	tempOSC = OSCvalueEx0;
+	OSCvalueEx2 = Mathf.Abs(OSCvalueEx2 - 0.5);
+	OSCvalueEx0 = Mathf.Abs(OSCvalueEx0 - 0.5);
+	steer = 1 - 0.125 * Mathf.Atan2(OSCvalueEx2, OSCvalueEx0) / 0.19625;
+	Debug.Log(steer);
+	
+	if(tempOSC < 0.5)
 	{
 		steer = (-1)*steer;	
 	}
 	if(OSCvalueButtonA > 0) 
 	{
-		throttle =OSCvalueButtonA;
+		throttle = OSCvalueButtonA;
+	}
+	else
+	{
+		throttle = 0;
 	}
 	if(OSCvalueButton2 > 0)
 	{
@@ -410,15 +428,15 @@ function GetOSC()
 	{
 		handbrakeTrigger = false;
 	}
-	if(OSCvalueButtonUp > 0) 
-	{
-		DRTrigger = true;	
-	}
-	if(OSCvalueButtonDown > 0) 
+	if(OSCvalueButtonLeft > 0) 
 	{
 		DRTrigger = false;	
 	}
-	if(OSCvalueButtonLeft > 0) 
+	if(OSCvalueButtonRight > 0) 
+	{
+		DRTrigger = true;	
+	}
+	if(OSCvalueButtonUp > 0) 
 	{
 		LButtonTrigger = !LButtonTrigger;	
 	}
@@ -430,8 +448,8 @@ function GetOSC()
 
 function CheckHandbrake()
 {
-	if(Input.GetKey("space"))
-//	if(handbrakeTrigger)
+//	if(Input.GetKey("space"))
+	if(handbrakeTrigger)
 	{
 		if(!handbrake)
 		{
