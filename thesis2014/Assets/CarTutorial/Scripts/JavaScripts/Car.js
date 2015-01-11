@@ -794,6 +794,64 @@ function ApplySteering(canSteer : boolean, relativeVelocity : Vector3)
 }
 
 /**************************************************/
+/* Functions called for Function CheckGames()      */
+/**************************************************/
+
+function OnTriggerEnter(other : Collider)
+{
+	if(other.gameObject.tag == "Judge"  || other.gameObject.tag == "signal_collider")
+	{
+		switch(other.gameObject.name)
+		{
+			case "SignStop" : 
+				if(speedfloat > 20)
+			 	{
+			 		Debug.Log("out");
+			 	}
+				break;
+			case  "signal_collider" : 
+			 	if(speedfloat > 20)
+			 	{
+			 		Debug.Log("out");
+			 	}
+			 	break;
+		}
+	}
+	else if(other.gameObject.tag == "Announce")
+	{
+		other.gameObject.GetComponent("AudioSource").enabled = true;
+	}
+}
+
+function OnTriggerStay(other : Collider)
+{
+	if(other.gameObject.tag == "Judge")
+	{
+		switch(other.gameObject.name)
+		{
+			case "Sign40" : 
+				if(speedfloat > 40)
+			 	{
+			 		Debug.Log("out");
+			 	}
+				break;
+		}
+	}
+}
+
+function OnCollisionEnter(other : Collision)
+{
+	switch(other.gameObject.tag)
+	{
+		case "WalkRoad" : 
+			Debug.Log("aaa");
+			break;	
+	}
+}
+
+
+
+/**************************************************/
 /*               Utility Functions                */
 /**************************************************/
 
