@@ -82,18 +82,23 @@ function Update () {
 	if(currentSpeed < 5){
 		temptimer++;
 //		Debug.Log( gameObject.name + " : " + temptimer);
-	} else {
+	} else { 
 		temptimer = 0;
 	}
-	if(temptimer > 70){
+	if(temptimer > 150){
 		ResetAI();
 		temptimer = 0;
+	}
+	else if(temptimer > 135){
+		topSpeed = temptopSpeed;
 	}
 } 
 
 function ResetAI() {
-	transform.position += Vector3.up * 8;
-	transform.rotation = Quaternion.LookRotation(Vector3(1,0,0.3));
+	var Reset: Transform = path[currentPathObj-1]as Transform;
+	var ResetLook: Transform = path[currentPathObj]as Transform;
+	transform.position = Vector3(Reset.position.x,transform.position.y,Reset.position.z);
+	transform.rotation = Quaternion.LookRotation(ResetLook.position-Reset.position);
 	decellarationSpeed = tempdecellarationSpeed;
 	topSpeed = temptopSpeed;
 	currentSpeed = 10;
@@ -180,9 +185,10 @@ function OnTriggerStay(other: Collider) {
 function OnTriggerStaySetSpeed(other: Collider){
 	tempRigidbodyPosition = rigidbody.position;
 	tempOtherRigidbodyPosition = other.rigidbody.position;
-	if((Vector3.Distance(tempRigidbodyPosition, tempOtherRigidbodyPosition) < 10) && (((tempRigidbodyPosition.z - tempOtherRigidbodyPosition.z) < 0))){
+	if(Vector3.Distance(tempRigidbodyPosition, tempOtherRigidbodyPosition) < 10 &&  Vector3.Angle(tempRigidbodyPosition - tempOtherRigidbodyPosition, rigidbody.transform.forward) > 5){
 		currentSpeed = 0;
 		topSpeed = -1;
+		rigidbody.velocity = Vector3.zero;
 		decellarationSpeed = 10000;	
 	}
 }

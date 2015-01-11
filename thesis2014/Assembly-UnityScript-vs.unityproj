@@ -62,6 +62,7 @@
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\AI\AICarScript.js" />
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\AI\AIPath.js" />
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\AI\AIWheelCoillider.js" />
+     <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\AI\AiTitle.js" />
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\LapTimer.js" />
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\Player\Android\WheelScriptAndroid.js" />
      <Compile Include="Assets\Vehicle Physics Toolkit v1.4\Scripts\Player\CarCameraScript.js" />

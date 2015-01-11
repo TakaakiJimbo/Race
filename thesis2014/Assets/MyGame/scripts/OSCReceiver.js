@@ -15,6 +15,8 @@ public var ButtonUp : float = 0;
 public var ButtonDown : float = 0;
 public var ButtonLeft : float = 0;
 public var ButtonRight : float = 0;
+public var ButtonPlus : float = 0;
+public var ButtonMinus : float = 0;
 
 public function Start ()
 {
@@ -32,6 +34,8 @@ public function Start ()
 	handler.SetAddressHandler("/wii/1/button/Down", Example5);
 	handler.SetAddressHandler("/wii/1/button/Left", Example6);
 	handler.SetAddressHandler("/wii/1/button/Right", Example7);
+	handler.SetAddressHandler("/wii/1/button/Plus", Example6);
+	handler.SetAddressHandler("/wii/1/button/Minus", Example7);
 
 }
 
@@ -99,4 +103,20 @@ public function Example7(oscMessage : OscMessage) : void
 	//How to access values: 
 	//oscMessage.Values[0], oscMessage.Values[1], etc
 	ButtonRight = oscMessage.Values[0];
+}
+
+//these fucntions are called when messages are received
+public function Example8(oscMessage : OscMessage) : void
+{	
+	//How to access values: 
+	//oscMessage.Values[0], oscMessage.Values[1], etc
+	ButtonPlus = oscMessage.Values[0];
+}
+
+//these fucntions are called when messages are received
+public function Example9(oscMessage : OscMessage) : void
+{	
+	//How to access values: 
+	//oscMessage.Values[0], oscMessage.Values[1], etc
+	ButtonMinus = oscMessage.Values[0];
 }

@@ -9,6 +9,8 @@ var OSCvalueButtonUp : float = 0;
 var OSCvalueButtonDown : float = 0;
 var OSCvalueButtonLeft : float = 0;
 var OSCvalueButtonRight : float = 0;
+var OSCvalueButtonPlus : float = 0;
+var OSCvalueButtonMinus : float = 0;
 var tempOSC : float = 0;
 
 var DRTrigger : boolean;
@@ -19,6 +21,9 @@ var LButtonSignal : GameObject;
 var RButtonSignal : GameObject;
 var tempLButtonTrigger : boolean;
 var tempRButtonTrigger : boolean;
+
+var ExitTrigger0 : boolean = false;
+var ExitTrigger1 : boolean = false;
 
 var handbrakeTrigger : boolean = false;	//for OSC
 
@@ -179,9 +184,11 @@ function Update()
 	
 	ShowSpeedMeter(relativeVelocity);
 	
+	Check_Exit();
+	
 	if(handbrake)
 	{
-		if(speedfloat > 1)
+		if(speedfloat < 7 && speedfloat > 1)
 		{
 			throttle = -1;
 		}
@@ -192,9 +199,9 @@ function Update()
 		}	
 	}
 	LButtonSignal.renderer.enabled = LButtonTrigger;
+	RButtonSignal.renderer.enabled = RButtonTrigger;
 	LButtonSignal.GetComponent("BlinkerForDirection").enabled = LButtonTrigger;
 	LButtonSignal.GetComponent("AudioSource").mute = !LButtonTrigger;
-	RButtonSignal.renderer.enabled = RButtonTrigger;
 	RButtonSignal.GetComponent("BlinkerForDirection").enabled = RButtonTrigger;
 	RButtonSignal.GetComponent("AudioSource").mute = !RButtonTrigger;
 }
@@ -377,10 +384,10 @@ function SetupLRButtonSignal()
 
 function GetInput()
 {
-	GetOSC();
-//	throttle = Input.GetAxis("Vertical");
-//	steer = Input.GetAxis("Horizontal");
-	steer = steer / 1.5;
+//	GetOSC();
+	throttle = Input.GetAxis("Vertical");
+	steer = Input.GetAxis("Horizontal");
+	steer = steer / 2;
 	if(throttle < 0.0)
 		brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
 	else
@@ -400,13 +407,14 @@ function GetOSC()
 	OSCvalueButtonDown = script.ButtonDown;
 	OSCvalueButtonLeft = script.ButtonLeft;
 	OSCvalueButtonRight = script.ButtonRight;
+	OSCvalueButtonPlus = script.ButtonPlus;
+	OSCvalueButtonMinus = script.ButtonMinus;
 
 //	steer = Mathf.Sqrt(OSCvalueEx0*OSCvalueEx0+OSCvalueEx2*OSCvalueEx2);
 	tempOSC = OSCvalueEx0;
 	OSCvalueEx2 = Mathf.Abs(OSCvalueEx2 - 0.5);
 	OSCvalueEx0 = Mathf.Abs(OSCvalueEx0 - 0.5);
 	steer = 1 - 0.125 * Mathf.Atan2(OSCvalueEx2, OSCvalueEx0) / 0.19625;
-	Debug.Log(steer);
 	
 	if(tempOSC < 0.5)
 	{
@@ -444,12 +452,20 @@ function GetOSC()
 	{
 		RButtonTrigger = !RButtonTrigger;	
 	}
+	if(OSCvalueButtonPlus > 0) 
+	{
+		ExitTrigger0 = true;	
+	}
+	if(OSCvalueButtonMinus > 0) 
+	{
+		ExitTrigger1 = true;	
+	}
 }
 
 function CheckHandbrake()
 {
-//	if(Input.GetKey("space"))
-	if(handbrakeTrigger)
+	if(Input.GetKey("space"))
+//	if(handbrakeTrigger)
 	{
 		if(!handbrake)
 		{
@@ -618,7 +634,23 @@ function UpdateGear(relativeVelocity : Vector3)
 function ShowSpeedMeter(relativeVelocity : Vector3)
 {
 	speedfloat = relativeVelocity.z * 3.6;
-	speedtm.text = speedfloat.ToString("f0");
+	if(speedfloat < 3)
+	{
+		speedtm.text = "0";
+	}
+	else
+	{
+		speedtm.text = speedfloat.ToString("f0");
+	}
+}
+
+function Check_Exit()
+{
+	if(ExitTrigger0 && ExitTrigger1)
+	{
+		gameObject.GetComponent("AudioSource").enabled = true;
+		Application.LoadLevel("title");
+	}
 }
 
 /**************************************************/
@@ -630,13 +662,15 @@ function UpdateDrag(relativeVelocity : Vector3)
 	var relativeDrag : Vector3 = new Vector3(	-relativeVelocity.x * Mathf.Abs(relativeVelocity.x), 
 												-relativeVelocity.y * Mathf.Abs(relativeVelocity.y), 
 												-relativeVelocity.z * Mathf.Abs(relativeVelocity.z) );
-	
+
 	var drag = Vector3.Scale(dragMultiplier, relativeDrag);
-		
+
 	if(initialDragMultiplierX > dragMultiplier.x) // Handbrake code
 	{			
-		drag.x /= (relativeVelocity.magnitude / (topSpeed / ( 1 + 2 * handbrakeXDragFactor ) ) );
-		drag.z /= (1 + Mathf.Abs(Vector3.Dot(rigidbody.velocity.normalized, transform.forward)));
+//		drag.x /= (relativeVelocity.magnitude / (topSpeed / ( 1 + 2 * handbrakeXDragFactor ) ) );
+//		drag.z /= (1 + Mathf.Abs(Vector3.Dot(rigidbody.velocity.normalized, transform.forward)));
+		drag.x /= 0.05*(relativeVelocity.magnitude / (topSpeed / ( 1 + 2 * handbrakeXDragFactor ) ) );
+		drag.z /= 0.05*(1 + Mathf.Abs(Vector3.Dot(rigidbody.velocity.normalized, transform.forward)));
 		drag += rigidbody.velocity * Mathf.Clamp01(rigidbody.velocity.magnitude / topSpeed);
 	}
 	else // No handbrake
@@ -670,7 +704,7 @@ function CalculateEnginePower(relativeVelocity : Vector3)
 {
 	if(throttle == 0)
 	{
-		currentEnginePower -= Time.deltaTime * 30;
+		currentEnginePower -= Time.deltaTime * 50;
 	}
 	else if( HaveTheSameSign(relativeVelocity.z, throttle) )
 	{
@@ -719,7 +753,7 @@ function ApplyThrottle(canDrive : boolean, relativeVelocity : Vector3)
 		}
 		else
 			brakeForce = Mathf.Sign(throttle) * engineForceValues[0] * rigidbody.mass ;	// braking
-
+			
 		rigidbody.AddForce(transform.forward * Time.deltaTime * (throttleForce + brakeForce));
 	}
 }

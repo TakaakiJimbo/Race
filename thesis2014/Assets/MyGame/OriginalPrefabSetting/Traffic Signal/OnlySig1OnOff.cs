@@ -96,7 +96,7 @@ public class OnlySig1OnOff : MonoBehaviour {
 		{
 			obj.renderer.material.shader = Shader.Find( "Self-Illumin/VertexLit" );
 		} else {
-			obj.renderer.material.shader = Shader.Find( "Diffuse" );
+			obj.renderer.material.shader = Shader.Find( "su_Double_Clip" );
 		}
 	}
 	

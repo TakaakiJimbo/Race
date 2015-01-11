@@ -84,6 +84,7 @@ public class Sig0OnOff : MonoBehaviour {
 		signal_flag_a = Convert.ToInt32(signal_flag);
 		signal_flag_b = Convert.ToInt32(!signal_flag);
 		onoff (SignalParentColor [0, 0]            , signal_flag_a);
+		onoff (SignalParentColor [0, 1]            , 0);
 		onoff (SignalParentColor [0, 2]            , signal_flag_b);
 		//      onoff (SignalParentColor [1, 0]            , signal_flag_b);
 		//      onoff (SignalParentColor [1, 2]            , signal_flag_a);
@@ -95,8 +96,11 @@ public class Sig0OnOff : MonoBehaviour {
 		//      onoff (walker_OnlySignalParentColor [0, 1] , signal_flag_a);
 		//      onoff (walker_OnlySignalParentColor [1, 0] , signal_flag_a);
 		//      onoff (walker_OnlySignalParentColor [1, 1] , signal_flag_b);
-		signal_flashing ();
 		change_collider ();
+		if (signal_flag)
+		{
+			Invoke("middlesignal", change_color_time-2);
+		}
 	}
 	
 	void onoff(GameObject obj, int signal)
@@ -105,31 +109,14 @@ public class Sig0OnOff : MonoBehaviour {
 		{
 			obj.renderer.material.shader = Shader.Find( "Self-Illumin/VertexLit" );
 		} else {
-			obj.renderer.material.shader = Shader.Find( "Diffuse" );
-		}
-	}
-	
-	void signal_flashing()
-	{
-		if (signal_flag) {
-			//          onoff (SignalParentColor [1, 1], 0);
-			//          Invoke("middlesignal", change_color_time-2);
-		} else {
-			onoff (SignalParentColor [0, 1], 0);
-			Invoke("middlesignal", change_color_time-2);
+			obj.renderer.material.shader = Shader.Find( "su_Double_Clip" );
 		}
 	}
 	
 	void middlesignal()
 	{
-		if (signal_flag) {
-			onoff (SignalParentColor [0, 0], 0);
-			onoff (SignalParentColor [0, 1], 1);
-		} else
-		{
-			//          onoff (SignalParentColor [1, 0], 0);
-			//          onoff (SignalParentColor [1, 1], 1);
-		}
+		onoff (SignalParentColor [0, 0], 0);
+		onoff (SignalParentColor [0, 1], 1);
 	}
 
 	void change_collider()
