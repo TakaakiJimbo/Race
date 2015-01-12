@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarTutorial/Scripts/JavaScripts/Car.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AiTitle.js">
     <Files>
-      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="880" Column="24" />
+      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="897" Column="2" />
+      <File FileName="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AiTitle.js" Line="212" Column="38" />
+      <File FileName="Assets/MyGame/scripts/GoStage2014.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

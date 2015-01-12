@@ -114,6 +114,7 @@
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\Traffic Signal\Sig1OnOff.cs" />
      <Compile Include="Assets\MyGame\scripts\FadeManager.cs" />
      <Compile Include="Assets\MyGame\scripts\GoStage2014.cs" />
+     <Compile Include="Assets\MyGame\scripts\GoStagePractice.cs" />
      <Compile Include="Assets\MyGame\scripts\SingletonMonoBehaviour.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCameraRig.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCommon.cs" />

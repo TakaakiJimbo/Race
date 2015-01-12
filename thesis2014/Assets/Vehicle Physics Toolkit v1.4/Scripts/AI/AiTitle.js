@@ -209,7 +209,7 @@ function CheckNextStage()
 		GameObject.Find("TitleB").renderer.enabled = false;
 		GameObject.Find("LeftB").renderer.enabled = false;
 		GameObject.Find("RightB").renderer.enabled = false;
-		gameObject.GetComponent("GoStage2014").enabled = true;
+		gameObject.GetComponent("GoStagePractice").enabled = true;
 	}
 	if(state == 4 ){
 		GameObject.Find("TitleB").renderer.enabled = false;

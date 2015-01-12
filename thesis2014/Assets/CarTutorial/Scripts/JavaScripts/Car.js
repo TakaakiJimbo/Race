@@ -881,7 +881,15 @@ function OnTriggerStay(other : Collider)
                 {
                 	errorFlag = true;
                 	other.gameObject.GetComponent("AudioSource").enabled = true;
-                    ShowResult("Your score is"  + "\r\n" + score + "/100");
+                    ShowResult("Your score is"  + "\r\n" + score + "/100"+ "\r\n" + "Press + and - button" + "\r\n" + "to Exit" );
+                }
+                break;
+            case "practicefin" : 
+                if(speedfloat < 7)
+                {
+                	errorFlag = true;
+                	other.gameObject.GetComponent("AudioSource").enabled = true;
+                    ShowResult("");
                 }
                 break;
         }
