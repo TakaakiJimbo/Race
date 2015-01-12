@@ -1,15 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarTutorial/Scripts/JavaScripts/Car.js">
     <Files>
-      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="824" Column="20" />
-      <File FileName="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AiTitle.js" Line="235" Column="18" />
-      <File FileName="Assets/MyGame/scripts/OSCReceiver.js" Line="115" Column="1" />
-      <File FileName="Assets/Vehicle Physics Toolkit v1.4/Scripts/AI/AICarScript.js" Line="93" Column="26" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig1OnOff.cs" Line="101" Column="28" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/Sig0OnOff.cs" Line="96" Column="71" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig1OnOff.cs" Line="99" Column="63" />
-      <File FileName="Assets/MyGame/OriginalPrefabSetting/Traffic Signal/OnlySig0OnOff.cs" Line="98" Column="49" />
+      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="880" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
