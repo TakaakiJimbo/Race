@@ -221,9 +221,9 @@ function CheckNextStage()
 
 function GetInput()
 {
-//	GetOSC();
-	OSCvalueButton1 = Input.GetKey("1");
-	OSCvalueButton2 = Input.GetKey("2");
+	GetOSC();
+//	OSCvalueButton1 = Input.GetKey("1");
+//	OSCvalueButton2 = Input.GetKey("2");
 }
 
 function GetOSC()

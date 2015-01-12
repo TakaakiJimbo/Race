@@ -34,8 +34,8 @@ public function Start ()
 	handler.SetAddressHandler("/wii/1/button/Down", Example5);
 	handler.SetAddressHandler("/wii/1/button/Left", Example6);
 	handler.SetAddressHandler("/wii/1/button/Right", Example7);
-	handler.SetAddressHandler("/wii/1/button/Plus", Example6);
-	handler.SetAddressHandler("/wii/1/button/Minus", Example7);
+	handler.SetAddressHandler("/wii/1/button/Plus", Example8);
+	handler.SetAddressHandler("/wii/1/button/Minus", Example9);
 
 }
 

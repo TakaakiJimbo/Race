@@ -207,6 +207,7 @@ function Update()
     
     if(PauseTrigger)
     {
+    	Debug.Log("true");
     	HideError();
     }
     CheckGames();
@@ -398,10 +399,10 @@ function SetupLRButtonSignal()
 
 function GetInput()
 {
-//  GetOSC();
-    throttle = Input.GetAxis("Vertical");
-    steer = Input.GetAxis("Horizontal");
-    PauseTrigger = Input.GetKey("1");
+  GetOSC();
+//    throttle = Input.GetAxis("Vertical");
+//    steer = Input.GetAxis("Horizontal");
+//    PauseTrigger = Input.GetKey("1");
     
     steer = steer / 2;
     if(throttle < 0.0)
@@ -478,7 +479,8 @@ function GetOSC()
     }
     if(OSCvalueButtonPlus > 0) 
     {
-        ExitTrigger0 = true;    
+        ExitTrigger0 = true;   
+        Debug.Log("aaa"); 
     }
     if(OSCvalueButtonMinus > 0) 
     {
@@ -488,8 +490,8 @@ function GetOSC()
 
 function CheckHandbrake()
 {
-    if(Input.GetKey("space"))
-//  if(handbrakeTrigger)
+//    if(Input.GetKey("space"))
+  if(handbrakeTrigger)
     {
         if(!handbrake)
         {
@@ -885,12 +887,9 @@ function OnTriggerStay(other : Collider)
                 }
                 break;
             case "practicefin" : 
-                if(speedfloat < 7)
-                {
-                	errorFlag = true;
-                	other.gameObject.GetComponent("AudioSource").enabled = true;
-                    ShowResult("");
-                }
+	        	errorFlag = true;
+	        	other.gameObject.GetComponent("AudioSource").enabled = true;
+	            GoNextStage();
                 break;
         }
     }
@@ -929,6 +928,19 @@ function ShowResult(message)
 {
 	warningtm.GetComponent("TextMesh").text = message;
 	Invoke("TimeStop", 0.3);
+}
+
+function GoNextStage()
+{
+	warningtm.GetComponent("TextMesh").text = "Finish";
+	GameObject.Find("WarningBack").renderer.enabled = true;
+	warningtm.renderer.enabled = true;
+	Invoke("GoNextStageCore", 17);
+}
+
+function GoNextStageCore()
+{
+	Application.LoadLevel("stage02201411220001");
 }
 
 function TimeStop(){
