@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarTutorial/Scripts/JavaScripts/Car.js">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../camp2015/Assets/SampleAssets/CrossPlatformInput/Scripts/CameraSwitch.cs">
     <Files>
-      <File FileName="Assets/CarTutorial/Scripts/JavaScripts/Car.js" Line="213" Column="3" />
+      <File FileName="../camp2015/Assets/SampleAssets/Vehicles/Car/Scripts/Wheel.cs" Line="192" Column="38" />
+      <File FileName="../camp2015/Assets/SampleAssets/CrossPlatformInput/Scripts/CameraSwitch.cs" Line="7" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
