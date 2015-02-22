@@ -205,12 +205,12 @@ function Update()
         }   
     }
     
-    if(PauseTrigger)
-    {
-    	Debug.Log("true");
-    	HideError();
-    }
-    CheckGames();
+//    if(PauseTrigger)
+//    {
+//    	Debug.Log("true");
+//    	HideError();
+//    }
+//    CheckGames();
     
     LButtonSignal.renderer.enabled = LButtonTrigger;
     RButtonSignal.renderer.enabled = RButtonTrigger;
@@ -399,11 +399,21 @@ function SetupLRButtonSignal()
 
 function GetInput()
 {
-  GetOSC();
-//    throttle = Input.GetAxis("Vertical");
-//    steer = Input.GetAxis("Horizontal");
-//    PauseTrigger = Input.GetKey("1");
-    
+//  GetOSC();
+    throttle = Input.GetAxis("Vertical");
+    steer = Input.GetAxis("Horizontal");
+    PauseTrigger = Input.GetKey("1");
+    handbrakeTrigger = Input.GetKey("space");
+
+    if(Input.GetKey("2"))
+    {
+       LButtonTrigger = true; 
+    }
+    if(Input.GetKey("3"))
+    {
+	    RButtonTrigger = true;
+    }
+ 
     steer = steer / 2;
     if(throttle < 0.0)
         brakeLights.SetFloat("_Intensity", Mathf.Abs(throttle));
@@ -490,8 +500,7 @@ function GetOSC()
 
 function CheckHandbrake()
 {
-//    if(Input.GetKey("space"))
-  if(handbrakeTrigger)
+   if(handbrakeTrigger)
     {
         if(!handbrake)
         {
@@ -823,141 +832,141 @@ function ApplySteering(canSteer : boolean, relativeVelocity : Vector3)
 /* Functions called for Function CheckGames()      */
 /**************************************************/
 
-function CheckGames()   // speedover and emergency brake
-{
-     if(speedfloat > 70 && !errorFlag)
-     {
-     	errorFlag = true;
-     	score -= 10;
-        ShowError("WARNING " + "\r\n" + "You control the car "  + "\r\n" +  "with overspeed");
-     }
-}
-
-function OnTriggerEnter(other : Collider)
-{
-    if(other.gameObject.tag == "Judge"  && !errorFlag)    // traffic rule
-    {
-        switch(other.gameObject.name)
-        {
-            case "SignStop" : 
-                if(speedfloat > 20)
-                {
-                	errorFlag = true;
-                	score -= 10;
-                    ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "stop temporarily");
-                }
-                break;
-        }
-    }
-    else if(other.gameObject.tag == "signal_collider"  && !errorFlag)  // signal
-    {
-         if(speedfloat > 20)
-        {
-        	errorFlag = true;
-        	score -= 10;
-            ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "check signal");
-        }
-    }
-    else if(other.gameObject.tag == "Announce")
-    {
-        other.gameObject.GetComponent("AudioSource").enabled = true;
-    }
-}
-
-function OnTriggerStay(other : Collider)
-{
-    if(other.gameObject.tag == "Judge"  && !errorFlag)     //traffic rule and when finishing
-    {
-        switch(other.gameObject.name)
-        {
-            case "Sign40" : 
-                if(speedfloat > 50)
-                {
-                	errorFlag = true;
-                	score -= 10;
-                    ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "keep speed" + "\r\n" + "because of traffic signal");
-                }
-                break;
-            case "9fin" : 
-                if(speedfloat < 7)
-                {
-                	errorFlag = true;
-                	other.gameObject.GetComponent("AudioSource").enabled = true;
-                    ShowResult("Your score is"  + "\r\n" + score + "/100"+ "\r\n" + "Press + and - button" + "\r\n" + "to Exit" );
-                }
-                break;
-            case "practicefin" : 
-	        	errorFlag = true;
-	        	other.gameObject.GetComponent("AudioSource").enabled = true;
-	            GoNextStage();
-                break;
-        }
-    }
-}
-
-function OnCollisionEnter(other : Collision)    // accident
-{
-    switch(other.gameObject.tag)
-    {
-        case "WalkRoad" : 
-        	errorFlag = true;
-        	score -= 20;
-            ShowError("WARNING " + "\r\n" + "You cannot drive"+ "\r\n" + "on the walkroad");
-            break;
-        case "AI" :
-        	errorFlag = true; 
-        	score -= 40;
-            ShowError(" OH MY GOD...");
-            break;
-        case "AIPeople" : 
-        	errorFlag = true;
-        	score -= 40;
-            ShowError(" OH MY GOD..." );
-            break;
-    }
-}
-
-function ShowError(message)
-{
-    GameObject.Find("WarningBack").GetComponent("AudioSource").enabled = true;
-	warningtm.GetComponent("TextMesh").text = message;
-	Invoke("TimeStop", 0.3);
-}
-
-function ShowResult(message)
-{
-	warningtm.GetComponent("TextMesh").text = message;
-	Invoke("TimeStop", 0.3);
-}
-
-function GoNextStage()
-{
-	warningtm.GetComponent("TextMesh").text = "Finish";
-	GameObject.Find("WarningBack").renderer.enabled = true;
-	warningtm.renderer.enabled = true;
-	Invoke("GoNextStageCore", 17);
-}
-
-function GoNextStageCore()
-{
-	Application.LoadLevel("stage02201411220001");
-}
-
-function TimeStop(){
-	rigidbody.velocity = Vector3.zero;
-	GameObject.Find("WarningBack").renderer.enabled = true;
-	warningtm.renderer.enabled = true;
-	Time.timeScale = 0.0f;
-}
-
-function HideError()
-{
-    errorFlag = false;
-	warningtm.renderer.enabled = false;
-	GameObject.Find("WarningBack").renderer.enabled = false;
-	GameObject.Find("WarningBack").GetComponent("AudioSource").enabled = false;
-	Time.timeScale = 1.0f;
-}
+//function CheckGames()   // speedover and emergency brake
+//{
+//     if(speedfloat > 70 && !errorFlag)
+//     {
+//     	errorFlag = true;
+//     	score -= 10;
+//        ShowError("WARNING " + "\r\n" + "You control the car "  + "\r\n" +  "with overspeed");
+//     }
+//}
+//
+//function OnTriggerEnter(other : Collider)
+//{
+//    if(other.gameObject.tag == "Judge"  && !errorFlag)    // traffic rule
+//    {
+//        switch(other.gameObject.name)
+//        {
+//            case "SignStop" : 
+//                if(speedfloat > 20)
+//                {
+//                	errorFlag = true;
+//                	score -= 10;
+//                    ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "stop temporarily");
+//                }
+//                break;
+//        }
+//    }
+//    else if(other.gameObject.tag == "signal_collider"  && !errorFlag)  // signal
+//    {
+//         if(speedfloat > 20)
+//        {
+//        	errorFlag = true;
+//        	score -= 10;
+//            ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "check signal");
+//        }
+//    }
+//    else if(other.gameObject.tag == "Announce")
+//    {
+//        other.gameObject.GetComponent("AudioSource").enabled = true;
+//    }
+//}
+//
+//function OnTriggerStay(other : Collider)
+//{
+//    if(other.gameObject.tag == "Judge"  && !errorFlag)     //traffic rule and when finishing
+//    {
+//        switch(other.gameObject.name)
+//        {
+//            case "Sign40" : 
+//                if(speedfloat > 50)
+//                {
+//                	errorFlag = true;
+//                	score -= 10;
+//                    ShowError("WARNING " + "\r\n" + "You need to" + "\r\n" + "keep speed" + "\r\n" + "because of traffic signal");
+//                }
+//                break;
+//            case "9fin" : 
+//                if(speedfloat < 7)
+//                {
+//                	errorFlag = true;
+//                	other.gameObject.GetComponent("AudioSource").enabled = true;
+//                    ShowResult("Your score is"  + "\r\n" + score + "/100"+ "\r\n" + "Press + and - button" + "\r\n" + "to Exit" );
+//                }
+//                break;
+//            case "practicefin" : 
+//	        	errorFlag = true;
+//	        	other.gameObject.GetComponent("AudioSource").enabled = true;
+//	            GoNextStage();
+//                break;
+//        }
+//    }
+//}
+//
+//function OnCollisionEnter(other : Collision)    // accident
+//{
+//    switch(other.gameObject.tag)
+//    {
+//        case "WalkRoad" : 
+//        	errorFlag = true;
+//        	score -= 20;
+//            ShowError("WARNING " + "\r\n" + "You cannot drive"+ "\r\n" + "on the walkroad");
+//            break;
+//        case "AI" :
+//        	errorFlag = true; 
+//        	score -= 40;
+//            ShowError(" OH MY GOD...");
+//            break;
+//        case "AIPeople" : 
+//        	errorFlag = true;
+//        	score -= 40;
+//            ShowError(" OH MY GOD..." );
+//            break;
+//    }
+//}
+//
+//function ShowError(message)
+//{
+//    GameObject.Find("WarningBack").GetComponent("AudioSource").enabled = true;
+//	warningtm.GetComponent("TextMesh").text = message;
+//	Invoke("TimeStop", 0.3);
+//}
+//
+//function ShowResult(message)
+//{
+//	warningtm.GetComponent("TextMesh").text = message;
+//	Invoke("TimeStop", 0.3);
+//}
+//
+//function GoNextStage()
+//{
+//	warningtm.GetComponent("TextMesh").text = "Finish";
+//	GameObject.Find("WarningBack").renderer.enabled = true;
+//	warningtm.renderer.enabled = true;
+//	Invoke("GoNextStageCore", 17);
+//}
+//
+//function GoNextStageCore()
+//{
+//	Application.LoadLevel("stage02201411220001");
+//}
+//
+//function TimeStop(){
+//	rigidbody.velocity = Vector3.zero;
+//	GameObject.Find("WarningBack").renderer.enabled = true;
+//	warningtm.renderer.enabled = true;
+//	Time.timeScale = 0.0f;
+//}
+//
+//function HideError()
+//{
+//    errorFlag = false;
+//	warningtm.renderer.enabled = false;
+//	GameObject.Find("WarningBack").renderer.enabled = false;
+//	GameObject.Find("WarningBack").GetComponent("AudioSource").enabled = false;
+//	Time.timeScale = 1.0f;
+//}
 
 /**************************************************/
 /*               Utility Functions                */
