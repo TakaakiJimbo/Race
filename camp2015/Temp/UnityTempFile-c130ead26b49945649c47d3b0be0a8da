@@ -44,7 +44,7 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
 -define:CROSS_PLATFORM_INPUT
-'Assets/MyGame/Scripts/Dashboard.cs'
+'Assets/MyGame/Scripts/MyCollision.cs'
 'Assets/NGUI/Examples/Scripts/InventorySystem/Game/EquipItems.cs'
 'Assets/NGUI/Examples/Scripts/InventorySystem/Game/EquipRandomItem.cs'
 'Assets/NGUI/Examples/Scripts/InventorySystem/Game/UICursor.cs'
@@ -300,7 +300,6 @@
 'Assets/SampleAssets/Vehicles/Car/Scripts/CarSelfRighting.cs'
 'Assets/SampleAssets/Vehicles/Car/Scripts/CarUserControl.cs'
 'Assets/SampleAssets/Vehicles/Car/Scripts/Mudguard.cs'
-'Assets/SampleAssets/Vehicles/Car/Scripts/MyCollision.cs'
 'Assets/SampleAssets/Vehicles/Car/Scripts/SkidTrail.cs'
 'Assets/SampleAssets/Vehicles/Car/Scripts/Suspension.cs'
 'Assets/SampleAssets/Vehicles/Car/Scripts/Wheel.cs'
