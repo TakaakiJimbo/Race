@@ -19,6 +19,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			case 5 :
 				Bomb(other);
 				break;
+			case 6 :
+				Press();
+				break;
 			default :
 				break;
 			}
@@ -61,6 +64,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			case "Bomb" : 
 				return 5;
 				break;
+			case "Press" : 
+				return 6;
+				break;
 			default :
 				return 0;
 				break;
@@ -100,6 +106,17 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		void BombFly() {
 			iTween.MoveTo(gameObject, iTween.Hash("y", 20, "time", 1.5f));
 			iTween.RotateTo(gameObject, iTween.Hash("x", 1440, "time", 5.5f));
+		}
+
+		void Press() {
+			iTween.ScaleTo(gameObject, iTween.Hash("y", 0.5, "time", 0.1f));
+			Invoke("ResetPress",3);
+		}
+
+
+		void ResetPress() {
+			iTween.ScaleTo(gameObject, iTween.Hash("y", 1, "time", 0.1f));
+			ResetMaxSpeed();
 		}
 
 
