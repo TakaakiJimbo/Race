@@ -22,7 +22,7 @@ namespace UnitySampleAssets.Vehicles.Car
         [SerializeField] private float steeringResponseSpeed = 200; // how fast the steering responds
         [SerializeField] [Range(0, 1)] private float maxSpeedSteerAngle = 0.23f;// the reduction in steering angle at max speed
         [SerializeField] [Range(0, .5f)] private float maxSpeedSteerResponse = 0.5f;// the reduction in steer response at max speed
-        [SerializeField] private float maxSpeed = 60; // the maximum speed (in meters per second!)
+		[SerializeField] public static float maxSpeed = 60; // the maximum speed (in meters per second!)
         [SerializeField] public static float maxTorque = 35; // the maximum torque of the engine
         [SerializeField] public static float minTorque = 10; // the minimum torque of the engine
         [SerializeField] private float brakePower = 40; // how powerful the brakes are at stopping the car

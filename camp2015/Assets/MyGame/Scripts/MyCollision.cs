@@ -4,9 +4,8 @@ using System.Collections;
 namespace UnitySampleAssets.Vehicles.Car  {
 	public class MyCollision : MonoBehaviour {
 
-		private float[] torque = new float[]{CarController.maxTorque, CarController.minTorque};
+		private float[] initialization = new float[]{CarController.maxTorque, CarController.minTorque, CarController.maxSpeed};
 
-		// Car 
 		void OnTriggerEnter(Collider other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
 			case 1 :
@@ -17,10 +16,33 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			}
 		}
 		
+		void OnTriggerStay(Collider other) {
+			switch (CheckColliderTag (other.gameObject.tag)) {
+			case 3 :
+				Dart();
+				break;
+			default :
+				break;
+			}
+		}
+
+		void OnTriggerExit(Collider other) {
+			switch (CheckColliderTag (other.gameObject.tag)) {
+			case 3 :
+				ResetMaxSpeed();
+				break;
+			default :
+				break;
+			}
+		}
+
 		int CheckColliderTag(string tag) {
 			switch (tag) {
 			case "Dashboard" : 
 				return 1;
+				break;
+			case "Dart" : 
+				return 3;
 				break;
 			default :
 				return 0;
@@ -34,9 +56,18 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			Invoke("ResetTorque",1);
 		}
 
+		void Dart() {
+			CarController.maxSpeed = initialization [2] / 3;
+		}
+
 		void ResetTorque() {
-			CarController.maxTorque = torque [0];
-			CarController.minTorque = torque [1];
+			CarController.maxTorque = initialization [0];
+			CarController.minTorque = initialization [1];
+		}
+
+
+		void ResetMaxSpeed() {
+			CarController.maxSpeed  = initialization [2];
 		}
 	}
 }
