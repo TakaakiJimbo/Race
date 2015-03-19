@@ -21,4 +21,40 @@ public class Carapace : MonoBehaviour {
 			rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
 		}
 	}
+
+	void OnTriggerEnter(Collider other) {
+		switch (CheckColliderTag (other.gameObject.tag)) {
+			case 4 :
+				Destroy (other.gameObject);
+				Destroy(gameObject);
+				break;
+			default :
+				break;
+		}
+	}
+
+	void OnCollisionEnter(Collision other) {
+		switch (CheckColliderTag (other.gameObject.tag)) {
+			case 7 :
+				Destroy (other.gameObject);
+				Destroy (gameObject);
+				break;
+			default :
+				break;
+		}
+	}
+
+	int CheckColliderTag(string tag) {
+		switch (tag) {
+			case "Banana": 
+				return 4;
+				break;
+			case "Carapace": 
+				return 7;
+				break;
+			default :
+				return 0;
+				break;
+		}
+	}
 }

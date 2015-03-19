@@ -10,31 +10,44 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		void OnTriggerEnter(Collider other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
-			case 1 :
-				Dashboard();
-				break;
-			case 4 :
-				Banana(other);
-				break;
-			case 5 :
-				Bomb(other);
-				break;
-			case 6 :
-				Press();
-				break;
-			default :
-				break;
+				case 1 :
+					Dashboard();
+					break;
+				case 4 :
+					Destroy (other.gameObject);
+					BananaSlip();
+					break;
+				case 5 :
+					Destroy (other.gameObject);
+					BombFly();
+					break;
+				case 6 :
+					Press();
+					break;
+				default :
+					break;
+			}
+		}
+
+		void OnCollisionEnter(Collision other) {
+			switch (CheckColliderTag (other.gameObject.tag)) {
+				case 7 :
+					Destroy (other.gameObject);
+					CarapaceCrash();
+					break;
+				default :
+					break;
 			}
 		}
 
 
 		void OnTriggerStay(Collider other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
-			case 3 :
-				Dart();
-				break;
-			default :
-				break;
+				case 3 :
+					Dart();
+					break;
+				default :
+					break;
 			}
 		}
 
@@ -67,6 +80,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			case "Press" : 
 				return 6;
 				break;
+			case "Carapace" : 
+				return 7;
+				break;
 			default :
 				return 0;
 				break;
@@ -86,20 +102,8 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		}
 
 
-		void Banana(Collider other) {
-			Destroy (other.gameObject);
-			BananaRotate ();
-		}
-
-
-		void BananaRotate() {
+		void BananaSlip() {
 			iTween.RotateTo(gameObject, iTween.Hash("y", 1080, "time", 2.0f));
-		}
-
-
-		void Bomb(Collider other) {
-			Destroy (other.gameObject);
-			BombFly ();
 		}
 
 
@@ -108,11 +112,17 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			iTween.RotateTo(gameObject, iTween.Hash("x", 1440, "time", 5.5f));
 		}
 
+
 		void Press() {
 			iTween.ScaleTo(gameObject, iTween.Hash("y", 0.5, "time", 0.1f));
 			Invoke("ResetPress",3);
 		}
 
+
+		void CarapaceCrash() {
+			iTween.MoveTo(gameObject, iTween.Hash("y", 10, "time", 1.0f));
+			iTween.RotateTo(gameObject, iTween.Hash("x", 1080 , "y", 1080, "z", 1080, "time", 2.5f));
+		}
 
 		void ResetPress() {
 			iTween.ScaleTo(gameObject, iTween.Hash("y", 1, "time", 0.1f));
