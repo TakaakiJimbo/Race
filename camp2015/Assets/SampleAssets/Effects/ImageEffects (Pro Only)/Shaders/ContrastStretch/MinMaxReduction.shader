@@ -1,9 +1,14 @@
+// Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 // Reduces input image (_MainTex) by 2x2.
 // Outputs maximum value in R, minimum in G.
 Shader "Hidden/Contrast Stretch Reduction" {
 
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
 }
 
 Category {
@@ -53,6 +58,9 @@ float4 frag (v2f i) : COLOR
 	res.y = min( min(v00.y,v01.y), min(v10.y,v11.y) );
 	// output zw unchanged from the first pixel
 	res.zw = v00.zw;
+	
+	//res.xy = (v00.xy + v01 + v10 + v11)/4;
+	//res.zw = 0;
 	
 	return res;
 }

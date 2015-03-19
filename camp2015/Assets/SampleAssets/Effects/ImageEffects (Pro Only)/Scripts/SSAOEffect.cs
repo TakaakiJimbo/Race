@@ -2,7 +2,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [RequireComponent (typeof(Camera))]
-[AddComponentMenu("Image Effects/Screen Space Ambient Occlusion")]
+[AddComponentMenu("Image Effects/SSAO")]
 public class SSAOEffect : MonoBehaviour
 {
 	public enum SSAOSamples {
@@ -25,6 +25,7 @@ public class SSAOEffect : MonoBehaviour
 	public Texture2D m_RandomTexture;
 	
 	private bool m_Supported;
+	private bool m_IsOpenGL;
 
 	private static Material CreateMaterial (Shader shader)
 	{
@@ -67,12 +68,10 @@ public class SSAOEffect : MonoBehaviour
 		}
 		
 		//CreateRandomTable (26, 0.2f);
-					
+				
+		camera.depthTextureMode = DepthTextureMode.DepthNormals;
 		m_Supported = true;
-	}
-	
-	void OnEnable () {
-		camera.depthTextureMode |= DepthTextureMode.DepthNormals;
+		m_IsOpenGL = SystemInfo.graphicsDeviceVersion.StartsWith("OpenGL");
 	}
 
 	private void CreateMaterials ()
@@ -84,7 +83,6 @@ public class SSAOEffect : MonoBehaviour
 		}
 	}
 	
-	[ImageEffectOpaque]
 	void OnRenderImage (RenderTexture source, RenderTexture destination)
 	{
 		if (!m_Supported || !m_SSAOShader.isSupported) {
@@ -129,6 +127,8 @@ public class SSAOEffect : MonoBehaviour
 			// Blur SSAO horizontally
 			RenderTexture rtBlurX = RenderTexture.GetTemporary (source.width, source.height, 0);
 			m_SSAOMaterial.SetVector ("_TexelOffsetScale",
+				m_IsOpenGL ?
+				new Vector4 (m_Blur,0,1.0f/m_Downsampling,0) :
 				new Vector4 ((float)m_Blur / source.width, 0,0,0));
 			m_SSAOMaterial.SetTexture ("_SSAO", rtAO);
 			Graphics.Blit (null, rtBlurX, m_SSAOMaterial, 3);
@@ -137,6 +137,8 @@ public class SSAOEffect : MonoBehaviour
 			// Blur SSAO vertically
 			RenderTexture rtBlurY = RenderTexture.GetTemporary (source.width, source.height, 0);
 			m_SSAOMaterial.SetVector ("_TexelOffsetScale",
+				m_IsOpenGL ?
+				new Vector4 (0, m_Blur, 1,0) :
 				new Vector4 (0, (float)m_Blur/source.height, 0,0));
 			m_SSAOMaterial.SetTexture ("_SSAO", rtBlurX);
 			Graphics.Blit (source, rtBlurY, m_SSAOMaterial, 3);

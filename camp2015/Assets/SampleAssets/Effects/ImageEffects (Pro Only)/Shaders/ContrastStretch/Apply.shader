@@ -1,11 +1,16 @@
+// Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 // Final pass in the contrast stretch effect: apply
 // color stretch to the original image, based on currently
 // adapted to minimum/maximum luminances.
 
 Shader "Hidden/Contrast Stretch Apply" {
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
-	_AdaptTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
+	_AdaptTex ("Base (RGB)", RECT) = "white" {}
 }
 
 Category {

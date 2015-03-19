@@ -1,9 +1,12 @@
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 // Outputs luminance (grayscale) of the input image _MainTex
 
 Shader "Hidden/Contrast Stretch Luminance" {
 	
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
 }
 
 Category {

@@ -31,11 +31,11 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 1
+        second: .673113167
       data:
         first:
           name: _BumpAmt
-        second: 128
+        second: 56.7547188
     m_Colors:
       data:
         first:

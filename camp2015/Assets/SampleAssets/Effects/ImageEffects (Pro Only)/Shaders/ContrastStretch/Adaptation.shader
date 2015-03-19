@@ -1,11 +1,14 @@
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 // Calculates adaptation to minimum/maximum luminance values,
 // based on "currently adapted" and "new values to adapt to"
 // textures (both 1x1).
 
 Shader "Hidden/Contrast Stretch Adaptation" {
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
-	_CurTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
+	_CurTex ("Base (RGB)", RECT) = "white" {}
 }
 
 Category {

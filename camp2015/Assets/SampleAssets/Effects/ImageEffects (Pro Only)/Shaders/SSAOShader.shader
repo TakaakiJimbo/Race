@@ -1,16 +1,25 @@
+// Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[1]' with 'UNITY_MATRIX_TEXTURE1'
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 Shader "Hidden/SSAO" {
 Properties {
-	_MainTex ("", 2D) = "" {}
+	_MainTex ("", RECT) = "" {}
 	_RandomTexture ("", 2D) = "" {}
-	_SSAO ("", 2D) = "" {}
+	_SSAO ("", RECT) = "" {}
 }
 Subshader {
 	ZTest Always Cull Off ZWrite Off Fog { Mode Off }
 
 CGINCLUDE
-// Common code used by several SSAO passes below
+// Upgrade NOTE: excluded shader from DX11, Xbox360, OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers d3d11 xbox360 gles
+// Upgrade NOTE: excluded shader from Xbox360 and OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers xbox360 gles
+// Common Cg code used by several SSAO passes below
 #include "UnityCG.cginc"
-#pragma exclude_renderers gles
 struct v2f_ao {
 	float4 pos : POSITION;
 	float2 uv : TEXCOORD0;
@@ -33,24 +42,56 @@ sampler2D _CameraDepthNormalsTexture;
 sampler2D _RandomTexture;
 float4 _Params; // x=radius, y=minz, z=attenuation power, w=SSAO power
 
-#ifdef UNITY_COMPILER_HLSL
+half frag_ao (v2f_ao i, int sampleCount, float3[] samples)
+{
+	// read random normal from noise texture
+    half3 randN = tex2D (_RandomTexture, i.uvr).xyz * 2.0 - 1.0;    
+    
+    // read scene depth/normal
+    float4 depthnormal = tex2D (_CameraDepthNormalsTexture, i.uv);
+    float3 viewNorm;
+    float depth;
+    DecodeDepthNormal (depthnormal, depth, viewNorm);
+    depth *= _ProjectionParams.z;
+    #if SHADER_API_OPENGL
+    float2 scale = (_Params.x / depth) * _CameraDepthNormalsTexture_ST.xy;
+    #else
+    float scale = _Params.x / depth;
+    #endif
+    
+    // accumulated occlusion factor
+    float occ = 0.0;
+    for (int s = 0; s < sampleCount; ++s)
+    {
+    	// Reflect sample direction around a random vector
+        half3 randomDir = reflect(samples[s], randN);
+        
+        // Make it point to the upper hemisphere
+        half flip = (dot(viewNorm,randomDir)<0) ? 1.0 : -1.0;
+        randomDir *= -flip;
+        // Add a bit of normal to reduce self shadowing
+        randomDir += viewNorm * 0.3;
+        
+        float2 offset = randomDir.xy * scale;
+        float sD = depth - (randomDir.z * _Params.x);
 
-#	define INPUT_SAMPLE_COUNT 8
-#	include "frag_ao.cginc"
-
-#	define INPUT_SAMPLE_COUNT 14
-#	include "frag_ao.cginc"
-
-#	define INPUT_SAMPLE_COUNT 26
-#	include "frag_ao.cginc"
-
-#	define INPUT_SAMPLE_COUNT 34
-#	include "frag_ao.cginc"
-
-#else
-#	define INPUT_SAMPLE_COUNT
-#	include "frag_ao.cginc"
-#endif
+		// Sample depth at offset location
+        float4 sampleND = tex2D (_CameraDepthNormalsTexture, i.uv + offset);
+        float sampleD;
+        float3 sampleN;
+        DecodeDepthNormal (sampleND, sampleD, sampleN);
+        sampleD *= _ProjectionParams.z;
+        float zd = saturate(sD-sampleD);
+        if (zd > _Params.y) {
+        	// This sample occludes, contribute to occlusion
+	        occ += pow(1-zd,_Params.z); // sc2
+	        //occ += 1.0-saturate(pow(1.0 - zd, 11.0) + zd); // nullsq
+        	//occ += 1.0/(1.0+zd*zd*10); // iq
+        }        
+    }
+    occ /= sampleCount;
+    return 1-occ;
+}
 
 ENDCG
 
@@ -62,6 +103,7 @@ CGPROGRAM
 #pragma fragment frag
 #pragma target 3.0
 #pragma fragmentoption ARB_precision_hint_fastest
+#pragma profileoption MaxTexIndirections=16
 
 
 half4 frag (v2f_ao i) : COLOR
@@ -83,7 +125,7 @@ ENDCG
 
 	}
 
-// ---- SSAO pass, 14 samples
+	// ---- SSAO pass, 14 samples
 	Pass {
 		
 CGPROGRAM
@@ -91,6 +133,7 @@ CGPROGRAM
 #pragma fragment frag
 #pragma target 3.0
 #pragma fragmentoption ARB_precision_hint_fastest
+#pragma profileoption MaxTexIndirections=16
 
 
 half4 frag (v2f_ao i) : COLOR
@@ -118,7 +161,7 @@ ENDCG
 
 	}
 	
-// ---- SSAO pass, 26 samples
+	// ---- SSAO pass, 26 samples
 	Pass {
 		
 CGPROGRAM
@@ -126,6 +169,7 @@ CGPROGRAM
 #pragma fragment frag
 #pragma target 3.0
 #pragma fragmentoption ARB_precision_hint_fastest
+#pragma profileoption MaxTexIndirections=16
 
 
 half4 frag (v2f_ao i) : COLOR
@@ -164,8 +208,8 @@ half4 frag (v2f_ao i) : COLOR
 ENDCG
 
 	}
-
-// ---- Blur pass
+		
+	// ---- Blur pass
 	Pass {
 CGPROGRAM
 #pragma vertex vert
@@ -205,14 +249,22 @@ inline half CheckSame (half4 n, half4 nn)
 	return sn * sz;
 }
 
+#if SHADER_API_OPENGL
+#define AO_UV(uv) uv*_TexelOffsetScale.z
+#else
+#define AO_UV(uv) uv
+#endif
+
 
 half4 frag( v2f i ) : COLOR
 {
+	//return texRECT(_SSAO, AO_UV(i.uv));
+	
 	#define NUM_BLUR_SAMPLES 4
 	
     float2 o = _TexelOffsetScale.xy;
     
-    half sum = tex2D(_SSAO, i.uv).r * (NUM_BLUR_SAMPLES + 1);
+    half sum = tex2D(_SSAO, AO_UV(i.uv)).r * (NUM_BLUR_SAMPLES + 1);
     half denom = NUM_BLUR_SAMPLES + 1;
     
     half4 geom = tex2D (_CameraDepthNormalsTexture, i.uv);
@@ -222,7 +274,7 @@ half4 frag( v2f i ) : COLOR
         float2 nuv = i.uv + o * (s+1);
         half4 ngeom = tex2D (_CameraDepthNormalsTexture, nuv.xy);
         half coef = (NUM_BLUR_SAMPLES - s) * CheckSame (geom, ngeom);
-        sum += tex2D (_SSAO, nuv.xy).r * coef;
+        sum += tex2D (_SSAO, AO_UV(nuv.xy)).r * coef;
         denom += coef;
     }
     for (int s = 0; s < NUM_BLUR_SAMPLES; ++s)
@@ -230,7 +282,7 @@ half4 frag( v2f i ) : COLOR
         float2 nuv = i.uv - o * (s+1);
         half4 ngeom = tex2D (_CameraDepthNormalsTexture, nuv.xy);
         half coef = (NUM_BLUR_SAMPLES - s) * CheckSame (geom, ngeom);
-        sum += tex2D (_SSAO, nuv.xy).r * coef;
+        sum += tex2D (_SSAO, AO_UV(nuv.xy)).r * coef;
         denom += coef;
     }
     return sum / denom;
@@ -267,6 +319,8 @@ half4 frag( v2f i ) : COLOR
 {
 	half4 c = tex2D (_MainTex, i.uv[0]);
 	half ao = tex2D (_SSAO, i.uv[1]).r;
+	//c.rgb *= 0.001;
+	//c.rgb += ao.rgb * ao.rgb * ao.rgb;
 	ao = pow (ao, _Params.w);
 	c.rgb *= ao;
 	return c;

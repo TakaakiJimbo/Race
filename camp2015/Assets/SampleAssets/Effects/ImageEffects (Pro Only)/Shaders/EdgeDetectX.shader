@@ -1,6 +1,11 @@
+// Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 Shader "Hidden/Edge Detect X" {
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
 	_Treshold ("Treshold", Float) = 0.2
 }
 

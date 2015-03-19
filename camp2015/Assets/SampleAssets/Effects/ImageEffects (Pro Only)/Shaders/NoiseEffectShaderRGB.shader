@@ -1,6 +1,11 @@
+// Upgrade NOTE: replaced 'glstate.matrix.mvp' with 'UNITY_MATRIX_MVP'
+// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
+// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
+
 Shader "Hidden/Noise Shader RGB" {
 Properties {
-	_MainTex ("Base (RGB)", 2D) = "white" {}
+	_MainTex ("Base (RGB)", RECT) = "white" {}
 	_GrainTex ("Base (RGB)", 2D) = "gray" {}
 	_ScratchTex ("Base (RGB)", 2D) = "gray" {}
 }
@@ -28,7 +33,7 @@ uniform sampler2D _ScratchTex;
 
 uniform float4 _GrainOffsetScale;
 uniform float4 _ScratchOffsetScale;
-uniform fixed4 _Intensity; // x=grain, y=scratch
+uniform float4 _Intensity; // x=grain, y=scratch
 
 v2f vert (appdata_img v)
 {
@@ -40,16 +45,16 @@ v2f vert (appdata_img v)
 	return o;
 }
 
-fixed4 frag (v2f i) : COLOR
+half4 frag (v2f i) : COLOR
 {
-	fixed4 col = tex2D(_MainTex, i.uv);
+	half4 col = tex2D(_MainTex, i.uv);
 	
 	// sample noise texture and do a signed add
-	fixed3 grain = tex2D(_GrainTex, i.uvg).rgb * 2 - 1;
+	half3 grain = tex2D(_GrainTex, i.uvg).rgb * 2 - 1;
 	col.rgb += grain * _Intensity.x;
 
 	// sample scratch texture and do a signed add
-	fixed3 scratch = tex2D(_ScratchTex, i.uvs).rgb * 2 - 1;
+	half3 scratch = tex2D(_ScratchTex, i.uvs).rgb * 2 - 1;
 	col.rgb += scratch * _Intensity.y;
 
 	return col;
