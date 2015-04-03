@@ -12,6 +12,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			switch (CheckColliderTag (other.gameObject.tag)) {
 				case 1 :
 					Dashboard();
+				Debug.Log("aaa");
 					break;
 				case 4 :
 					Destroy (other.gameObject);
