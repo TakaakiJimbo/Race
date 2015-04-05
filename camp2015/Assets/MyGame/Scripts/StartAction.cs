@@ -3,14 +3,14 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class StartAction : MonoBehaviour {
-	public  GameObject startcount;
-	private Text       startcountvalue;
-	public  float      timer;
+	private  GameObject message;
+	private  Text       messagevalue;
+	private  float      timer;
 
 	// Use this for initialization
 	void Start () {
-		startcount = GameObject.Find("StartCount").gameObject;
-		startcountvalue = startcount.GetComponent<Text>();
+		message = GameObject.Find("Message").gameObject;
+		messagevalue = message.GetComponent<Text>();
 		timer = 3.0f;
 	}
 	
@@ -18,16 +18,16 @@ public class StartAction : MonoBehaviour {
 		timer -= Time.deltaTime;
 		if (timer <= 0.0f)
 		{
-			Destroy(startcount);
+			messagevalue.text = "" ;
 			Destroy(gameObject);
 		}
 		else if (timer <= 1.0f)
 		{
-			startcountvalue.text = "1" ;
+			messagevalue.text = "1" ;
 		}
 		else if (timer <= 2.0f)
 		{
-			startcountvalue.text = "2" ;
+			messagevalue.text = "2" ;
 		}
 	}
 	

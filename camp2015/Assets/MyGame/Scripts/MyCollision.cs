@@ -1,12 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace UnitySampleAssets.Vehicles.Car  {
 	public class MyCollision : MonoBehaviour {
 
+		[SerializeField]private string lifeshowtarget;
+		[SerializeField]private int    lifepoint;
+		private GameObject lifeshow;
+		private Text       lifeshowpoint;
+		private float[]    initialization = new float[]{CarController.maxTorque, CarController.minTorque, CarController.maxSpeed};
+		private int        pressnodamage  = 0;
 
-		private float[] initialization = new float[]{CarController.maxTorque, CarController.minTorque, CarController.maxSpeed};
-
+		void Start() {
+			lifeshow      = GameObject.Find (lifeshowtarget).gameObject;
+			lifeshowpoint = lifeshow.FindDeep("PlayerLife").gameObject.GetComponent<Text>();
+			lifeshowpoint.text = new string('*', lifepoint);
+		}
 
 		void OnTriggerEnter(Collider other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
@@ -20,9 +30,11 @@ namespace UnitySampleAssets.Vehicles.Car  {
 				case 5 :
 					Destroy (other.gameObject);
 					BombFly();
+					LifeChange(-1);
 					break;
 				case 6 :
 					Press();
+					LifeChange(-1);
 					break;
 				default :
 					break;
@@ -34,6 +46,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 				case 7 :
 					Destroy (other.gameObject);
 					CarapaceCrash();
+					LifeChange(-1);
 					break;
 				default :
 					break;
@@ -115,17 +128,47 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		void Press() {
 			iTween.ScaleTo(gameObject, iTween.Hash("y", 0.5, "time", 0.1f));
+			PressDamage ();
 			Invoke("ResetPress",3);
 		}
-
 
 		void CarapaceCrash() {
 			iTween.MoveTo(gameObject, iTween.Hash("y", 10, "time", 1.0f));
 			iTween.RotateTo(gameObject, iTween.Hash("x", 1080 , "y", 1080, "z", 1080, "time", 2.5f));
 		}
 
+		void LifeChange(int point) {
+			lifepoint += point;
+			if (LifeCheck (lifepoint)) {
+				lifeshowpoint.text = new string ('*', lifepoint);
+			}
+			else {
+				lifeshowpoint.text = "die";
+				lifepoint          = -2;
+			}
+		}
+
+		bool LifeCheck(int lifepoint) {
+			if (lifepoint > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		void PressDamage() {
+			if (pressnodamage == 0) {
+				pressnodamage = 1;
+			}
+			else {
+				lifepoint++;
+			}
+		}
+
 		void ResetPress() {
 			iTween.ScaleTo(gameObject, iTween.Hash("y", 1, "time", 0.1f));
+			pressnodamage = 0;
 			ResetMaxSpeed();
 		}
 

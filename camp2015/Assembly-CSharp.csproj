@@ -60,6 +60,7 @@
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wheel.cs" />
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wing.cs" />
      <Compile Include="Assets\MyGame\Scripts\Carapace.cs" />
+     <Compile Include="Assets\MyGame\Scripts\GameObjectExtensions.cs" />
      <Compile Include="Assets\MyGame\Scripts\MyCollision.cs" />
      <Compile Include="Assets\MyGame\Scripts\StartAction.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
