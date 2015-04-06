@@ -3,25 +3,39 @@ using UnityEngine.UI;
 using System.Collections;
 
 namespace UnitySampleAssets.Vehicles.Car  {
+
+	[RequireComponent(typeof (Item))]
+	[RequireComponent(typeof (CarController))]
 	public class MyCollision : MonoBehaviour {
 
 		[SerializeField]private string lifeshowtarget;
 		[SerializeField]private int    lifepoint;
 		private GameObject lifeshow;
 		private Text       lifeshowpoint;
-		private float[]    initialization = new float[]{CarController.maxTorque, CarController.minTorque, CarController.maxSpeed};
+		private float[]    initialization = new float[3];
 		private int        pressnodamage  = 0;
+		private Item       item;
+		private CarController carcontroller;
 
 		void Start() {
+			item = GetComponent<Item>();
+			carcontroller = GetComponent<CarController>();
 			lifeshow      = GameObject.Find (lifeshowtarget).gameObject;
 			lifeshowpoint = lifeshow.FindDeep("PlayerLife").gameObject.GetComponent<Text>();
 			lifeshowpoint.text = new string('*', lifepoint);
+			initialization[0] = carcontroller.maxTorque;
+			initialization[1] = carcontroller.minTorque;
+			initialization[2] = carcontroller.maxSpeed;
 		}
+
 
 		void OnTriggerEnter(Collider other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
 				case 1 :
 					Dashboard();
+					break;
+				case 2 :
+					GetItem();
 					break;
 				case 4 :
 					Destroy (other.gameObject);
@@ -32,7 +46,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 					BombFly();
 					LifeChange(-1);
 					break;
-				case 6 :
+				case 7 :
 					Press();
 					LifeChange(-1);
 					break;
@@ -43,7 +57,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		void OnCollisionEnter(Collision other) {
 			switch (CheckColliderTag (other.gameObject.tag)) {
-				case 7 :
+				case 6 :
 					Destroy (other.gameObject);
 					CarapaceCrash();
 					LifeChange(-1);
@@ -81,6 +95,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			case "Dashboard" : 
 				return 1;
 				break;
+			case "Itembox" : 
+				return 2;
+				break;
 			case "Dart" : 
 				return 3;
 				break;
@@ -90,10 +107,10 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			case "Bomb" : 
 				return 5;
 				break;
-			case "Press" : 
+			case "Carapace" : 
 				return 6;
 				break;
-			case "Carapace" : 
+			case "Press" : 
 				return 7;
 				break;
 			default :
@@ -104,14 +121,19 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 
 		void Dashboard() {
-			CarController.maxTorque = 1000;
-			CarController.minTorque = 1000;
+			carcontroller.maxTorque = 1000;
+			carcontroller.minTorque = 1000;
 			Invoke("ResetTorque",1);
 		}
 
+		void GetItem() {
+			if (item.stockitem == 0) {
+				item.StockItem();
+			}
+		}
 
 		void Dart() {
-			CarController.maxSpeed = initialization [2] / 3;
+			carcontroller.maxSpeed = initialization [2] / 3;
 		}
 
 
@@ -174,13 +196,13 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 
 		void ResetTorque() {
-			CarController.maxTorque = initialization [0];
-			CarController.minTorque = initialization [1];
+			carcontroller.maxTorque = initialization [0];
+			carcontroller.minTorque = initialization [1];
 		}
 
 
 		void ResetMaxSpeed() {
-			CarController.maxSpeed  = initialization [2];
+			carcontroller.maxSpeed  = initialization [2];
 		}
 	}
 }

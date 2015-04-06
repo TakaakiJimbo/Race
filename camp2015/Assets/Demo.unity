@@ -3623,6 +3623,7 @@ GameObject:
   - 114: {fileID: 1385232515}
   - 114: {fileID: 1385232514}
   - 114: {fileID: 1385232521}
+  - 114: {fileID: 1385232522}
   m_Layer: 8
   m_Name: Car
   m_TagString: Player
@@ -3748,6 +3749,9 @@ MonoBehaviour:
   steeringResponseSpeed: 200
   maxSpeedSteerAngle: .230000004
   maxSpeedSteerResponse: .5
+  maxSpeed: 60
+  maxTorque: 35
+  minTorque: 10
   brakePower: 40
   adjustCentreOfMass: .25
   advanced:
@@ -3795,6 +3799,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeshowtarget: Cameras
   lifepoint: 3
+  stockitem: 0
+--- !u!114 &1385232522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385232512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d92e173a54c41eeb7c7fcf3b89fe2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stockitem: 0
 --- !u!1001 &1395706897
 Prefab:
   m_ObjectHideFlags: 0
@@ -4008,7 +4025,7 @@ GameObject:
   - 23: {fileID: 1467506501}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Bomb
+  m_TagString: Itembox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
