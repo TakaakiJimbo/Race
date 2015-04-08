@@ -61,8 +61,12 @@
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wing.cs" />
      <Compile Include="Assets\MyGame\Scripts\Carapace.cs" />
      <Compile Include="Assets\MyGame\Scripts\GameObjectExtensions.cs" />
-     <Compile Include="Assets\MyGame\Scripts\Item.cs" />
+     <Compile Include="Assets\MyGame\Scripts\MyCamera.cs" />
+     <Compile Include="Assets\MyGame\Scripts\MyChangeSpeed.cs" />
      <Compile Include="Assets\MyGame\Scripts\MyCollision.cs" />
+     <Compile Include="Assets\MyGame\Scripts\MyItem.cs" />
+     <Compile Include="Assets\MyGame\Scripts\MyLife.cs" />
+     <Compile Include="Assets\MyGame\Scripts\MyObstance.cs" />
      <Compile Include="Assets\MyGame\Scripts\StartAction.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
