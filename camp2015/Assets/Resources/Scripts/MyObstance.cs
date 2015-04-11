@@ -1,34 +1,41 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-
+using System;
 
 namespace UnitySampleAssets.Vehicles.Car  {
 
 	[RequireComponent(typeof (MyLife))]
+	[RequireComponent(typeof (MyItem))]
 	[RequireComponent(typeof (MyChangeSpeed))]
 	public class MyObstance : MonoBehaviour {
 
 		private MyLife life;
+		private MyItem item;
 		private MyChangeSpeed changespeed;
+
+		private string[] obstancelist = new string[]{"Itembox", "Dashboard", "Dart", "Press"};
 		private int pressnow = 0;
+
 
 
 		void Awake() {
 			life = GetComponent<MyLife>();
+			item = GetComponent<MyItem>();
 			changespeed = GetComponent<MyChangeSpeed>();
 		}
 
 
-		public void CollisionObstance (Collider collider) {
-			switch (GetObstanceValue (collider.tag)) {
-				case 1 :
+		public void ColliderObstance (Collider collider) {
+			switch (collider.tag) {
+				case "Itembox" :
+					item.GetItem();
+					break;
+				case "Dashboard" :
 					RideDashboard();
 					break;
-				case 2 :
+				case "Dart" :
 					RideDart();
 					break;
-				case 3 :
+				case "Press" :
 					HitPress();
 					break;
 				default :
@@ -38,38 +45,12 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 
 		int GetObstanceValue (string tag){
-			switch (tag) {
-			case "Dashboard" : 
-				return 1;
-				break;
-			case "Dart" : 
-				return 2;
-				break;
-			case "Press" : 
-				return 3;
-				break;
-			default :
-				return 0;
-				break;
-			}
+			return  Array.FindIndex (obstancelist, t => t.IndexOf (tag, StringComparison.InvariantCultureIgnoreCase) >= 0);
 		}
 		
 		
 		string GetObstanceTag (int value){
-			switch (value) {
-			case 1 : 
-				return "Dashboard";
-				break;
-			case 2 : 
-				return "Dart";
-				break;
-			case 3 : 
-				return "Press";
-				break;
-			default :
-				return "";
-				break;
-			}
+			return obstancelist[value];
 		}
 
 		void RideDashboard() {

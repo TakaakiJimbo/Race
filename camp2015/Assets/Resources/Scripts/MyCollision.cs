@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
 namespace UnitySampleAssets.Vehicles.Car  {
 
@@ -22,22 +20,20 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 
 		void OnTriggerEnter(Collider other) {
-			item.ColliderItem (other);
-			obstance.CollisionObstance (other);
+			obstance.ColliderObstance (other);
 		}
 
 		void OnCollisionEnter(Collision other) {
 			item.CollisionItem (other);
 		}
 
-
 		void OnTriggerStay(Collider other) {
-			obstance.CollisionObstance (other);
+			obstance.ColliderObstance (other);
 		}
 
 
 		void OnTriggerExit(Collider other) {
-			obstance.CollisionObstance (other);
+			obstance.ColliderObstance (other);
 		}
 
 	}
