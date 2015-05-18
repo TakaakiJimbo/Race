@@ -52,17 +52,17 @@ namespace UnitySampleAssets.Vehicles.Car
 
             // give the random perlin a random value
             randomPerlin = Random.value*100;
-        }
+
+		}
 
         private void FixedUpdate()
         {
-            if (target == null || !driving)
+			if (target == null || !driving)
             {
                 // Car should not be moving,
                 // (so use accel/brake to get to zero speed)
                 float accel = Mathf.Clamp(-carController.CurrentSpeed, -1, 1);
                 carController.Move(0, accel);
-
             }
             else
             {
@@ -104,7 +104,8 @@ namespace UnitySampleAssets.Vehicles.Car
 
                             // check out the distance to target
                             Vector3 delta = target.position - transform.position;
-                            float distanceCautiousFactor = Mathf.InverseLerp(cautiousMaxDistance, 0, delta.magnitude);
+
+							float distanceCautiousFactor = Mathf.InverseLerp(cautiousMaxDistance, 0, delta.magnitude);
 
                             // also consider the current amount we're turning, multiplied up and then compared in the same way as an upcoming corner angle
                             float spinningAngle = rigidbody.angularVelocity.magnitude*cautiousAngularVelocityFactor;
@@ -119,16 +120,14 @@ namespace UnitySampleAssets.Vehicles.Car
 
                     case BrakeCondition.NeverBrake:
                         break; // blarg!
-
-
                 }
 
                 // Evasive action due to collision with other cars:
 
                 // our target position starts off as the 'real' target position
                 Vector3 offsetTargetPos = target.position;
-
-                // if are we currently taking evasive action to prevent being stuck against another car:
+								
+				// if are we currently taking evasive action to prevent being stuck against another car:
                 if (Time.time < avoidOtherCarTime)
                 {
                     // slow down if necessary (if we were behind the other car when collision occured)
@@ -214,11 +213,11 @@ namespace UnitySampleAssets.Vehicles.Car
             }
         }
 
-        public void SetTarget(Transform target)
-        {
-            this.target = target;
-            driving = true;
-        }
+//        public void SetTarget(Transform target)
+//        {
+//            this.target = target;
+//            driving = true;
+//        }
 
     }
 }

@@ -5,17 +5,19 @@ namespace UnitySampleAssets.Vehicles.Car
 {
 	[RequireComponent(typeof (MyItem))]
     [RequireComponent(typeof (CarController))]
-    public class CarUserControl : MonoBehaviour
+	[RequireComponent(typeof (StartAction))]
+	public class CarUserControl : MonoBehaviour
     {
         private CarController car; // the car controller we want to use
 		private MyItem item;
-
+		private StartAction startaction;
 
         private void Awake()
         {
             // get the car controller
             car = GetComponent<CarController>();
 			item = GetComponent<MyItem>();
+			startaction = GetComponent<StartAction>();
         }
 
 

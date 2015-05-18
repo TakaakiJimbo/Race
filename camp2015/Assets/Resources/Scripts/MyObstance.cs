@@ -12,15 +12,22 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		private MyItem item;
 		private MyChangeSpeed changespeed;
 
-		private string[] obstancelist = new string[]{"Itembox", "Dashboard", "Dart", "Press"};
+		private string[] obstancelist = new string[]{"Itembox", "Dashboard", "Dart", "Press", "Courseout"};
 		private int pressnow = 0;
 
+		[SerializeField] private GameObject targetBox;
+		private GameObject[] targetArray;
+		private Transform target;
+		private bool coursereturnnow;
 
 
 		void Awake() {
 			life = GetComponent<MyLife>();
 			item = GetComponent<MyItem>();
 			changespeed = GetComponent<MyChangeSpeed>();
+
+			targetArray = targetBox.GetChildren();
+			coursereturnnow = false;
 		}
 
 
@@ -37,6 +44,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 					break;
 				case "Press" :
 					HitPress();
+					break;
+				case "Courseout" : 
+					Coursereturn();
 					break;
 				default :
 					break;	
@@ -86,5 +96,29 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			changespeed.ResetMaxSpeed();
 		}
 
+		public void Coursereturn() {
+			if (!coursereturnnow) {
+				coursereturnnow = true;
+				int targetCount = 0;
+				int targetNumber = 0;
+				float distance =  Vector3.Distance(gameObject.transform.position, targetArray[targetCount].transform.position);
+				while (targetCount < targetArray.Length-2) {
+					targetCount++;
+					if(distance > Vector3.Distance(gameObject.transform.position, targetArray[targetCount].transform.position)){
+						distance = Vector3.Distance(gameObject.transform.position, targetArray[targetCount].transform.position);
+						targetNumber = targetCount;
+					}
+					targetCount++;
+				}
+				transform.position = targetArray [targetNumber].transform.position + transform.up * 10;
+				transform.LookAt(targetArray [targetNumber + 1].transform.position);
+				rigidbody.velocity = Vector3.zero;
+				Invoke ("Coursereturnend",3);
+			}
+		}
+
+		public void Coursereturnend() {
+			coursereturnnow = false;
+		}
 	}
 }

@@ -2,12 +2,18 @@
 
 public class Carapace : MonoBehaviour {
 
-	private float movePower = 200.0f;
+	private float movePower = 50f;
 	private Vector3 cashVelocity;
-	private float maxSpeed = 20;
-	
+
+	void OnEnable() {
+		Invoke ("initializeCarapace", 0.1f);	// timelag
+	}
+
+	void initializeCarapace() {
+		rigidbody.velocity = transform.forward * movePower;
+	}
+
 	void Update () {
-		rigidbody.AddForce (transform.forward * movePower * Time.deltaTime);
 		if (rigidbody.velocity.z * cashVelocity.z < 0 ||rigidbody.velocity.x * cashVelocity.x < 0 ) {
 			transform.LookAt(transform.position + rigidbody.velocity);
 		}
@@ -15,9 +21,6 @@ public class Carapace : MonoBehaviour {
 			rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
 		}
 		cashVelocity = rigidbody.velocity;
-		if (rigidbody.velocity.magnitude > maxSpeed) {
-			rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
-		}
 	}
 
 	void OnTriggerEnter(Collider other) {

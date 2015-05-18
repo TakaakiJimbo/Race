@@ -7,7 +7,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		private CarController carcontroller;
 		private float[]       initialization = new float[3];
-		private float[]        initializationmax = new float[]{1000, 1000, 1000};
+		private float[]       initializationmax = new float[]{1000, 1000, 1000};
 
 		void Awake() {
 			carcontroller = GetComponent<CarController> ();
@@ -22,7 +22,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 				carcontroller.maxTorque = carcontroller.maxTorque * maxtorque;
 			}
 			else {
-				carcontroller.maxTorque =  1000;
+				carcontroller.maxTorque =  70;
 			}
 		}
 
@@ -31,7 +31,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 				carcontroller.minTorque = carcontroller.minTorque * mintorque;
 			}
 			else {
-				carcontroller.minTorque =  1000;
+				carcontroller.minTorque =  20;
 			}
 		}
 
@@ -40,7 +40,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 				carcontroller.maxSpeed = carcontroller.maxSpeed * maxspeed;
 			}
 			else {
-				carcontroller.maxSpeed =  1000;
+				carcontroller.maxSpeed =  80;
 			}
 		}
 
