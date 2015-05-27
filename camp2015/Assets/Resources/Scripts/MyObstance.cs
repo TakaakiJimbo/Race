@@ -6,11 +6,14 @@ namespace UnitySampleAssets.Vehicles.Car  {
 	[RequireComponent(typeof (MyLife))]
 	[RequireComponent(typeof (MyItem))]
 	[RequireComponent(typeof (MyChangeSpeed))]
+	[RequireComponent(typeof (CheckPoint))]
+
 	public class MyObstance : MonoBehaviour {
 
 		private MyLife life;
 		private MyItem item;
 		private MyChangeSpeed changespeed;
+		private CheckPoint checkpoint;
 
 		private string[] obstancelist = new string[]{"Itembox", "Dashboard", "Dart", "Press", "Courseout"};
 		private int pressnow = 0;
@@ -25,6 +28,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			life = GetComponent<MyLife>();
 			item = GetComponent<MyItem>();
 			changespeed = GetComponent<MyChangeSpeed>();
+			checkpoint = GetComponent<CheckPoint>();
 
 			targetArray = targetBox.GetChildren();
 			coursereturnnow = false;

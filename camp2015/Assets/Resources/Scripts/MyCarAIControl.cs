@@ -64,12 +64,16 @@ namespace UnitySampleAssets.Vehicles.Car
 			target = targetArray[targetCount].transform;
 
 			resetPosition = transform.position;
-			InvokeRepeating ("resetJudge", 6, 6);
+
 			obstance = GetComponent<MyObstance>();
 		}
 
         private void FixedUpdate()
         {
+			if (!GameObject.Find ("StartPause")) {
+				StartResetJudge(!driving);
+				driving = true;
+			}
 			if (target == null || !driving)
             {
                 // Car should not be moving,
@@ -234,22 +238,18 @@ namespace UnitySampleAssets.Vehicles.Car
             }
         }
 
-
-		private void resetJudge() {
-			if (driving) {
-				if (Vector3.Distance (transform.position, resetPosition) < 10 && !GameObject.Find("StartPause") ) {
-					obstance.Coursereturn();
-				}
+		private void StartResetJudge(bool resetjudge) {
+			if(resetjudge) {
+				InvokeRepeating ("resetJudge", 6, 6);
 			}
-			resetPosition = transform.position;
 		}
 
-
-//        public void SetTarget(Transform target)
-//        {
-//            this.target = target;
-//            driving = true;
-//        }
+		private void resetJudge() {
+			if (driving && Vector3.Distance (transform.position, resetPosition) < 10) {
+				obstance.Coursereturn();
+			}
+				resetPosition = transform.position;
+		}
 
     }
 }

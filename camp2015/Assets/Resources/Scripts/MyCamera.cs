@@ -17,7 +17,9 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		private GameObject camerashow;
 
 		private Text showlifepoint;
-		private Text showitem;
+		private RawImage showitem;
+		private Text showrank;
+		private Text showtime;
 
 		void Awake() {
 			life = GetComponent<MyLife>();
@@ -25,30 +27,51 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			ai   = GetComponent<MyAI>();
 			camerashow = GameObject.Find (CameraTarget).gameObject;
 			showlifepoint = camerashow.FindDeep("PlayerLife").gameObject.GetComponent<Text>();
-			showitem = camerashow.FindDeep("Item").gameObject.GetComponent<Text>();
+			showitem = camerashow.FindDeep("Item").gameObject.GetComponent<RawImage>();
+			showrank = camerashow.FindDeep("RankNumber").gameObject.GetComponent<Text>();
+			showtime = camerashow.FindDeep("TimeCount").gameObject.GetComponent<Text>();
+
 		}
 
 
-		public void ReflectLifePoint(int lifepoint) {
+		public void ReflectLifePoint(string lifepoint) {
 			if (!ai.isAI (gameObject.tag)) {
-				if (life.CheckLife(lifepoint)) {
-					showlifepoint.text  = new string ('*', lifepoint);
-				}
-				else {
-					showlifepoint.text = "die";
-				}
+				showlifepoint.text  = lifepoint;
 			}
 		}
 
 
-		public void ReflectItem(int keepitem) {
+		public void ReflectItem(int keepitem, string keepitemdetail) {
 			if (!ai.isAI (gameObject.tag)) {			
 				if (item.CheckKeepItem (keepitem)) {
-					showitem.text  = keepitem.ToString();
+					showitem .enabled = true;
+					showitem.texture  = Resources.Load<Texture>("Materials/Items/" + keepitemdetail);
 				}
 				else {
-					showitem.text = "";
+					showitem.enabled = false;
 				}
+			}
+		}
+
+		public void ReflectRank(string rank, bool finish) {
+			if (!ai.isAI (gameObject.tag)) {
+				camerashow.FindDeep ("Rank").gameObject.GetComponent<Text> ().enabled = true;
+				showrank.text  = rank;
+				if(!finish) {
+					Invoke("HideRank", 3);
+				}
+			}
+		}
+
+		void HideRank() {
+			camerashow.FindDeep ("Rank").gameObject.GetComponent<Text> ().enabled = false;
+			showrank.text = "";
+		}
+
+
+		public void ReflectTime(string timecount) {
+			if (!ai.isAI (gameObject.tag)) {
+				showtime.text  = timecount;
 			}
 		}
 	}

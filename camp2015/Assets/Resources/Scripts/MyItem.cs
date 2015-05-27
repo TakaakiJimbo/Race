@@ -12,8 +12,8 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		private MyCamera camera;
 		private MyAI ai;
 
-		private string[] itemlist = new string[]{"Banana", "Bomb", "Carapace"};
-		private int    keepitem = -1; // -1: false, 0-...: true
+		private string[] itemlist = new string[]{"Nothing", "Banana", "Bomb", "Carapace"};
+		private int    keepitem = 0; // 0: false, 1-...: true
 
 		void Awake() {
 			life = GetComponent<MyLife>();
@@ -21,11 +21,6 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			ai = GetComponent<MyAI>();
 
 		}
-
-		void Start() {
-			camera.ReflectItem (keepitem);
-		}
-
 
 		public void CollisionItem (Collision collision) {
 			switch (collision.gameObject.tag) {
@@ -60,7 +55,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		public void GetItem() {
 			if (!CheckKeepItem (keepitem)) {
 				keepitem = UnityEngine.Random.Range (0, itemlist.Length);
-				camera.ReflectItem(keepitem);
+				camera.ReflectItem(keepitem, itemlist[keepitem]);
 				if(ai.isAI(gameObject.tag)) {
 					Invoke("AIUseItem", 2);
 				}
@@ -69,14 +64,14 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		public void UseItem(bool spacedown) {
 			if (spacedown) {
-				if (keepitem != -1) {
+				if (keepitem != 0) {
 					UsedItem ();
 				}
 			}
 		}
 
 		public void AIUseItem() {
-				if (keepitem != -1) {
+				if (keepitem != 0) {
 					UsedItem ();
 				}
 		}
@@ -88,8 +83,8 @@ namespace UnitySampleAssets.Vehicles.Car  {
 			else {
 				PopItem ("Carapace", 5);
 			}
-			keepitem = -1;
-			camera.ReflectItem(keepitem);
+			keepitem = 0;
+			camera.ReflectItem(keepitem, itemlist[keepitem]);
 		}
 
 		void PopItem(string itemtag, int longvalue) {
@@ -99,7 +94,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		}
 
 		public bool CheckKeepItem(int value) {
-			if (keepitem > -1) {
+			if (keepitem > 0) {
 				return true;
 			}
 			return false;

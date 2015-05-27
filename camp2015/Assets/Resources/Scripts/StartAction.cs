@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StartAction : MonoBehaviour {
 	private  GameObject message;
-	private  Text       messagevalue;
+	private  RawImage   messagevalue;
 	private  GameObject howto;
 	private  float      timer;
 	private  bool       returnkeyflag;
@@ -12,9 +12,9 @@ public class StartAction : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		message = GameObject.Find("Message").gameObject;
-		messagevalue = message.GetComponent<Text>();
+		messagevalue = message.GetComponent<RawImage>();
 		howto = GameObject.Find("Howto").gameObject;
-		timer = 3.0f;
+		timer = 3.5f;
 		returnkey = false;
 	}
 	
@@ -26,18 +26,22 @@ public class StartAction : MonoBehaviour {
 		}
 		if (returnkeyflag) {
 			timer -= Time.deltaTime;
-			if (timer <= 0.0f)
+			if (timer <= 0f)
 			{
-				messagevalue.text = "" ;
 				Destroy(gameObject);
+				messagevalue.enabled = false;
 			}
-			else if (timer <= 1.0f)
+			else if (timer <= 0.5f)
 			{
-				messagevalue.text = "1" ;
+				messagevalue.texture = Resources.Load<Texture>("Materials/Count/CountGo");
 			}
-			else if (timer <= 2.0f)
+			else if (timer <= 1.5f)
 			{
-				messagevalue.text = "2" ;
+				messagevalue.texture = Resources.Load<Texture>("Materials/Count/Count1");
+			}
+			else if (timer <= 2.5f)
+			{
+				messagevalue.texture = Resources.Load<Texture>("Materials/Count/Count2");
 			}
 		}
 	}

@@ -14,7 +14,7 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		}
 
 		void Start() {
-			camera.ReflectLifePoint (lifepoint);
+			camera.ReflectLifePoint (new string ('♥',lifepoint));
 		}
 
 		public bool CheckLife(int lifepoint) {
@@ -28,7 +28,12 @@ namespace UnitySampleAssets.Vehicles.Car  {
 
 		public void ChangeLife(int point) {
 			lifepoint += point;
-			camera.ReflectLifePoint (lifepoint);
+			if (CheckLife (lifepoint)) {
+				camera.ReflectLifePoint (new string ('♥', lifepoint));
+			}
+			else {
+				camera.ReflectLifePoint ("die");
+			}
 		}
 
 	}
