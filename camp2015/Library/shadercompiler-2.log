@@ -1,10 +1,42 @@
 Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-2--1334542336
+Pipe name: \\.\pipe\UnityShaderCompiler-2--1335074816
 Cmd: getPlatforms
 Cmd: compileSnippet
   error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 8 at (81): implicit truncation of vector type
   api=8 type=0 insize=6985 outsize=0 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 8 at (81): implicit truncation of vector type
+  api=8 type=0 insize=4780 outsize=0 kw=POINT ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=4780 outsize=0 kw=DIRECTIONAL ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 8 at (81): implicit truncation of vector type
+  api=8 type=0 insize=4780 outsize=0 kw=SPOT ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=4780 outsize=0 kw=POINT_COOKIE ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=4780 outsize=0 kw=DIRECTIONAL_COOKIE ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 8 at (81): implicit truncation of vector type
+  api=8 type=0 insize=6985 outsize=0 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=6985 outsize=0 kw=DIRECTIONAL LIGHTMAP_ON DIRLIGHTMAP_OFF ok=0
+Cmd: compileSnippet
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=6985 outsize=0 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=0
 Cmd: compileSnippet
   error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
   error: 1 plat 8 at (81): implicit truncation of vector type
@@ -22,9 +54,9 @@ Cmd: compileSnippet
   error: 1 plat 4 at (81): implicit truncation of vector type
   api=4 type=0 insize=4780 outsize=0 kw=POINT_COOKIE ok=0
 Cmd: compileSnippet
-  error: 2 plat 8 at (64): 'vert': output parameter 'o' not completely initialized
-  error: 1 plat 8 at (81): implicit truncation of vector type
-  api=8 type=0 insize=4780 outsize=0 kw=DIRECTIONAL_COOKIE ok=0
+  error: 2 plat 4 at (64): 'vert': output parameter 'o' not completely initialized
+  error: 1 plat 4 at (81): implicit truncation of vector type
+  api=4 type=0 insize=4780 outsize=0 kw=DIRECTIONAL_COOKIE ok=0
 End of pipe
 
 Quitting shader compiler process

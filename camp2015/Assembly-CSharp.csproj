@@ -178,9 +178,10 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Resources\Scripts\BoxRotate.cs" />
-     <Compile Include="Assets\Resources\Scripts\Carapace.cs" />
      <Compile Include="Assets\Resources\Scripts\CheckPoint.cs" />
      <Compile Include="Assets\Resources\Scripts\GameObjectExtensions.cs" />
+     <Compile Include="Assets\Resources\Scripts\Item\MyBanana.cs" />
+     <Compile Include="Assets\Resources\Scripts\Item\MyCarapace.cs" />
      <Compile Include="Assets\Resources\Scripts\MyAI.cs" />
      <Compile Include="Assets\Resources\Scripts\MyCamera.cs" />
      <Compile Include="Assets\Resources\Scripts\MyCarAIControl.cs" />
@@ -189,6 +190,7 @@
      <Compile Include="Assets\Resources\Scripts\MyItem.cs" />
      <Compile Include="Assets\Resources\Scripts\MyLife.cs" />
      <Compile Include="Assets\Resources\Scripts\MyObstance.cs" />
+     <Compile Include="Assets\Resources\Scripts\MyParameter.cs" />
      <Compile Include="Assets\Resources\Scripts\MyRank.cs" />
      <Compile Include="Assets\Resources\Scripts\StartAction.cs" />
      <Compile Include="Assets\SampleAssets\2D\Scripts\Camera2DFollow.cs" />

@@ -1,12 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/MyRank.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../thesis2015new/Assets/OnlineProject/CatTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffect.cs">
     <Files>
-      <File FileName="Assets/Resources/Scripts/MyCarAIControl.cs" Line="199" Column="12" />
-      <File FileName="Assets/Resources/Scripts/MyLife.cs" Line="8" Column="34" />
-      <File FileName="Assets/Resources/Scripts/MyCamera.cs" Line="14" Column="23" />
-      <File FileName="Assets/Resources/Scripts/MyRank.cs" Line="24" Column="38" />
-      <File FileName="Assets/Resources/Scripts/StartAction.cs" Line="30" Column="5" />
+      <File FileName="../thesis2015new/Assets/OnlineProject/CatTutorial/Pro Standard Assets/Image Based/ColorCorrectionEffect.cs" Line="6" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1567,7 +1567,7 @@ GameObject:
   - 114: {fileID: 141942243}
   m_Layer: 8
   m_Name: WheelHubRearLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1668,7 +1668,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: d5b28aa649f2d3f4380d38f73689af66, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: d5b28aa649f2d3f4380d38f73689af66, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .99999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5b28aa649f2d3f4380d38f73689af66, type: 2}
@@ -2162,7 +2166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d3968294210ba4a9d2bb96dfa74a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1366186975}
+  target: {fileID: 141942242}
   autoTargetPlayer: 1
   updateType: 0
   moveSpeed: 100
@@ -3066,10 +3070,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 224444901}
-  - 114: {fileID: 224444902}
   m_Layer: 0
   m_Name: Cameras
-  m_TagString: Untagged
+  m_TagString: CameraPlayer1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3089,23 +3092,6 @@ Transform:
   - {fileID: 180571598}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &224444902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 1bfb45b952f174da89a81ea14aa40c33,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 224444900}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b69a5b0e0a85b4aa97a7edc40c37d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camSwitchButton: {fileID: 0}
-  objects:
-  - {fileID: 180571597}
-  - {fileID: 649854863}
-  - {fileID: 223086640}
 --- !u!1 &233931423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,7 +3808,7 @@ GameObject:
   - 114: {fileID: 268653612}
   m_Layer: 8
   m_Name: SkyCarSuspensionFrontRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3976,7 +3962,7 @@ Transform:
   - {fileID: 517329143}
   - {fileID: 1850318248}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &282314726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5937,7 +5923,7 @@ GameObject:
   - 23: {fileID: 402163121}
   m_Layer: 8
   m_Name: SkyCarUndercarriage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6088,7 +6074,7 @@ GameObject:
   - 114: {fileID: 439235155}
   m_Layer: 8
   m_Name: HeadlighRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6467,7 +6453,7 @@ GameObject:
   - 23: {fileID: 467679699}
   m_Layer: 8
   m_Name: SkyCarHeadlightsGlow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8547,7 +8533,7 @@ GameObject:
   - 114: {fileID: 526807873}
   m_Layer: 8
   m_Name: SkyCarBrakelightsGlow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8708,7 +8694,7 @@ GameObject:
   - 114: {fileID: 538119363}
   m_Layer: 8
   m_Name: WheelHubRearRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8810,7 +8796,7 @@ Transform:
   - {fileID: 339357621}
   - {fileID: 485406783}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1001 &563838245
 Prefab:
   m_ObjectHideFlags: 0
@@ -9531,7 +9517,7 @@ GameObject:
   - 23: {fileID: 617125325}
   m_Layer: 8
   m_Name: ColliderBottom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11523,11 +11509,11 @@ Transform:
   m_GameObject: {fileID: 789660205}
   m_LocalRotation: {x: -.0119979847, y: .865776122, z: .0207811259, w: .499855906}
   m_LocalPosition: {x: 50.6599998, y: -10.6499996, z: 133.759995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: .99999994}
   m_Children:
   - {fileID: 266629042}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!114 &789660207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13931,7 +13917,7 @@ GameObject:
   - 23: {fileID: 929635724}
   m_Layer: 8
   m_Name: SkyCarBodyParts
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14108,7 +14094,7 @@ GameObject:
   - 23: {fileID: 943163132}
   m_Layer: 8
   m_Name: SkyCarWheelRearLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15586,7 +15572,7 @@ Transform:
   - {fileID: 1312278233}
   - {fileID: 910426520}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
 --- !u!1 &1056598339
 GameObject:
   m_ObjectHideFlags: 0
@@ -16746,7 +16732,7 @@ GameObject:
   - 114: {fileID: 1163674200}
   m_Layer: 8
   m_Name: WheelHubFrontLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16897,14 +16883,14 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1174605331}
   m_LocalRotation: {x: 1.0244549e-07, y: -1.17375755e-07, z: -7.91624259e-08, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.000371657748}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: .99999994}
   m_Children: []
   m_Father: {fileID: 1716470153}
   m_RootOrder: 4
   m_AnchorMin: {x: 1, y: .5}
   m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: -549, y: -310}
+  m_AnchoredPosition: {x: -575, y: -310}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1177302827
@@ -17884,7 +17870,7 @@ GameObject:
   - 23: {fileID: 1249767747}
   m_Layer: 8
   m_Name: ColliderBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18200,7 +18186,7 @@ GameObject:
   - 199: {fileID: 1268358225}
   m_Layer: 8
   m_Name: ParticleBurnoutSmoke
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19574,13 +19560,13 @@ RectTransform:
   m_GameObject: {fileID: 1280262464}
   m_LocalRotation: {x: 1.02445483e-07, y: -1.17375748e-07, z: -7.91624188e-08, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 1716470153}
   m_RootOrder: 6
   m_AnchorMin: {x: 1, y: .5}
   m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: -762, y: 11}
+  m_AnchoredPosition: {x: -725, y: 66}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1280262466
@@ -20259,7 +20245,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: .5}
   m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: -549, y: 11}
+  m_AnchoredPosition: {x: -575, y: 11}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1309198468
@@ -21044,7 +21030,7 @@ GameObject:
   - 23: {fileID: 1352838723}
   m_Layer: 8
   m_Name: SkyCarWheelRearRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21274,7 +21260,7 @@ Transform:
   m_GameObject: {fileID: 1366186974}
   m_LocalRotation: {x: -.0119979847, y: .865776122, z: .0207811259, w: .499855906}
   m_LocalPosition: {x: 50.6599998, y: -10.6499996, z: 133.759995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: .99999994}
   m_Children:
   - {fileID: 1727542951}
   - {fileID: 1868749148}
@@ -21286,7 +21272,7 @@ Transform:
   - {fileID: 1857181294}
   - {fileID: 439235154}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!114 &1366186976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22680,7 +22666,7 @@ GameObject:
   - 23: {fileID: 1488302480}
   m_Layer: 8
   m_Name: SkyCarWheelFrontLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24389,7 +24375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: b833e5619288c8a4fb890f007746f495, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: b833e5619288c8a4fb890f007746f495, type: 2}
       propertyPath: m_LocalPosition.y
@@ -24410,6 +24396,110 @@ Prefab:
     - target: {fileID: 11400018, guid: b833e5619288c8a4fb890f007746f495, type: 2}
       propertyPath: preserveDirectionWhileInAir
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400026, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 100048, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100040, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100044, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100050, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: b833e5619288c8a4fb890f007746f495, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b833e5619288c8a4fb890f007746f495, type: 2}
@@ -25757,7 +25847,7 @@ GameObject:
   - 23: {fileID: 1714935461}
   m_Layer: 8
   m_Name: ColliderFront
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26117,7 +26207,7 @@ GameObject:
   - 4: {fileID: 1727542951}
   m_Layer: 8
   m_Name: SkyCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26367,7 +26457,7 @@ GameObject:
   - 114: {fileID: 1731378462}
   m_Layer: 8
   m_Name: SkyCarSuspensionFrontLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27603,7 +27693,7 @@ GameObject:
   - 23: {fileID: 1824630588}
   m_Layer: 8
   m_Name: SkyCarBodyPaintwork
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27800,7 +27890,7 @@ GameObject:
   - 108: {fileID: 1857181295}
   m_Layer: 8
   m_Name: HeadlightLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28041,7 +28131,7 @@ GameObject:
   - 114: {fileID: 1868749149}
   m_Layer: 8
   m_Name: WheelHubFrontRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29456,7 +29546,7 @@ GameObject:
   - 114: {fileID: 1980155466}
   m_Layer: 8
   m_Name: SkyCarMudGuardFrontRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29527,7 +29617,7 @@ GameObject:
   - 23: {fileID: 1984274568}
   m_Layer: 8
   m_Name: SkyCarWheelFrontRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29606,7 +29696,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -300, y: -150}
+  m_AnchoredPosition: {x: -278, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1986455418
@@ -30012,7 +30102,7 @@ GameObject:
   - 4: {fileID: 2008756952}
   m_Layer: 8
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31272,7 +31362,7 @@ GameObject:
   - 114: {fileID: 2124481290}
   m_Layer: 8
   m_Name: SkyCarMudGuardFrontLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

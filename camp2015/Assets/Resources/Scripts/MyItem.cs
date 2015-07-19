@@ -111,8 +111,8 @@ namespace UnitySampleAssets.Vehicles.Car  {
 		}
 
 		void HitCarapace() {
-			iTween.MoveTo(gameObject, iTween.Hash("y", 20, "time", 1.5f));
-			iTween.RotateTo(gameObject, iTween.Hash("x", 1080 , "y", 1080, "z", 1080, "time", 2.5f));
+//			iTween.MoveTo(gameObject, iTween.Hash("y", 20, "time", 1.5f));
+//			iTween.RotateTo(gameObject, iTween.Hash("x", 1080 , "y", 1080, "z", 1080, "time", 2.5f));
 			life.ChangeLife (-1);
 		}
 

@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -86,26 +86,26 @@
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wheel.cs" />
      <Compile Include="Assets\CarTutorial\~AlternatePhysicsModel\Scripts\Wing.cs" />
      <Compile Include="Assets\MecanimSample\Locomotion\Scripts\Locomotion.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Agent.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\AnimatorController_UI.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Bazooka.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Bear.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Follow.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Follow_UI.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\FootPlanting.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\IK.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\IdleRunJump.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\MindBotCamera.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\MineBot.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\NavMesh_UI.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\PreciseTurnOnSpot.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Ragdoll.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\RandomCharacters.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Responsive.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\ScaleCapsule.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\Spawner.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\TargetMatching.cs" />
-     <Compile Include="Assets\MecanimSample\scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Agent.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\AnimatorController_UI.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Bazooka.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Bear.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Follow.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Follow_UI.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\FootPlanting.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\IK.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\IdleRunJump.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\MindBotCamera.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\MineBot.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\NavMesh_UI.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\PreciseTurnOnSpot.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Ragdoll.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\RandomCharacters.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Responsive.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\ScaleCapsule.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\Spawner.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\TargetMatching.cs" />
+     <Compile Include="Assets\MecanimSample\Scripts\ThirdPersonCamera.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\ChangeRagdoll.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\People\MovingAgent.cs" />
      <Compile Include="Assets\MyGame\OriginalPrefabSetting\Traffic Signal\OnlySig0OnOff.cs" />
@@ -228,7 +228,7 @@
      <None Include="Assets\ZRNAssets\005339_08932_25_14\Documents\ReadMe.txt" />
      <None Include="Assets\CarTutorial\Shaders\Alpha-Diffuse-ZWrite.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
