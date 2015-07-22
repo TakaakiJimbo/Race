@@ -1,0 +1,188 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
+-r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
+-define:UNITY_4_6_3
+-define:UNITY_4_6
+-define:UNITY_STANDALONE_OSX
+-define:ENABLE_MICROPHONE
+-define:ENABLE_TEXTUREID_MAP
+-define:ENABLE_UNITYEVENTS
+-define:ENABLE_NEW_HIERARCHY 
+-define:ENABLE_AUDIO_FMOD
+-define:UNITY_STANDALONE
+-define:ENABLE_TERRAIN
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:INCLUDE_IL2CPP
+-define:INCLUDE_WP8SUPPORT
+-define:ENABLE_MOVIES
+-define:ENABLE_WWW
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_4_6_FEATURES
+-define:INCLUDE_WP_BLUE_SUPPORT
+-define:ENABLE_WEBCAM
+-define:INCLUDE_METROSUPPORT
+-define:RENDER_SOFTWARE_CURSOR
+-define:ENABLE_NETWORK
+-define:ENABLE_PHYSICS
+-define:UNITY5_SCRIPTING_IN_UNITY4
+-define:ENABLE_CACHING
+-define:ENABLE_CLOTH
+-define:ENABLE_2D_PHYSICS
+-define:ENABLE_GAMECENTER
+-define:ENABLE_SHADOWS
+-define:ENABLE_AUDIO
+-define:ENABLE_NAVMESH_CARVING
+-define:ENABLE_DUCK_TYPING
+-define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
+-define:ENABLE_MONO
+-define:ENABLE_PROFILER
+-define:UNITY_EDITOR
+-define:UNITY_EDITOR_OSX
+-define:CROSS_PLATFORM_INPUT
+'Assets/MyProject/Resources/Scripts/CameraFade.cs'
+'Assets/MyProject/Resources/Scripts/GameObjectExtensions.cs'
+'Assets/MyProject/Resources/Scripts/camera/MyCamera.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCar.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCarItem.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCarLifePoint.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCarPoint.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCarRank.cs'
+'Assets/MyProject/Resources/Scripts/car/MyCarUserControl.cs'
+'Assets/MyProject/Resources/Scripts/gamecontrol/MyGameControl.cs'
+'Assets/MyProject/Resources/Scripts/gamecontrol/MyRankControl.cs'
+'Assets/MyProject/Resources/Scripts/gamecontrol/MyTimeControl.cs'
+'Assets/MyProject/Resources/Scripts/item/MyBanana.cs'
+'Assets/MyProject/Resources/Scripts/item/MyBomb.cs'
+'Assets/MyProject/Resources/Scripts/item/MyIron.cs'
+'Assets/MyProject/Resources/Scripts/item/MyItem.cs'
+'Assets/MyProject/Resources/Scripts/item/MyItemBox.cs'
+'Assets/MyProject/Resources/Scripts/route/MyPoint.cs'
+'Assets/MyProject/Resources/Scripts/route/MyRoute.cs'
+'Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs'
+'Assets/MyProject/Resources/Scripts/stage/checkpoint/MyCheckPoint.cs'
+'Assets/MyProject/Resources/Scripts/stage/checkpoint/MyGoal.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/Sample Supporting Emitters/DetonatorSprayHelper.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/Detonator.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorBurstEmitter.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorCloudRing.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorComponent.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorFireball.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorForce.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorGlow.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorHeatwave.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorLight.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorShockwave.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorSmoke.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorSound.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorSparks.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/System/DetonatorSpray.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/TestScene/DetonatorTest.cs'
+'Assets/OnlineProject/Detonator Explosion Framework/TestScene/TouchToMouse.cs'
+'Assets/OnlineProject/SampleAssets/2D/Scripts/Camera2DFollow.cs'
+'Assets/OnlineProject/SampleAssets/2D/Scripts/CameraFollow.cs'
+'Assets/OnlineProject/SampleAssets/2D/Scripts/Platformer2DUserControl.cs'
+'Assets/OnlineProject/SampleAssets/2D/Scripts/PlatformerCharacter2D.cs'
+'Assets/OnlineProject/SampleAssets/2D/Scripts/Restarter.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/AbstractTargetFollower.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/AutoCam.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/FreeLookCam.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/HandHeldCam.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/LookatTarget.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/PivotBasedCameraRig.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/ProtectCameraFromWallClip.cs'
+'Assets/OnlineProject/SampleAssets/Cameras/Scripts/TargetFieldOfView.cs'
+'Assets/OnlineProject/SampleAssets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs'
+'Assets/OnlineProject/SampleAssets/Characters/FirstPersonCharacter/Scripts/HeadBob.cs'
+'Assets/OnlineProject/SampleAssets/Characters/FirstPersonCharacter/Scripts/MouseLook.cs'
+'Assets/OnlineProject/SampleAssets/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs'
+'Assets/OnlineProject/SampleAssets/Characters/ThirdPersonCharacter/Scripts/AICharacterControl.cs'
+'Assets/OnlineProject/SampleAssets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs'
+'Assets/OnlineProject/SampleAssets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonUserControl.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/AxisTouchButton.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/ButtonHandler.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/CameraSwitch.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/InputAxisScrollbar.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/Joystick.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/LevelReset.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/MobileControlRig.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/PlatformSpecific/MobileInput.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/TiltInput.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/TouchPad.cs'
+'Assets/OnlineProject/SampleAssets/CrossPlatformInput/Scripts/VirtualInput.cs'
+'Assets/OnlineProject/SampleAssets/Effects/LightShafts/Scripts/LightShafts.Resources.cs'
+'Assets/OnlineProject/SampleAssets/Effects/LightShafts/Scripts/LightShafts.Utils.cs'
+'Assets/OnlineProject/SampleAssets/Effects/LightShafts/Scripts/LightShafts.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/AfterburnerPhysicsForce.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/ExplosionFireAndDebris.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/ExplosionPhysicsForce.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/Explosive.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/ExtinguishableParticleSystem.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/FireLight.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/Hose.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/ParticleSystemMultiplier.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/SmokeParticles.cs'
+'Assets/OnlineProject/SampleAssets/Effects/ParticleSystems/scripts/WaterHoseParticles.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Basic)/Scripts/WaterBasic.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/Displace.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/GerstnerDisplace.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/MeshContainer.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/PlanarReflection.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/SpecularLighting.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/WaterBase.cs'
+'Assets/OnlineProject/SampleAssets/Environment/Water (Pro Only)/Scripts/WaterTile.cs'
+'Assets/OnlineProject/SampleAssets/SampleScenes/Scripts/Clouds.cs'
+'Assets/OnlineProject/SampleAssets/SampleScenes/Scripts/ParticleSceneControls.cs'
+'Assets/OnlineProject/SampleAssets/SampleScenes/Scripts/PlaceTargetWithMouse.cs'
+'Assets/OnlineProject/SampleAssets/SampleScenes/Scripts/SlowMoButton.cs'
+'Assets/OnlineProject/SampleAssets/Utility/ActivateTrigger.cs'
+'Assets/OnlineProject/SampleAssets/Utility/AutoMobileShaderSwitch.cs'
+'Assets/OnlineProject/SampleAssets/Utility/AutoMoveAndRotate.cs'
+'Assets/OnlineProject/SampleAssets/Utility/CameraRefocus.cs'
+'Assets/OnlineProject/SampleAssets/Utility/CurveControlledBob.cs'
+'Assets/OnlineProject/SampleAssets/Utility/DragRigidbody.cs'
+'Assets/OnlineProject/SampleAssets/Utility/DynamicShadowSettings.cs'
+'Assets/OnlineProject/SampleAssets/Utility/FOVKick.cs'
+'Assets/OnlineProject/SampleAssets/Utility/FPSCounter.cs'
+'Assets/OnlineProject/SampleAssets/Utility/FollowTarget.cs'
+'Assets/OnlineProject/SampleAssets/Utility/ForcedReset.cs'
+'Assets/OnlineProject/SampleAssets/Utility/LerpControlledBob.cs'
+'Assets/OnlineProject/SampleAssets/Utility/ObjectResetter.cs'
+'Assets/OnlineProject/SampleAssets/Utility/ParticleSystemDestroyer.cs'
+'Assets/OnlineProject/SampleAssets/Utility/PlatformSpecificContent.cs'
+'Assets/OnlineProject/SampleAssets/Utility/SimpleActivatorMenu.cs'
+'Assets/OnlineProject/SampleAssets/Utility/SimpleMouseRotator.cs'
+'Assets/OnlineProject/SampleAssets/Utility/TimedObjectActivator.cs'
+'Assets/OnlineProject/SampleAssets/Utility/TimedObjectDestructor.cs'
+'Assets/OnlineProject/SampleAssets/Utility/WaypointCircuit.cs'
+'Assets/OnlineProject/SampleAssets/Utility/WaypointProgressTracker.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneAiControl.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneAudio.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneControlSurfaceAnimator.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneController.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplanePropellerAnimator.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneUserControl2Axis.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/AeroplaneUserControl4Axis.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/JetParticleEffect.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Aircraft/Scripts/LandingGear.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/BrakeLight.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/CarAIControl.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/CarAudio.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/CarController.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/CarSelfRighting.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/CarUserControl.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/Mudguard.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/SkidTrail.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/Suspension.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/Car/Scripts/Wheel.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/RollerBall/Scripts/Ball.cs'
+'Assets/OnlineProject/SampleAssets/Vehicles/RollerBall/Scripts/BallUserControl.cs'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

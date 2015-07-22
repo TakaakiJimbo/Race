@@ -4,17 +4,17 @@ using UnitySampleAssets.CrossPlatformInput;
 namespace UnitySampleAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
-	[RequireComponent(typeof (MyKeepItem))]
+	[RequireComponent(typeof (MyCarItem))]
 	public class MyCarUserControl : MonoBehaviour
     {
         private CarController car; // the car controller we want to use
-		private MyKeepItem keepitem;
+		private MyCarItem item;
 
         private void Awake()
         {
             // get the car controller
-            car = GetComponent<CarController>();
-			keepitem = GetComponent<MyKeepItem>();
+            car  = GetComponent<CarController>();
+			item = GetComponent<MyCarItem>();
         }
 
         private void FixedUpdate()
@@ -24,7 +24,7 @@ namespace UnitySampleAssets.Vehicles.Car
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 			bool spacedown = Input.GetKeyDown (KeyCode.Space); 
             car.Move(h, v);
-			keepitem.useItem (spacedown);
+			item.useItem (spacedown);
         }
     }
 }

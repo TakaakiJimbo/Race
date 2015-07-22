@@ -5,14 +5,22 @@ using System.Collections.Generic;
 public class MyRoute : MonoBehaviour {
 
 	private MyPoint[] point;
-	private int pointmaxnumber = 0;
+	private int       pointmaxnumber = 0;
 
 	void Awake() {
-		point = gameObject.GetComponentsInChildren<MyPoint>();
-		for (int i = 0; i < point.Length; i++) {
-			point[i].changePointNumber(i);
-			pointmaxnumber++;
+		point          = gameObject.GetComponentsInChildren<MyPoint>();
+		pointmaxnumber = point.Length - 1;
+		for (int i = pointmaxnumber ; i >= 0 ; i--) {
+			point[i].changePointNumber(point.Length - 1 - i);
 		}
+	}
+
+	public Vector3 getNextPointNumberPosition(int pointnumber) {
+		int pointnextnumber = pointmaxnumber - pointnumber - 1;
+		if(pointnextnumber > -1) {
+			return point[pointnextnumber].getPointPosition();
+		}
+		return point[pointmaxnumber].getPointPosition();
 	}
 
 	public int getPointMaxNumber() {
@@ -20,10 +28,7 @@ public class MyRoute : MonoBehaviour {
 	}
 
 	public Vector3 getPointNumberPosition(int pointnumber) {
-		return point[pointnumber].getPointPosition();
+		return point[pointmaxnumber - pointnumber].getPointPosition();
 	}
 
-	public Vector3 getPointNumberDirection(int pointnumber) {
-		return point[pointnumber].getPointDirection();
-	}
 }

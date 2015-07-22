@@ -8,11 +8,7 @@ public class MyPoint : MonoBehaviour {
 	public void changePointNumber(int number) {
 		pointnumber = number;
 	}
-	
-	public Vector3 getPointDirection() {
-		return gameObject.transform.localEulerAngles;
-	}
-	
+
 	public int getPointNumber() {
 		return pointnumber;
 	}

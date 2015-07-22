@@ -1,45 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof (MyLifePoint))]
 public abstract class MyItem : MonoBehaviour {
 
-	[SerializeField] private int damagecarvalue = 0;
+	[SerializeField] private int       damagecarvalue = 0;
 	[SerializeField] private AudioClip setitemsound;
 	[SerializeField] private AudioClip hititemsound;
 
-	protected abstract void collidedItemAction (GameObject collidedObject);
-	protected abstract void setItemAppearedPosition (Transform carTransform); 
+	protected abstract void collidedItemAction (GameObject collidedobject);
+	protected abstract void setItemAppearedPosition (Transform cartransform); 
 
 	void OnEnable() {
-		audio.PlayOneShot (setitemsound);
-		onEnableAction ();
+		audio.PlayOneShot(setitemsound);
 	}
 
 	void OnCollisionEnter(Collision other) {
 		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
 			GameObject carobject = other.transform.root.gameObject;
-			AudioSource.PlayClipAtPoint (hititemsound, carobject.transform.position);
+			AudioSource.PlayClipAtPoint(hititemsound, carobject.transform.position);
 			collidedItemAction(carobject);
-			damageCarByItem(carobject);
-			destroyItemAction(gameObject);
+			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
+			destroyItem(gameObject);
 		}
 	}
 	
-	protected void damageCarByItem(GameObject collidedobject) {
-		collidedobject.GetComponent<MyLifePoint> ().changeLifePoint (damagecarvalue);
+	protected void damageCarByItem(MyCarLifePoint carlifepoint) {
+		carlifepoint.changeLifePoint(damagecarvalue);
 	}
 	
-	protected virtual void destroyItemAction(GameObject collideobject) {
+	protected virtual void destroyItem(GameObject collideobject) {
 		Destroy(collideobject);
 	}
-
-	protected virtual void onEnableAction() {
-	}
-
+	
 	protected void setItemAppearedPlace(Transform cartransform) {
-		setItemAppearedRotation (cartransform);
-		setItemAppearedPosition (cartransform);
+		setItemAppearedRotation(cartransform);
+		setItemAppearedPosition(cartransform);
 	}
 
 	protected void setItemAppearedRotation(Transform cartransform) {

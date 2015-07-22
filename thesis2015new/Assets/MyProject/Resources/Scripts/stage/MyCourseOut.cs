@@ -4,6 +4,11 @@ using System.Collections;
 public class MyCourseOut : MonoBehaviour {
 
 	[SerializeField] private AudioClip returnsound;
+	private MyRoute route;
+
+	void Awake() {
+		route = GameObject.Find ("Route").GetComponent<MyRoute> ();
+	}
 
 	void OnCollisionEnter (Collision other) {
 		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
@@ -12,29 +17,29 @@ public class MyCourseOut : MonoBehaviour {
 		}
 	}
 
+	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
+		mycarpoint.fadeIn();
+		audio.Play();
+		StartCoroutine(startReracing(1.0f, mycarpoint, carobject, nowposition, nextposition));
+	}
+
 	private void returnCourse(GameObject carobject) {
-		MyWayPoint mywaypoint = carobject.FindDeep ("TriggerWayPoint").GetComponent<MyWayPoint> ();
-		int gonumber = mywaypoint.getNowPointNumber ();
-		Vector3 goposition = GameObject.Find ("Route").GetComponent<MyRoute> ().getPointNumberPosition (gonumber);
-		Vector3 lookdirection = GameObject.Find ("Route").GetComponent<MyRoute> ().getPointNumberDirection (gonumber);
-		backPoint (mywaypoint, carobject, goposition, lookdirection);
+		MyCarPoint   mycarpoint    = carobject.FindDeep("TriggerPoint").GetComponent<MyCarPoint> ();
+		int          nownumber     = mycarpoint.getNowPointNumber ();
+		Vector3      nowposition   = route.getPointNumberPosition (nownumber);
+		Vector3      nextposition  = route.getNextPointNumberPosition(nownumber);
+		backPoint(mycarpoint, carobject, nowposition, nextposition);
 	}
 
-	private void setPointPosition(GameObject carobject, Vector3 pointposition, Vector3 lookdirection) {
+	private void setPointPosition(GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		carobject.rigidbody.velocity = Vector3.zero;
-		carobject.transform.position = pointposition + Vector3.up;
-		carobject.transform.rotation = Quaternion.Euler(lookdirection);
+		carobject.transform.position = nowposition + Vector3.up;
+		carobject.transform.LookAt(nextposition);
 	}
 
-	public IEnumerator startReracing (float delay, MyWayPoint mywaypoint, GameObject carobject, Vector3 pointposition, Vector3 lookdirection) {
+	public IEnumerator startReracing (float delay, MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		yield return new WaitForSeconds(delay);
-		mywaypoint.startFadeOut ();
-		setPointPosition (carobject, pointposition, lookdirection);
-	}
-
-	private void backPoint (MyWayPoint mywaypoint, GameObject carobject, Vector3 pointposition, Vector3 lookdirection) {
-		audio.Play ();
-		mywaypoint.startFadeIn ();
-		StartCoroutine(startReracing(1.0f, mywaypoint, carobject, pointposition, lookdirection));
+		setPointPosition (carobject, nowposition, nextposition);
+		mycarpoint.fadeOut();
 	}
 }
