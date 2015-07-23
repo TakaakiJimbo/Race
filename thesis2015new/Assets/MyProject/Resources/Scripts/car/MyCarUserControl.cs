@@ -5,26 +5,22 @@ namespace UnitySampleAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
 	[RequireComponent(typeof (MyCarItem))]
-	public class MyCarUserControl : MonoBehaviour
-    {
-        private CarController car; // the car controller we want to use
-		private MyCarItem item;
+	public class MyCarUserControl : MyCar{
 
-        private void Awake()
-        {
-            // get the car controller
+        private CarController   car; // the car controller we want to use
+		private MyCarItem       item;
+
+		protected override void initialize() {
             car  = GetComponent<CarController>();
 			item = GetComponent<MyCarItem>();
         }
 
-        private void FixedUpdate()
-        {
-            // pass the input to the car!
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
-			bool spacedown = Input.GetKeyDown (KeyCode.Space); 
-            car.Move(h, v);
-			item.useItem (spacedown);
+        private void FixedUpdate() {
+			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
+			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
+			bool  use      = CrossPlatformInputManager.GetButtonDown ("Useitem"+identifier); 
+			car.Move(h, v);
+			item.useItem (use);
         }
     }
 }

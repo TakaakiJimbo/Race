@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UnitySampleAssets.Cameras
 {
-    public abstract class AbstractTargetFollower : MonoBehaviour
+    public abstract class MyAbstractTargetFollower : MyCar
     {
         public enum UpdateType // The available methods of updating are:
         {
@@ -24,7 +24,6 @@ namespace UnitySampleAssets.Cameras
             {
                 FindAndTargetPlayer();
             }
-
         }
 
         private void FixedUpdate()
@@ -64,12 +63,14 @@ namespace UnitySampleAssets.Cameras
 		public void FindAndTargetPlayer()
 		{
 			// auto target an object tagged player, if no target has been assigned
-			var targetObj = GameObject.FindGameObjectWithTag("Player");
+			string identifier = "Car"+gameObject.transform.root.name.Substring(6);
+			var    targetObj  = GameObject.Find(identifier);
 			if (targetObj)
 			{
 				SetTarget(targetObj.transform);
 			}
 		}
+
 
         public virtual void SetTarget(Transform newTransform)
         {

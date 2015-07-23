@@ -5,7 +5,7 @@ public class MyCarItem : MyCar {
 
 	[SerializeField] private string item = "";
 
-	protected override void initialize() {
+	void Start() {
 		reflectItem ();
 	}
 

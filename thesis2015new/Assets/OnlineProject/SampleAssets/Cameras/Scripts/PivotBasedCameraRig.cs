@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace UnitySampleAssets.Cameras
 {
-    public abstract class PivotBasedCameraRig : AbstractTargetFollower
-    {
+//    public abstract class PivotBasedCameraRig : AbstractTargetFollower
+	public abstract class PivotBasedCameraRig : MyAbstractTargetFollower
+	{
         // This script is designed to be placed on the root object of a camera rig,
         // comprising 3 gameobjects, each parented to the next:
 
@@ -18,9 +19,6 @@ namespace UnitySampleAssets.Cameras
 
         protected virtual void Awake()
         {
-			string targetname = transform.root.gameObject.name;
-			targetname = "Car" + targetname.Substring(6);
-			target = GameObject.Find (targetname).gameObject.transform;
             // find the camera in the object hierarchy
             cam = GetComponentInChildren<Camera>().transform;
             pivot = cam.parent;

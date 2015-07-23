@@ -6,6 +6,10 @@ public class MyCarLifePoint : MyCar  {
 	[SerializeField] private int       lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
 	[SerializeField] private AudioClip diedsound;
 
+	void Start() {
+		reflectLifePoint();
+	}
+
 	public void changeLifePoint(int changepoint) {
 		if(!targetcamera.isResult()) {
 			lifepoint += changepoint;
@@ -20,10 +24,6 @@ public class MyCarLifePoint : MyCar  {
 
 	public int getLifePoint() {
 		return lifepoint;
-	}
-	
-	protected override void initialize() {
-		reflectLifePoint();
 	}
 
 	public bool isAliveLifePoint() {
