@@ -52,14 +52,19 @@ public class CameraFade : MonoBehaviour
 		// only draw the texture when the alpha value is greater than 0:
 		if (m_CurrentScreenOverlayColor.a > 0)
 		{			
-			GUI.depth = m_FadeGUIDepth;
+			GUI.depth           = m_FadeGUIDepth;
 			Camera targetcamera = gameObject.GetComponent<Camera>();
-			GUI.Label(new Rect(Screen.width * targetcamera.rect.x, Screen.height * (float)System.Math.Abs(-0.5 + targetcamera.rect.y), targetcamera.pixelWidth, targetcamera.pixelHeight), m_FadeTexture, m_BackgroundStyle);
-			Debug.Log(targetcamera.rect.y);
+			float rectx         = targetcamera.rect.width * targetcamera.rect.x;
+			float recty         = getPercentForRectY(targetcamera.rect.height, targetcamera.rect.y);
+			GUI.Label(new Rect(Screen.width * rectx, Screen.height * recty, Screen.width * targetcamera.rect.width, Screen.height * targetcamera.rect.height), m_FadeTexture, m_BackgroundStyle);
 		}
 	}
 	
-	
+	private float getPercentForRectY(float devidepercent, float rectpercent) {
+		float devide = 1/devidepercent;
+		return System.Math.Abs(rectpercent-(devide-1)/devide);
+	}
+
 	// instantly set the current color of the screen-texture to "newScreenOverlayColor"
 	// can be usefull if you want to start a scene fully black and then fade to opague
 	public void SetScreenOverlayColor(Color newScreenOverlayColor)

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MyCarPoint : MyCar {
 
-	private int nowpointnumber    = -1;
+	private int nowpointnumber    = 0;
 	private int beforepointnumber = -1;
 	private int maxpointnumber;
 	private MyRoute myroute;
@@ -12,15 +12,26 @@ public class MyCarPoint : MyCar {
 	protected override void initialize() {
 		myroute = GameObject.Find ("Route").GetComponent<MyRoute> ();
 	}
-	
+
+	private bool isBattleMode() {
+		return maxpointnumber <= 1;
+	}
+
 	void Start() {
 		maxpointnumber = myroute.getPointMaxNumber();
 		reflectReverse(false);
+		if(isBattleMode()) {
+			reflectStartGoalIcon(false);
+		}
 		targetcamera.showProgression(0, maxpointnumber);
 	}
 
+	private void reflectStartGoalIcon(bool flag) {
+		targetcamera.enabledStartGoalIcon(flag);
+	}
+
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Point") {
+		if (other.tag == "Point" && !isBattleMode()) {
 			nowpointnumber = other.gameObject.GetComponent<MyPoint>().getPointNumber();
 			warnReverseRun();
 			reflectProgression();

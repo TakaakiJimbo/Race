@@ -12,6 +12,8 @@ public class MyCamera : MonoBehaviour {
 	private RawImage rank;
 	private RawImage startcount;
 	private RawImage result;
+	private RawImage starticon;
+	private RawImage goalicon;
 
 	private bool  resultflag;
 	private Color fadeincolor = new Color(0,0,0,1);	
@@ -20,6 +22,8 @@ public class MyCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		starticon   = gameObject.FindDeep("StartIcon").gameObject.GetComponent<RawImage>();
+		goalicon    = gameObject.FindDeep("GoalIcon").gameObject.GetComponent<RawImage>();
 		timecounter = gameObject.FindDeep("TimeCounter").gameObject.GetComponent<Text>(); 
 		lifepoint   = gameObject.FindDeep("LifePoint").gameObject.GetComponent<Text>();
 		progression = gameObject.FindDeep("Progression").gameObject.GetComponent<Text>();
@@ -30,7 +34,12 @@ public class MyCamera : MonoBehaviour {
 		result      = gameObject.FindDeep("Result").gameObject.GetComponent<RawImage>();
 		enabledResult(false);
 	}
-	
+
+	public void enabledStartGoalIcon(bool flag) {
+		starticon.enabled   = flag;
+		goalicon.enabled    = flag;
+	}
+
 	public void enabledCount(bool flag) {
 		timecounter.enabled = flag;
 	}
