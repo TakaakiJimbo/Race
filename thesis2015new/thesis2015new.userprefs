@@ -1,11 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyProject/Resources/Scripts/car/MyCarPoint.cs">
-    <Files>
-      <File FileName="Assets/MyProject/Resources/Scripts/car/MyCarPoint.cs" Line="15" Column="2" />
-      <File FileName="Assets/MyProject/Resources/Scripts/camera/MyCamera.cs" Line="38" Column="34" />
-      <File FileName="Assets/MyProject/Resources/Scripts/route/MyRoute.cs" Line="31" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -14,10 +9,15 @@
               <Node name="Resources" expanded="True">
                 <Node name="Scripts" expanded="True">
                   <Node name="camera" expanded="True" />
-                  <Node name="car" expanded="True">
-                    <Node name="MyCarPoint.cs" selected="True" />
-                  </Node>
+                  <Node name="car" expanded="True" />
                   <Node name="route" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="OnlineProject" expanded="True">
+              <Node name="Detonator Explosion Framework" expanded="True">
+                <Node name="System" expanded="True">
+                  <Node name="DetonatorFireball.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
