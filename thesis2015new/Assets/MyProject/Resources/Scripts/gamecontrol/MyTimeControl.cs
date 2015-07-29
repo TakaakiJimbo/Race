@@ -19,6 +19,7 @@ public class MyTimeControl : MyGameControl {
 		foreach(GameObject cameraobject in cameraobjects) {
 			carcameras.Add(cameraobject.GetComponent<MyCamera>());
 		}
+		Application.targetFrameRate = 60;
 	}
 
 	void Start () {

@@ -15,6 +15,9 @@ public class MyCourseOut : MonoBehaviour {
 			GameObject carobject = other.transform.root.gameObject;
 			returnCourse(carobject);
 		}
+		else if(other.gameObject.tag.IndexOf ("Item") >= 0) {
+			Destroy(other.transform.root.gameObject);
+		}
 	}
 
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {

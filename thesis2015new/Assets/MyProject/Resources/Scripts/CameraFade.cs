@@ -54,7 +54,7 @@ public class CameraFade : MonoBehaviour
 		{			
 			GUI.depth           = m_FadeGUIDepth;
 			Camera targetcamera = gameObject.GetComponent<Camera>();
-			float rectx         = targetcamera.rect.width * targetcamera.rect.x;
+			float rectx         = targetcamera.rect.x;
 			float recty         = getPercentForRectY(targetcamera.rect.height, targetcamera.rect.y);
 			GUI.Label(new Rect(Screen.width * rectx, Screen.height * recty, Screen.width * targetcamera.rect.width, Screen.height * targetcamera.rect.height), m_FadeTexture, m_BackgroundStyle);
 		}
