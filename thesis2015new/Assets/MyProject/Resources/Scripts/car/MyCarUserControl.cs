@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnitySampleAssets.CrossPlatformInput;
+using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnitySampleAssets.Vehicles.Car
+namespace UnityStandardAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
 	[RequireComponent(typeof (MyCarItem))]
@@ -19,7 +19,7 @@ namespace UnitySampleAssets.Vehicles.Car
 			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
 			bool  use      = CrossPlatformInputManager.GetButtonDown ("Useitem"+identifier); 
-			car.Move(h, v);
+			car.Move(h, v, v, 0f);
 			item.useItem (use);
         }
     }

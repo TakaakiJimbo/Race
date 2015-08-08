@@ -18,6 +18,6 @@ public class MyBomb : MyItem {
 
 	protected override void setItemAppearedPosition (Transform cartransform) {
 		Transform gameobjecttransform = gameObject.transform;
-		gameobjecttransform.position  = cartransform.position +  cartransform.up * 1 +  cartransform.forward * (-4);
+		gameobjecttransform.position  = cartransform.position +  cartransform.up * 0.5f +  cartransform.forward * (-4);
 	}
 }

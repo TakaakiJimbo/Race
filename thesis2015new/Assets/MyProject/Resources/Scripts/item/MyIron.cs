@@ -20,11 +20,11 @@ public class  MyIron : MyItem {
 	}
 	
 	private void initializeIron(Transform cartransform) {
-		gameObject.rigidbody.velocity = cartransform.forward * movePower;
+		gameObject.GetComponent<Rigidbody>().velocity = cartransform.forward * movePower;
 	}
 
 	protected override void setItemAppearedPosition (Transform cartransform) {
-		gameObject.transform.position = cartransform.position +  cartransform.up  * 1 +  cartransform.forward * 4;
+		gameObject.transform.position = cartransform.position +  cartransform.up  * 0.5f +  cartransform.forward * 4;
 		initializeIron(cartransform);
 	}
 }

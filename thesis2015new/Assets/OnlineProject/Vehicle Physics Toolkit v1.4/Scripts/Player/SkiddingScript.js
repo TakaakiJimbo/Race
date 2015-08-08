@@ -35,11 +35,11 @@ soundWait = 1;
 }
 soundWait -= Time.deltaTime*soundEmition;
 if (skidAt <= currentFrictionValue || rpm < 300 && rpm > 10 && Input.GetAxis("Vertical")>0 && startSkid && hit.collider){
-skidSmoke.particleEmitter.emit = true;
+skidSmoke.GetComponent.<ParticleEmitter>().emit = true;
 SkidMesh();
 }
 else {
-skidSmoke.particleEmitter.emit = false;
+skidSmoke.GetComponent.<ParticleEmitter>().emit = false;
 skidding = 0;
 }
 }
@@ -86,6 +86,6 @@ uvm[2] = Vector2(0,1);
 uvm[3] = Vector2(1,1);
 markMesh.uv = uvm;
 filter.mesh = markMesh;
-mark.renderer.material = skidMaterial;
+mark.GetComponent.<Renderer>().material = skidMaterial;
 mark.AddComponent(DestroyTimerScript);
 }

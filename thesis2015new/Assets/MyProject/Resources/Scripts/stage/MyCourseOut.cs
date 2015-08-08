@@ -10,19 +10,21 @@ public class MyCourseOut : MonoBehaviour {
 		route = GameObject.Find ("Route").GetComponent<MyRoute> ();
 	}
 
+	// layer 8 is "Car"
 	void OnCollisionEnter (Collision other) {
-		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
+		Debug.Log("aaa");
+		if (other.gameObject.layer == 8) {
 			GameObject carobject = other.transform.root.gameObject;
 			returnCourse(carobject);
 		}
-		else if(other.gameObject.tag.IndexOf ("Item") >= 0) {
+		else if(other.gameObject.tag == "Item") {
 			Destroy(other.transform.root.gameObject);
 		}
 	}
 
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		mycarpoint.fadeIn();
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 		StartCoroutine(startReracing(1.0f, mycarpoint, carobject, nowposition, nextposition));
 	}
 
@@ -35,7 +37,7 @@ public class MyCourseOut : MonoBehaviour {
 	}
 
 	private void setPointPosition(GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
-		carobject.rigidbody.velocity = Vector3.zero;
+		carobject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		carobject.transform.position = nowposition + Vector3.up;
 		carobject.transform.LookAt(nextposition);
 	}

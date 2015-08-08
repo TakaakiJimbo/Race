@@ -19,7 +19,7 @@ thisLeft = true;
 
 
 function OnTriggerEnter(other : Collider){
-if(other.collider.tag == "Car"){
+if(other.GetComponent.<Collider>().tag == "Car"){
 
 }
 }

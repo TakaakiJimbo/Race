@@ -32,6 +32,8 @@ public class MyCamera : MonoBehaviour {
 		rank        = gameObject.FindDeep("Rank").gameObject.GetComponent<RawImage>();
 		startcount  = gameObject.FindDeep("StartCount").gameObject.GetComponent<RawImage>();
 		result      = gameObject.FindDeep("Result").gameObject.GetComponent<RawImage>();
+//		QualitySettings.vSyncCount = 0;
+//		Application.targetFrameRate = 0;
 		enabledResult(false);
 	}
 
@@ -62,15 +64,15 @@ public class MyCamera : MonoBehaviour {
 	}
 	
 	private void fadeDied() {
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(diedcolor, 5);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(diedcolor, 5);
 	}
 	
 	public void fadeIn(){
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(fadeincolor, 1);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(fadeincolor, 1);
 	}
 	
 	public void fadeOut(){
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(fadeoutolor, 1);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(fadeoutolor, 1);
 	}
 
 	public bool isResult() {

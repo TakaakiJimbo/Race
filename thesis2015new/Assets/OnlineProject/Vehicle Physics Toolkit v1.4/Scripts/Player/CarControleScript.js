@@ -26,7 +26,7 @@ var minAnglePointer : int = -90;
 var maxAnglePointer : int = 180;
 
 function Start () {
-rigidbody.centerOfMass=centerOfMass; //Center of mass , for this the car should be pointing on z axis
+GetComponent.<Rigidbody>().centerOfMass=centerOfMass; //Center of mass , for this the car should be pointing on z axis
 }
 
 function FixedUpdate () {
@@ -49,16 +49,16 @@ currentSpeed = Mathf.Round(currentSpeed);
 
 function BackLight (){
 if (currentSpeed > 0 && Input.GetAxis("Vertical")<0&&!braked){
-backLightObject.renderer.material = brakeLightMaterial;
+backLightObject.GetComponent.<Renderer>().material = brakeLightMaterial;
 }
 else if (currentSpeed < 0 && Input.GetAxis("Vertical")>0&&!braked){
-backLightObject.renderer.material = brakeLightMaterial;
+backLightObject.GetComponent.<Renderer>().material = brakeLightMaterial;
 }
 else if (currentSpeed < 0 && Input.GetAxis("Vertical")<0&&!braked){
-backLightObject.renderer.material = reverseLightMaterial;
+backLightObject.GetComponent.<Renderer>().material = reverseLightMaterial;
 }
 else if (!braked){
-backLightObject.renderer.material = idleLightMaterial;
+backLightObject.GetComponent.<Renderer>().material = idleLightMaterial;
 }
 }
 
@@ -90,7 +90,7 @@ gearMinValue = gearRatio[i-1];
 }
 gearMaxValue = gearRatio[i];
 var enginePitch : float = ((currentSpeed - gearMinValue)/(gearMaxValue - gearMinValue))+1;
-audio.pitch = enginePitch;
+GetComponent.<AudioSource>().pitch = enginePitch;
 }
 
 //Speedometer

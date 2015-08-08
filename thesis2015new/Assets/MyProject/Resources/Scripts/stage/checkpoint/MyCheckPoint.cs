@@ -12,11 +12,12 @@ public class MyCheckPoint : MonoBehaviour {
 		iTween.ColorTo(gameObject.transform.root.gameObject,iTween.Hash("a",0,"looptype","pingpong","time",1f));
 	}
 
+	// layer 8 is "Car"
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag.IndexOf ("Car") >= 0) {
-			GameObject      carobject     = other.transform.root.gameObject;
-			MyCarRank       carrank       = carobject.GetComponent<MyCarRank>();
-			Vector3         carposition   = carobject.transform.position;
+		if (other.gameObject.layer == 8) {
+			GameObject carobject     = other.transform.root.gameObject;
+			MyCarRank  carrank       = carobject.GetComponent<MyCarRank>();
+			Vector3    carposition   = carobject.transform.position;
 			markCheckPoint(checkpointnumber, carrank , carposition);
 		}
 	}

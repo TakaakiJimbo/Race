@@ -9,7 +9,7 @@ public class MyBanana : MyItem {
 	
 	protected override void setItemAppearedPosition(Transform cartransform) {
 		Transform gameobjecttransform = gameObject.transform;
-		gameobjecttransform.position = cartransform.position +  cartransform.up +  cartransform.forward * (-4);
+		gameobjecttransform.position  = cartransform.position +  cartransform.up * 0.5f +  cartransform.forward * (-4);
 	}
 
 	private void slipCar(GameObject collidedobject) {

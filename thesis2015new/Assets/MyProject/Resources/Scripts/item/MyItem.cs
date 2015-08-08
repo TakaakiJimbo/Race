@@ -11,11 +11,12 @@ public abstract class MyItem : MonoBehaviour {
 	protected abstract void setItemAppearedPosition (Transform cartransform); 
 
 	void OnEnable() {
-		audio.PlayOneShot(setitemsound);
+		GetComponent<AudioSource>().PlayOneShot(setitemsound);
 	}
 
+	// layer 8 is "Car"
 	void OnCollisionEnter(Collision other) {
-		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
+		if (other.gameObject.layer == 8) {
 			GameObject carobject = other.transform.root.gameObject;
 			AudioSource.PlayClipAtPoint(hititemsound, carobject.transform.position);
 			collidedItemAction(carobject);

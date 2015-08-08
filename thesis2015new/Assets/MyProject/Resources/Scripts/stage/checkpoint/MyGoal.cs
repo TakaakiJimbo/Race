@@ -5,9 +5,10 @@ public class MyGoal : MonoBehaviour {
 
 	private bool goalflag = false;
 
+	// layer 8 is "Car"
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag.IndexOf ("Car") >= 0 && !goalflag) {
-			Destroy(gameObject.FindDeep("wall").gameObject);
+		if ((other.gameObject.layer == 8) && !goalflag) {
+			Destroy(GameObject.Find("/goal/wall").gameObject);
 			goalflag = true;
 		}
 	}
