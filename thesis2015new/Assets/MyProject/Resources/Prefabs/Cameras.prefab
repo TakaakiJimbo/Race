@@ -720,12 +720,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AutoTargetPlayer: 1
   m_UpdateType: 0
-  m_MoveSpeed: 1500
-  m_TurnSpeed: 15
-  m_RollSpeed: 15
+  m_MoveSpeed: 300
+  m_TurnSpeed: 10
+  m_RollSpeed: 0
   m_FollowVelocity: 0
   m_FollowTilt: 1
-  m_SpinTurnLimit: 180
+  m_SpinTurnLimit: 360
   m_TargetVelocityLowerLimit: 4
   m_SmoothTurnTime: .200000003
 --- !u!114 &11424498

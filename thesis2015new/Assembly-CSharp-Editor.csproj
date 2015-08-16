@@ -116,6 +116,7 @@
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <None Include="Assets\OnlineProject\sky5X\README.txt" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Environment\Shaders\AlphaTest-Diffuse-GEqual.shader" />
@@ -126,6 +127,7 @@
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
+     <None Include="Assets\OnlineProject\Fantasy Skybox FREE\Readme\Readme.txt" />
      <None Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Environment\Shaders\Skidmarks.shader" />
      <None Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Environment\Shaders\Glassreflect2D.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
@@ -168,6 +170,7 @@
      <None Include="Assets\OnlineProject\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\OnlineProject\Wispy Sky\ReadMe.txt" />
      <None Include="Assets\OnlineProject\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
      <None Include="Assets\OnlineProject\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpec.shader" />

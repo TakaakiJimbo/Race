@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
-  m_SkyboxMaterial: {fileID: 2100000, guid: 5aab239cac7fe8a4c931693a7535da5c, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bf1bf92a3ce592e40b898be6c21cc2fa, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -687,10 +687,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 119982, guid: 628b47fb3e4544ffc88f150816fdf682, type: 2}
-      propertyPath: m_Name
-      value: Car0
-      objectReference: {fileID: 0}
     - target: {fileID: 11479632, guid: 628b47fb3e4544ffc88f150816fdf682, type: 2}
       propertyPath: fireballAMaterial
       value: 
@@ -723,6 +719,14 @@ Prefab:
       propertyPath: heatwaveMaterial
       value: 
       objectReference: {fileID: 103394424}
+    - target: {fileID: 119982, guid: 628b47fb3e4544ffc88f150816fdf682, type: 2}
+      propertyPath: m_Name
+      value: Car0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411628, guid: 628b47fb3e4544ffc88f150816fdf682, type: 2}
+      propertyPath: lifepoint
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 628b47fb3e4544ffc88f150816fdf682, type: 2}
   m_IsPrefabParent: 0
@@ -800,7 +804,7 @@ GameObject:
   - 4: {fileID: 1789156079}
   - 82: {fileID: 1789156080}
   m_Layer: 0
-  m_Name: stage
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,7 +836,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e192ea80247104148b70f3f61afed69c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .200000003
+  m_Volume: .057
   m_Pitch: 1
   Loop: 0
   Mute: 0
