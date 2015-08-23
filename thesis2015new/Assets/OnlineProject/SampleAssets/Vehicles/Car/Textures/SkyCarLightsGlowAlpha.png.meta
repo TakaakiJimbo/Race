@@ -24,7 +24,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -5
   maxTextureSize: 256
   textureSettings:
     filterMode: 2
@@ -34,7 +34,7 @@ TextureImporter:
   nPOTScale: 1
   lightmap: 0
   rGBM: 0
-  compressionQuality: 50
+  compressionQuality: 10
   spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
@@ -47,8 +47,8 @@ TextureImporter:
   buildTargetSettings:
   - buildTarget: Standalone
     maxTextureSize: 128
-    textureFormat: -1
-    compressionQuality: 50
+    textureFormat: -5
+    compressionQuality: 10
   - buildTarget: iPhone
     maxTextureSize: 128
     textureFormat: -1
