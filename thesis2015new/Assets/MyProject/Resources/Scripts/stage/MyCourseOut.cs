@@ -12,7 +12,6 @@ public class MyCourseOut : MonoBehaviour {
 
 	// layer 8 is "Car"
 	void OnCollisionEnter (Collision other) {
-		Debug.Log("aaa");
 		if (other.gameObject.layer == 8) {
 			GameObject carobject = other.transform.root.gameObject;
 			returnCourse(carobject);
