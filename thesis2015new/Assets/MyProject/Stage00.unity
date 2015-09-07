@@ -742,6 +742,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7928c71598034c7cb726cba4fcc94b7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &87308689
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 85.5599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -91.4800034
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .923879564
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .382683307
+      objectReference: {fileID: 0}
+    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 167764, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &89148179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411740, guid: 294762969f9e34ce68928f6a6ce5bf6a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.11016369
+      value: 9.77999973
       objectReference: {fileID: 0}
     - target: {fileID: 411740, guid: 294762969f9e34ce68928f6a6ce5bf6a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1333,7 +1379,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411740, guid: 294762969f9e34ce68928f6a6ce5bf6a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 111740, guid: 294762969f9e34ce68928f6a6ce5bf6a, type: 2}
+      propertyPath: m_Name
+      value: Checkpoint2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 294762969f9e34ce68928f6a6ce5bf6a, type: 2}
@@ -9296,7 +9346,7 @@ GameObject:
   - 4: {fileID: 1208995802}
   - 82: {fileID: 1208995803}
   m_Layer: 0
-  m_Name: stage
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9319,7 +9369,7 @@ Transform:
   - {fileID: 1416674693}
   - {fileID: 1773301676}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!82 &1208995803
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9331,7 +9381,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f529e8b59577645b1b55e7552cc280a2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .0610000007
+  m_Volume: .150000006
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14281,48 +14331,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1766203215
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 85.5599976
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .0500000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -91.4800034
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .923879564
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .382683307
-      objectReference: {fileID: 0}
-    - target: {fileID: 434584, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2d127dda0fccf4d7c8031ae4060e1053, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1773301675
 GameObject:
   m_ObjectHideFlags: 0
@@ -16401,7 +16409,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411740, guid: 7e132c50d841246599daafd319b7ed70, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 111740, guid: 7e132c50d841246599daafd319b7ed70, type: 2}
+      propertyPath: m_Name
+      value: Checkpoint1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e132c50d841246599daafd319b7ed70, type: 2}
