@@ -9,18 +9,22 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private CarController   car; // the car controller we want to use
 		private MyCarItem       item;
+		private MyCarRecover    recovery;
 
 		protected override void initialize() {
             car  = GetComponent<CarController>();
 			item = GetComponent<MyCarItem>();
+			recovery = GetComponent<MyCarRecover>();
         }
 
         private void FixedUpdate() {
 			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
-			bool  use      = CrossPlatformInputManager.GetButtonDown ("Useitem"+identifier); 
+			bool  use      = CrossPlatformInputManager.GetButtonDown("Useitem"+identifier); 
+			bool  recover  = CrossPlatformInputManager.GetButtonUp("Recover"+identifier);
 			car.Move(h, v, v, 0f);
-			item.useItem (use);
+			item.useItem(use);
+			recovery.recoverStage(recover);
         }
     }
 }
