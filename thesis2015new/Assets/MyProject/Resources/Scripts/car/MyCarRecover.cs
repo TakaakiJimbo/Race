@@ -24,8 +24,8 @@ public class MyCarRecover : MyCourseOut {
 	public void recoverStage(bool buttondown){
 		if(buttondown && recover) {
 			recover = false;
-			returnCourse(gameObject);
 			carlifepoint.changeLifePoint(damagecarvalue);
+			returnCourse(gameObject);
 			StartCoroutine(enabledRecover(2f, true));
 		}
 	}

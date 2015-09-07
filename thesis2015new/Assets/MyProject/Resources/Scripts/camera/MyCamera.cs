@@ -80,7 +80,7 @@ public class MyCamera : MonoBehaviour {
 
 	public void receiveGoal(int changepoint, int nowrank) {
 		if(changepoint == 2){
-			enabledResult(true);
+			result.enabled = true;
 			result.texture = Resources.Load<Texture> ("Materials/canvas/result/finallap");
 			StartCoroutine(showResult(2f, false));
 		}
