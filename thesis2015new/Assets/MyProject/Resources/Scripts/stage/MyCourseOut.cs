@@ -17,7 +17,7 @@ public class MyCourseOut : MonoBehaviour {
 			returnCourse(carobject);
 		}
 		else if(other.gameObject.tag == "Item") {
-			Destroy(other.transform.root.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 
