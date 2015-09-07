@@ -22,6 +22,8 @@ public class MyTimeControl : MyGameControl {
 		foreach(GameObject carobject in carplayerobjects) {
 			carobject.GetComponent<UnityStandardAssets.Vehicles.Car.MyCarUserControl>().enabled = false;
 		}
+		Application.targetFrameRate = 30;
+		QualitySettings.vSyncCount = 0;
 	}
 
 	void Start () {

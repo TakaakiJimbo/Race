@@ -9,7 +9,7 @@ public class MyCheckPoint : MonoBehaviour {
 	private int rank = 0;
 
 	void Start () {
-		iTween.ColorTo(gameObject.transform.root.gameObject,iTween.Hash("a",0,"looptype","pingpong","time",1f));
+//		iTween.ColorTo(gameObject.transform.root.gameObject,iTween.Hash("a",0,"looptype","pingpong","time",1f));
 	}
 
 	// layer 8 is "Car"

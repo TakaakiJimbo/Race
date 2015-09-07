@@ -32,7 +32,6 @@ public class MyCamera : MonoBehaviour {
 		rank        = gameObject.FindDeep("Rank").gameObject.GetComponent<RawImage>();
 		startcount  = gameObject.FindDeep("StartCount").gameObject.GetComponent<RawImage>();
 		result      = gameObject.FindDeep("Result").gameObject.GetComponent<RawImage>();
-//		QualitySettings.vSyncCount = 0;
 		Application.targetFrameRate = 30;
 		enabledResult(false);
 	}
