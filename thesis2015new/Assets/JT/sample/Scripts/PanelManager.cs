@@ -76,22 +76,20 @@ public class PanelManager : MonoBehaviour {
 
 		m_Open.SetBool(m_OpenParameterId, false);
 		SetSelected(m_PreviouslySelected);
-		StartCoroutine(DisablePanelDeleyed(m_Open));
+		DisablePanelDeleyed(m_Open);
 		m_Open = null;
 	}
 
-	IEnumerator DisablePanelDeleyed(Animator anim)
+	private void DisablePanelDeleyed(Animator anim)
 	{
 		bool closedStateReached = false;
 		bool wantToClose = true;
-		while (!closedStateReached && wantToClose)
+		if (!closedStateReached && wantToClose)
 		{
 			if (!anim.IsInTransition(0))
 				closedStateReached = anim.GetCurrentAnimatorStateInfo(0).IsName(k_ClosedStateName);
 
 			wantToClose = !anim.GetBool(m_OpenParameterId);
-
-			yield return new WaitForEndOfFrame();
 		}
 
 		if (wantToClose)
