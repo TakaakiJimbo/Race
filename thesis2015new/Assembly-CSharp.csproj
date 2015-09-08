@@ -51,6 +51,7 @@
      <Compile Include="Assets\MyProject\Resources\Scripts\MeshCombiner.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\camera\MyAbstractTargetFollower1.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\camera\MyCamera.cs" />
+     <Compile Include="Assets\MyProject\Resources\Scripts\camera\MySubCamera.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\car\MyCar.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\car\MyCarItem.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\car\MyCarLifePoint.cs" />

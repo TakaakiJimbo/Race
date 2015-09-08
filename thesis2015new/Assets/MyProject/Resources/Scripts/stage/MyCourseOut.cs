@@ -13,7 +13,8 @@ public class MyCourseOut : MonoBehaviour {
 	// layer 8 is "Car"
 	protected virtual void OnCollisionEnter (Collision other) {
 		if (other.gameObject.layer == 8) {
-			GameObject carobject = other.transform.root.gameObject;
+			string     targetname = "/" + other.transform.root.gameObject.name + "/Car";
+			GameObject carobject     = GameObject.Find(targetname);
 			returnCourse(carobject);
 		}
 		else if(other.gameObject.tag == "Item") {

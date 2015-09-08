@@ -17,7 +17,7 @@ public abstract class MyItem : MonoBehaviour {
 	// layer 8 is "Car"
 	void OnCollisionEnter(Collision other) {
 		if (other.gameObject.layer == 8) {
-			GameObject carobject = other.transform.root.gameObject;
+			GameObject carobject = other.gameObject;
 			AudioSource.PlayClipAtPoint(hititemsound, carobject.transform.position);
 			collidedItemAction(carobject);
 			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());

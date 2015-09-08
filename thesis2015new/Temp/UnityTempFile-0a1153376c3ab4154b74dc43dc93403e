@@ -76,6 +76,7 @@
 'Assets/MyProject/Resources/Scripts/MeshCombiner.cs'
 'Assets/MyProject/Resources/Scripts/camera/MyAbstractTargetFollower1.cs'
 'Assets/MyProject/Resources/Scripts/camera/MyCamera.cs'
+'Assets/MyProject/Resources/Scripts/camera/MySubCamera.cs'
 'Assets/MyProject/Resources/Scripts/car/MyCar.cs'
 'Assets/MyProject/Resources/Scripts/car/MyCarItem.cs'
 'Assets/MyProject/Resources/Scripts/car/MyCarLifePoint.cs'

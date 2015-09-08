@@ -8,10 +8,10 @@
             <Node name="MyProject" expanded="True">
               <Node name="Resources" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="camera" expanded="True">
-                    <Node name="MyCamera.cs" selected="True" />
+                  <Node name="camera" expanded="True" />
+                  <Node name="car" expanded="True">
+                    <Node name="MyCar.cs" selected="True" />
                   </Node>
-                  <Node name="car" expanded="True" />
                   <Node name="item" expanded="True" />
                   <Node name="stage" expanded="True">
                     <Node name="checkpoint" expanded="True" />
@@ -21,6 +21,9 @@
             </Node>
             <Node name="OnlineProject" expanded="True">
               <Node name="Standard Assets" expanded="True">
+                <Node name="Cameras" expanded="True">
+                  <Node name="Scripts" expanded="True" />
+                </Node>
                 <Node name="Characters" expanded="True">
                   <Node name="FirstPersonCharacter" expanded="True">
                     <Node name="Scripts" expanded="True" />

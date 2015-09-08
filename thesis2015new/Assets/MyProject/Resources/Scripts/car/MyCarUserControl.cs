@@ -7,14 +7,14 @@ namespace UnityStandardAssets.Vehicles.Car
 	[RequireComponent(typeof (MyCarItem))]
 	public class MyCarUserControl : MyCar{
 
-        private CarController   car; // the car controller we want to use
-		private MyCarItem       item;
-		private MyCarRecover    recovery;
+        private CarController car; // the car controller we want to use
+		private MyCarItem     item;
+		private MyCarRecover  recovery;  
 
 		protected override void initialize() {
-            car  = GetComponent<CarController>();
-			item = GetComponent<MyCarItem>();
-			recovery = GetComponent<MyCarRecover>();
+            car       = gameObject.GetComponent<CarController>();
+			item      = gameObject.GetComponent<MyCarItem>();
+			recovery  = gameObject.GetComponent<MyCarRecover>();
         }
 
         private void FixedUpdate() {
@@ -22,9 +22,13 @@ namespace UnityStandardAssets.Vehicles.Car
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
 			bool  use      = CrossPlatformInputManager.GetButtonDown("Useitem"+identifier); 
 			bool  recover  = CrossPlatformInputManager.GetButtonUp("Recover"+identifier);
+			float subh     = CrossPlatformInputManager.GetAxis("SubHorizontal"+identifier);
+			float subv     = CrossPlatformInputManager.GetAxis("SubVertical"+identifier);
 			car.Move(h, v, v, 0f);
 			item.useItem(use);
 			recovery.recoverStage(recover);
+			targetsubcamera.moveSubCamera(gameObject.transform.position);
+			targetsubcamera.rotateSubCamera(subh, subv);
         }
     }
 }
