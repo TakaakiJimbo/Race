@@ -30,9 +30,10 @@ public class MyCarRank : MyCar {
 
 	public void receiveRank(int changepoint, int nowrank) {
 		if(changepoint == 3 && nowrank == -1) {	// for two player mode
-			int player           = int.Parse(gameObject.name.Substring(3)) - 1;
+			int player           = identifier - 1;
 			player               = Mathf.Abs(player);
-			MyCarRank playerrank = GameObject.Find("Car"+player).GetComponent<MyCarRank>();
+			string    targetname = "/Car" + player + "/Car";
+			MyCarRank playerrank = GameObject.Find(targetname).GetComponent<MyCarRank>();
 			playerrank.setRank(1,1);
 			playerrank.setRank(2,1);
 			playerrank.receiveRank(3,1);

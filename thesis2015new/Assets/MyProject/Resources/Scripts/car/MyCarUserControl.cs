@@ -20,12 +20,13 @@ namespace UnityStandardAssets.Vehicles.Car
         private void FixedUpdate() {
 			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
-			bool  use      = CrossPlatformInputManager.GetButtonDown("Useitem"+identifier); 
+			bool  usemain  = CrossPlatformInputManager.GetButtonDown("UseitemByMain"+identifier); 
+			bool  usesub   = CrossPlatformInputManager.GetButtonDown("UseitemBySub"+identifier); 
 			bool  recover  = CrossPlatformInputManager.GetButtonUp("Recover"+identifier);
 			float subh     = CrossPlatformInputManager.GetAxis("SubHorizontal"+identifier);
 			float subv     = CrossPlatformInputManager.GetAxis("SubVertical"+identifier);
 			car.Move(h, v, v, 0f);
-			item.useItem(use);
+			item.useItem(usemain, usesub);
 			recovery.recoverStage(recover);
 			targetsubcamera.moveSubCamera(gameObject.transform.position);
 			targetsubcamera.rotateSubCamera(subh, subv);
