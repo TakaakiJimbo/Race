@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyProject/Resources/Materials/stage/town/CullingOff.shader">
     <Files>
-      <File FileName="Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs" Line="22" Column="1" />
-      <File FileName="Assets/MyProject/Resources/Scripts/car/MyCarRecover.cs" Line="11" Column="48" />
+      <File FileName="Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs" Line="1" Column="1" />
+      <File FileName="Assets/MyProject/Resources/Scripts/car/MyCarRecover.cs" Line="1" Column="1" />
+      <File FileName="Assets/MyProject/Resources/Materials/stage/town/CullingOff.shader" Line="17" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,6 +15,11 @@
             </Node>
             <Node name="MyProject" expanded="True">
               <Node name="Resources" expanded="True">
+                <Node name="Materials" expanded="True">
+                  <Node name="stage" expanded="True">
+                    <Node name="town" expanded="True" />
+                  </Node>
+                </Node>
                 <Node name="Scripts" expanded="True">
                   <Node name="camera" expanded="True" />
                   <Node name="car" expanded="True" />
@@ -21,7 +27,19 @@
                   <Node name="item" expanded="True" />
                   <Node name="stage" expanded="True">
                     <Node name="checkpoint" expanded="True" />
-                    <Node name="MyCourseOut.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="MyProject" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="Materials" expanded="True">
+                  <Node name="stage" expanded="True">
+                    <Node name="town" expanded="True">
+                      <Node name="CullingOff.shader" selected="True" />
+                    </Node>
                   </Node>
                 </Node>
               </Node>
