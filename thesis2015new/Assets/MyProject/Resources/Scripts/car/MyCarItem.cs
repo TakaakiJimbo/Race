@@ -45,6 +45,7 @@ public class MyCarItem : MyCar {
 		if(!haveItem()){
 			setItem(getitem);
 			reflectItem();
+			reflectSubItem();
 		}
 	}
 
@@ -60,9 +61,13 @@ public class MyCarItem : MyCar {
 		targetcamera.showItem(item);
 	}
 
+	private void reflectSubItem() {
+		targetsubcamera.showItem(subitem);
+	}
+
 	private void setItem(string getitem) {
 		item     = getitem;
-		subitem += 5;
+		subitem += 1;
 	}
 
 	public void useItem(bool usemain, bool usesub){
@@ -76,6 +81,7 @@ public class MyCarItem : MyCar {
 				shotsubitemflag = false;
 				appearSubItem();
 				deleteSubItem();
+				reflectSubItem();
 				StartCoroutine(enableShotSubItem(3, true));
 			}
 		}
