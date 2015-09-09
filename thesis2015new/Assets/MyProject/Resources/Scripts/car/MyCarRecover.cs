@@ -18,7 +18,7 @@ public class MyCarRecover : MyCourseOut {
 
 	public IEnumerator enabledRecover(float delay, bool flag) {
 		yield return new WaitForSeconds(delay);
-		recover = true;
+		recover = flag;
 	}
 
 	public void recoverStage(bool buttondown){

@@ -7,8 +7,8 @@ public class MyBomb : MyItem {
 		explodeCar(collidedobject);
 	}
 	
-	protected override void destroyItem(GameObject collideobject) {
-		collideobject.GetComponent<Detonator>().Explode();
+	protected override void destroyItem() {
+		gameObject.GetComponent<Detonator>().Explode();
 	}
 
 	private void explodeCar(GameObject collidedobject) {

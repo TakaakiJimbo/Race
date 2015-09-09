@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Vehicles.Car
 			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
 			bool  usemain  = CrossPlatformInputManager.GetButtonDown("UseitemByMain"+identifier); 
-			bool  usesub   = CrossPlatformInputManager.GetButtonDown("UseitemBySub"+identifier); 
+			bool  usesub   = CrossPlatformInputManager.GetButtonUp("UseitemBySub"+identifier); 
 			bool  recover  = CrossPlatformInputManager.GetButtonUp("Recover"+identifier);
 			float subh     = CrossPlatformInputManager.GetAxis("SubHorizontal"+identifier);
 			float subv     = CrossPlatformInputManager.GetAxis("SubVertical"+identifier);

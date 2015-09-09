@@ -21,7 +21,7 @@ public abstract class MyItem : MonoBehaviour {
 			AudioSource.PlayClipAtPoint(hititemsound, carobject.transform.position);
 			collidedItemAction(carobject);
 			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
-			destroyItem(gameObject);
+			destroyItem();
 		}
 	}
 	
@@ -29,8 +29,8 @@ public abstract class MyItem : MonoBehaviour {
 		carlifepoint.changeLifePoint(damagecarvalue);
 	}
 	
-	protected virtual void destroyItem(GameObject collideobject) {
-		Destroy(collideobject);
+	protected virtual void destroyItem() {
+		Destroy(gameObject);
 	}
 	
 	protected void setItemAppearedPlace(Transform cartransform) {

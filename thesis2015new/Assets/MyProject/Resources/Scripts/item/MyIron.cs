@@ -10,8 +10,8 @@ public class  MyIron : MyItem {
 		explodeCar(collidedobject);
 	}
 
-	protected override void destroyItem(GameObject collideobject) {
-		collideobject.GetComponent<Detonator>().Explode();
+	protected override void destroyItem() {
+		gameObject.GetComponent<Detonator>().Explode();
 	}
 	
 	private void explodeCar(GameObject collidedobject) {
@@ -26,5 +26,6 @@ public class  MyIron : MyItem {
 	protected override void setItemAppearedPosition (Transform cartransform) {
 		gameObject.transform.position = cartransform.position +  cartransform.up  * 0.5f +  cartransform.forward * 4;
 		initializeIron(cartransform);
+		Invoke("destroyItem", 2);
 	}
 }
