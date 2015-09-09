@@ -8,8 +8,8 @@ public class MyCarRecover : MyCourseOut {
 	private MyCarLifePoint carlifepoint;
 	private bool           recover = true;
 
-	// I do not know why enable to read "OnCollisionEnter" from "MyCourseOut" class nevertheless setting private class
-	protected override void OnCollisionEnter (Collision other) {
+	// I do not know why enable to read "OnTriggerEnter" from "MyCourseOut" class nevertheless setting private class
+	protected override void OnTriggerEnter (Collider other) {
 	}
 
 	void Start() {

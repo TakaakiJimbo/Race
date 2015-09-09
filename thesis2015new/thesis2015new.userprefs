@@ -1,6 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs">
+    <Files>
+      <File FileName="Assets/MyProject/Resources/Scripts/stage/MyCourseOut.cs" Line="22" Column="1" />
+      <File FileName="Assets/MyProject/Resources/Scripts/car/MyCarRecover.cs" Line="11" Column="48" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -11,14 +15,13 @@
             <Node name="MyProject" expanded="True">
               <Node name="Resources" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="camera" expanded="True">
-                    <Node name="MySubCamera.cs" selected="True" />
-                  </Node>
+                  <Node name="camera" expanded="True" />
                   <Node name="car" expanded="True" />
                   <Node name="gamecontrol" expanded="True" />
                   <Node name="item" expanded="True" />
                   <Node name="stage" expanded="True">
                     <Node name="checkpoint" expanded="True" />
+                    <Node name="MyCourseOut.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>

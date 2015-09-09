@@ -11,17 +11,14 @@ public class MyCourseOut : MonoBehaviour {
 	}
 
 	// layer 8 is "Car"
-	protected virtual void OnCollisionEnter (Collision other) {
+	protected virtual void OnTriggerEnter (Collider other) {
 		if (other.gameObject.layer == 8) {
 			string     targetname = "/" + other.transform.root.gameObject.name + "/Car";
 			GameObject carobject     = GameObject.Find(targetname);
 			returnCourse(carobject);
 		}
-		else if(other.gameObject.tag == "Item") {
-			Destroy(other.gameObject);
-		}
 	}
-
+	
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		mycarpoint.fadeIn();
 		GetComponent<AudioSource>().PlayOneShot(returnsound,1);

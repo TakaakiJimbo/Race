@@ -65,6 +65,7 @@
      <Compile Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Scripts\Player\PC\WheelScriptPC.js" />
      <Compile Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Scripts\Player\SkiddingScript.js" />
      <Compile Include="Assets\OnlineProject\Vehicle Physics Toolkit v1.4\Scripts\Player\TochScript.js" />
+     <None Include="Assets\MyProject\Resources\Materials\stage\town\CullingOff.shader" />
      <None Include="Assets\JT\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

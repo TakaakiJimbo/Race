@@ -96,6 +96,7 @@
      <Compile Include="Assets\JT\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
      <Compile Include="Assets\JT\sample\Scripts\Editor\AlphaNumericSort.cs" />
      <Compile Include="Assets\JT\sample\Scripts\Editor\GUIHierarchy.cs" />
+     <None Include="Assets\MyProject\Resources\Materials\stage\town\CullingOff.shader" />
      <None Include="Assets\JT\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

@@ -378,6 +378,7 @@
      <Compile Include="Assets\OnlineProject\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
      <Compile Include="Assets\OnlineProject\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
      <Compile Include="Assets\OnlineProject\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
+     <None Include="Assets\MyProject\Resources\Materials\stage\town\CullingOff.shader" />
      <None Include="Assets\JT\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\OnlineProject\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

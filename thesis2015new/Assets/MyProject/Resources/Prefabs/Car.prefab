@@ -2412,7 +2412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16ca4641bb7049fa94a3de598c5545a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifepoint: 6
+  lifepoint: 4
   diedsound: {fileID: 8300000, guid: 0cd41d8a5966b49fb81515f32142195f, type: 3}
 --- !u!114 &11414596
 MonoBehaviour:
