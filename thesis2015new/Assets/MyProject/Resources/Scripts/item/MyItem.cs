@@ -23,6 +23,9 @@ public abstract class MyItem : MonoBehaviour {
 			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
 			destroyItem();
 		}
+		else if(other.gameObject.tag == "Item") {
+			destroyItem();
+		}
 	}
 	
 	protected void damageCarByItem(MyCarLifePoint carlifepoint) {
