@@ -18,13 +18,11 @@ public class MyCarItem : MyCar {
 
 	private void appearItem() {
 		GameObject itementity = Instantiate(Resources.Load("Prefabs/" + item )) as GameObject;
-//		itementity.name       = item;
 		itementity.SendMessage("setItemAppearedPosition" , gameObject.transform);	// item function
 	}
 
 	private void appearSubItem() {
-		GameObject itementity = Instantiate(Resources.Load("Prefabs/iron")) as GameObject;
-//		itementity.name       = "iron";
+		GameObject itementity = Instantiate(Resources.Load("Prefabs/subiron")) as GameObject;
 		itementity.SendMessage("setItemAppearedPosition" , subcamera);	// item function
 	}
 

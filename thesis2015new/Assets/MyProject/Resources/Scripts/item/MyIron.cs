@@ -4,7 +4,7 @@ using System.Collections;
 
 public class  MyIron : MyItem {
 	
-	private float movePower = 100f;
+	protected float movePower = 100f;
 		
 	protected override void collidedItemAction(GameObject collidedobject) {
 		explodeCar(collidedobject);
@@ -14,12 +14,12 @@ public class  MyIron : MyItem {
 		gameObject.GetComponent<Detonator>().Explode();
 	}
 	
-	private void explodeCar(GameObject collidedobject) {
+	protected void explodeCar(GameObject collidedobject) {
 		iTween.MoveTo(collidedobject, iTween.Hash("y", 20, "time", 0.75f));
 		iTween.RotateTo(collidedobject, iTween.Hash("x", 1080 , "y", 1080, "z", 1080, "time", 2.5f));
 	}
 	
-	private void initializeIron(Transform cartransform) {
+	protected void initializeIron(Transform cartransform) {
 		gameObject.GetComponent<Rigidbody>().velocity = cartransform.forward * movePower;
 	}
 

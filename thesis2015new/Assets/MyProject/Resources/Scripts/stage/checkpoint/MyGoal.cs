@@ -9,6 +9,7 @@ public class MyGoal : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if ((other.gameObject.layer == 8) && !goalflag) {
 			Destroy(GameObject.Find("/Stage/CheckPoint/Goal/wall").gameObject);
+			Destroy(GameObject.Find("/Stage/CheckPoint/Start").gameObject);
 			goalflag = true;
 		}
 	}

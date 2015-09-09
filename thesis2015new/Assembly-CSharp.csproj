@@ -212,6 +212,7 @@
      <Compile Include="Assets\MyProject\Resources\Scripts\item\MyIron.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\item\MyItem.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\item\MyItemBox.cs" />
+     <Compile Include="Assets\MyProject\Resources\Scripts\item\MySubIron.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\route\MyPoint.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\route\MyRoute.cs" />
      <Compile Include="Assets\MyProject\Resources\Scripts\stage\MyCourseOut.cs" />

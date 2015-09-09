@@ -30,15 +30,15 @@ public class MyItemBox : MyItem {
 		caritem.getItem(item);
 	}
 
-	private bool isItemboxType(Type type) {
-		return type == typeof(MyItemBox);
+	private bool enableItemboxType(Type type) {
+		return type == typeof(MyItemBox) || type == typeof(MySubIron);
 	}
 
 	private void setItemList() {
 		Type targetType = typeof(MyItem);
 		foreach (Type type in Assembly.GetExecutingAssembly().GetTypes()) {
 			for (Type baseType = type.BaseType; baseType != null; baseType = baseType.BaseType) {
-				if (baseType == targetType && !isItemboxType(type)) {
+				if (baseType == targetType && !enableItemboxType(type)) {
 					itemlist.Add(cutStringCalledMy(type));
 					break;
 				}
