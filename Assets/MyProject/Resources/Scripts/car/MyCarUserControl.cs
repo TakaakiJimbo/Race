@@ -1,26 +1,35 @@
 using UnityEngine;
-using UnitySampleAssets.CrossPlatformInput;
+using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnitySampleAssets.Vehicles.Car
+namespace UnityStandardAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
 	[RequireComponent(typeof (MyCarItem))]
 	public class MyCarUserControl : MyCar{
 
-        private CarController   car; // the car controller we want to use
-		private MyCarItem       item;
+        private CarController car; // the car controller we want to use
+		private MyCarItem     item;
+		private MyCarRecover  recovery;  
 
 		protected override void initialize() {
-            car  = GetComponent<CarController>();
-			item = GetComponent<MyCarItem>();
+            car       = gameObject.GetComponent<CarController>();
+			item      = gameObject.GetComponent<MyCarItem>();
+			recovery  = gameObject.GetComponent<MyCarRecover>();
         }
 
         private void FixedUpdate() {
 			float h        = CrossPlatformInputManager.GetAxis("Horizontal"+identifier);
 			float v        = CrossPlatformInputManager.GetAxis("Vertical"+identifier);
-			bool  use      = CrossPlatformInputManager.GetButtonDown ("Useitem"+identifier); 
-			car.Move(h, v);
-			item.useItem (use);
+			bool  usemain  = CrossPlatformInputManager.GetButtonDown("UseitemByMain"+identifier); 
+			bool  usesub   = CrossPlatformInputManager.GetButtonUp("UseitemBySub"+identifier); 
+			bool  recover  = CrossPlatformInputManager.GetButtonUp("Recover"+identifier);
+			float subh     = CrossPlatformInputManager.GetAxis("SubHorizontal"+identifier);
+			float subv     = CrossPlatformInputManager.GetAxis("SubVertical"+identifier);
+			car.Move(h, v, v, 0f);
+			item.useItem(usemain, usesub);
+			recovery.recoverStage(recover);
+			targetsubcamera.moveSubCamera(gameObject.transform.position);
+			targetsubcamera.rotateSubCamera(subh, subv);
         }
     }
 }

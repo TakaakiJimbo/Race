@@ -11,16 +11,20 @@ public abstract class MyItem : MonoBehaviour {
 	protected abstract void setItemAppearedPosition (Transform cartransform); 
 
 	void OnEnable() {
-		audio.PlayOneShot(setitemsound);
+		GetComponent<AudioSource>().PlayOneShot(setitemsound);
 	}
 
+	// layer 8 is "Car"
 	void OnCollisionEnter(Collision other) {
-		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
-			GameObject carobject = other.transform.root.gameObject;
+		if (other.gameObject.layer == 8) {
+			GameObject carobject = other.gameObject;
 			AudioSource.PlayClipAtPoint(hititemsound, carobject.transform.position);
 			collidedItemAction(carobject);
 			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
-			destroyItem(gameObject);
+			destroyItem();
+		}
+		else if(other.gameObject.tag == "Item") {
+			destroyItem();
 		}
 	}
 	
@@ -28,8 +32,8 @@ public abstract class MyItem : MonoBehaviour {
 		carlifepoint.changeLifePoint(damagecarvalue);
 	}
 	
-	protected virtual void destroyItem(GameObject collideobject) {
-		Destroy(collideobject);
+	protected virtual void destroyItem() {
+		Destroy(gameObject);
 	}
 	
 	protected void setItemAppearedPlace(Transform cartransform) {

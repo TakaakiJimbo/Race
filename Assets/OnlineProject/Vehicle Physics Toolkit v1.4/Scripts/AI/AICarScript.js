@@ -28,7 +28,7 @@ var inSector : boolean;
 var isControll = false;
 var gearRatio : int[];
 function Start () {  
-rigidbody.centerOfMass = centerOfMass;  
+GetComponent.<Rigidbody>().centerOfMass = centerOfMass;  
 GetPath();  
 }  
   
@@ -57,7 +57,7 @@ gearMinValue = gearRatio[i-1];
 }
 gearMaxValue = gearRatio[i];
 var enginePitch : float = ((currentSpeed - gearMinValue)/(gearMaxValue - gearMinValue))+1;
-audio.pitch = enginePitch;
+GetComponent.<AudioSource>().pitch = enginePitch;
 }
 
     

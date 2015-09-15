@@ -35,8 +35,8 @@ public class MyCarLifePoint : MyCar  {
 	}
 	
 	private void diedAnimation() {
-		gameObject.GetComponent<UnitySampleAssets.Vehicles.Car.MyCarUserControl>().enabled = false;
-		gameObject.rigidbody.isKinematic = true;
+		gameObject.GetComponent<UnityStandardAssets.Vehicles.Car.MyCarUserControl>().enabled = false;
+		gameObject.GetComponent<Rigidbody>().isKinematic = true;
 		gameObject.GetComponent<Detonator>().Explode();
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
 		AudioSource.PlayClipAtPoint (diedsound, gameObject.transform.position);

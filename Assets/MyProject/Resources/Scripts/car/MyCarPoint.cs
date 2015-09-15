@@ -68,7 +68,7 @@ public class MyCarPoint : MyCar {
 	private void warnReverseRun(){
 		if (checkReverseRun (nowpointnumber)) {
 			reflectReverse (true);
-			audio.Play();
+			GetComponent<AudioSource>().Play();
 		}
 		else {
 			reflectReverse (false);

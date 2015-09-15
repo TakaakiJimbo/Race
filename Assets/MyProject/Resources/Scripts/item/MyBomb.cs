@@ -7,8 +7,8 @@ public class MyBomb : MyItem {
 		explodeCar(collidedobject);
 	}
 	
-	protected override void destroyItem(GameObject collideobject) {
-		collideobject.GetComponent<Detonator>().Explode();
+	protected override void destroyItem() {
+		gameObject.GetComponent<Detonator>().Explode();
 	}
 
 	private void explodeCar(GameObject collidedobject) {
@@ -18,6 +18,6 @@ public class MyBomb : MyItem {
 
 	protected override void setItemAppearedPosition (Transform cartransform) {
 		Transform gameobjecttransform = gameObject.transform;
-		gameobjecttransform.position  = cartransform.position +  cartransform.up * 1 +  cartransform.forward * (-4);
+		gameobjecttransform.position  = cartransform.position +  cartransform.up * 0.5f +  cartransform.forward * (-4);
 	}
 }

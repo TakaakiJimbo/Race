@@ -32,6 +32,7 @@ public class MyCamera : MonoBehaviour {
 		rank        = gameObject.FindDeep("Rank").gameObject.GetComponent<RawImage>();
 		startcount  = gameObject.FindDeep("StartCount").gameObject.GetComponent<RawImage>();
 		result      = gameObject.FindDeep("Result").gameObject.GetComponent<RawImage>();
+		Application.targetFrameRate = 30;
 		enabledResult(false);
 	}
 
@@ -62,15 +63,15 @@ public class MyCamera : MonoBehaviour {
 	}
 	
 	private void fadeDied() {
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(diedcolor, 5);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(diedcolor, 5);
 	}
 	
 	public void fadeIn(){
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(fadeincolor, 1);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(fadeincolor, 1);
 	}
 	
 	public void fadeOut(){
-		gameObject.FindDeep("Main Camera").GetComponent<CameraFade>().StartFade(fadeoutolor, 1);
+		gameObject.FindDeep("MainCamera").GetComponent<CameraFade>().StartFade(fadeoutolor, 1);
 	}
 
 	public bool isResult() {
@@ -78,7 +79,12 @@ public class MyCamera : MonoBehaviour {
 	}
 
 	public void receiveGoal(int changepoint, int nowrank) {
-		if(changepoint == 3) {
+		if(changepoint == 2){
+			result.enabled = true;
+			result.texture = Resources.Load<Texture> ("Materials/canvas/result/finallap");
+			StartCoroutine(showResult(2f, false));
+		}
+		else if(changepoint == 3) {
 			enabledResult(true);
 			if(nowrank == -1) {
 				fadeDied();
@@ -146,5 +152,10 @@ public class MyCamera : MonoBehaviour {
 	public IEnumerator showRank(float delay, bool flag) {
 		yield return new WaitForSeconds(delay);
 		enabledRank(flag);
+	}
+
+	public IEnumerator showResult(float delay, bool flag) {
+		yield return new WaitForSeconds(delay);
+		enabledResult(flag);
 	}
 }

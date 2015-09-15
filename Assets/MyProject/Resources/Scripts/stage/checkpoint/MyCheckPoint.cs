@@ -7,17 +7,18 @@ public class MyCheckPoint : MonoBehaviour {
 	[SerializeField]              private AudioClip checkedsound;
 	[SerializeField, Range(1, 3)] private int       checkpointnumber;
 	private int rank = 0;
-
-	void Start () {
-		iTween.ColorTo(gameObject.transform.root.gameObject,iTween.Hash("a",0,"looptype","pingpong","time",1f));
-	}
-
+	
+	// layer 8 is "Car"
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag.IndexOf ("Car") >= 0) {
-			GameObject      carobject     = other.transform.root.gameObject;
-			MyCarRank       carrank       = carobject.GetComponent<MyCarRank>();
-			Vector3         carposition   = carobject.transform.position;
+		if (other.gameObject.layer == 8) {
+			string     targetname    = "/" + other.transform.root.gameObject.name + "/Car";
+			GameObject carobject     = GameObject.Find(targetname);
+			MyCarRank  carrank       = carobject.GetComponent<MyCarRank>();
+			Vector3    carposition   = carobject.transform.position;
 			markCheckPoint(checkpointnumber, carrank , carposition);
+			if(checkpointnumber == 2) {
+				GameObject.Find("Stage").GetComponent<AudioSource>().pitch = 1.25f;
+			}
 		}
 	}
 

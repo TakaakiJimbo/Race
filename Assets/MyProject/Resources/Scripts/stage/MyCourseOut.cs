@@ -10,23 +10,22 @@ public class MyCourseOut : MonoBehaviour {
 		route = GameObject.Find ("Route").GetComponent<MyRoute> ();
 	}
 
-	void OnCollisionEnter (Collision other) {
-		if (other.gameObject.tag.IndexOf ("Player") >= 0) {
-			GameObject carobject = other.transform.root.gameObject;
+	// layer 8 is "Car"
+	protected virtual void OnTriggerEnter (Collider other) {
+		if (other.gameObject.layer == 8) {
+			string     targetname = "/" + other.transform.root.gameObject.name + "/Car";
+			GameObject carobject     = GameObject.Find(targetname);
 			returnCourse(carobject);
 		}
-		else if(other.gameObject.tag.IndexOf ("Item") >= 0) {
-			Destroy(other.transform.root.gameObject);
-		}
 	}
-
+	
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		mycarpoint.fadeIn();
-		audio.Play();
+		GetComponent<AudioSource>().PlayOneShot(returnsound,1);
 		StartCoroutine(startReracing(1.0f, mycarpoint, carobject, nowposition, nextposition));
 	}
 
-	private void returnCourse(GameObject carobject) {
+	public void returnCourse(GameObject carobject) {
 		MyCarPoint   mycarpoint    = carobject.FindDeep("TriggerPoint").GetComponent<MyCarPoint> ();
 		int          nownumber     = mycarpoint.getNowPointNumber ();
 		Vector3      nowposition   = route.getPointNumberPosition (nownumber);
@@ -35,7 +34,7 @@ public class MyCourseOut : MonoBehaviour {
 	}
 
 	private void setPointPosition(GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
-		carobject.rigidbody.velocity = Vector3.zero;
+		carobject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		carobject.transform.position = nowposition + Vector3.up;
 		carobject.transform.LookAt(nextposition);
 	}

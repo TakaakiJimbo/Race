@@ -90,7 +90,7 @@ wheelCollider.brakeTorque = 0;
 //Steer Control
 
 function SteerControle (){
-speedFactor = transform.parent.root.rigidbody.velocity.magnitude/carScript.lowestSteerAtSpeed;
+speedFactor = transform.parent.root.GetComponent.<Rigidbody>().velocity.magnitude/carScript.lowestSteerAtSpeed;
 var currentSteerAngel = Mathf.Lerp(carScript.lowSpeedSteerAngel,carScript.highSpeedSteerAngel,speedFactor);
 if (invertSteer)
 currentSteerAngel *= -Input.GetAxis("Horizontal");
@@ -127,10 +127,10 @@ wheelCollider.sidewaysFriction.extremumValue = 300;
 wheelCollider.brakeTorque = carScript.maxBrakeTorque;
 wheelCollider.motorTorque =0;
 if (carScript.currentSpeed < 1 && carScript.currentSpeed > -1){
-carScript.backLightObject.renderer.material = carScript.idleLightMaterial;
+carScript.backLightObject.GetComponent.<Renderer>().material = carScript.idleLightMaterial;
 }
 else {
-carScript.backLightObject.renderer.material = carScript.brakeLightMaterial;
+carScript.backLightObject.GetComponent.<Renderer>().material = carScript.brakeLightMaterial;
 }
 }
 else {

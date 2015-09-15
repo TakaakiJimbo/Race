@@ -30,15 +30,15 @@ transform.LookAt(car);
 //Rotation And FOV Control
 
 function FixedUpdate (){
-var localVilocity = car.InverseTransformDirection(car.rigidbody.velocity);
+var localVilocity = car.InverseTransformDirection(car.GetComponent.<Rigidbody>().velocity);
 if (localVilocity.z<-0.5 && rotate){
 rotationVector.y = car.eulerAngles.y + 180;
 }
 else {
 rotationVector.y = car.eulerAngles.y;
 }
-var acc = car.rigidbody.velocity.magnitude;
-camera.fieldOfView = DefaultFOV + acc*zoomRacio;
+var acc = car.GetComponent.<Rigidbody>().velocity.magnitude;
+GetComponent.<Camera>().fieldOfView = DefaultFOV + acc*zoomRacio;
 }
 
 
