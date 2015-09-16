@@ -7,7 +7,7 @@ public class ButtonC : MonoBehaviour {
 	public static int courceNum = 0;
 	float time = 0.0f;
 	private AudioSource sound01;
-	
+
 	void Start () {
 		sound01 = GetComponent<AudioSource>();
 	}
@@ -22,7 +22,7 @@ public class ButtonC : MonoBehaviour {
 	}
 	
 	public void OnClick(int number){
-		sound01.PlayOneShot(sound01.clip);
+
 		switch (number) {
 			
 		case 1:
@@ -36,7 +36,6 @@ public class ButtonC : MonoBehaviour {
 			Debug.Log("cource:" + courceNum);
 			Ready();
 			break;
-
 			
 		case 3:
 			courceNum = 3;

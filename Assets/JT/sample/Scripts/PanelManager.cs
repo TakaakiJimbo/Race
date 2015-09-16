@@ -11,9 +11,14 @@ public class PanelManager : MonoBehaviour {
 	private int m_OpenParameterId;
 	private Animator m_Open;
 	private GameObject m_PreviouslySelected;
+	private AudioSource sound01;
 
 	const string k_OpenTransitionName = "Open";
 	const string k_ClosedStateName = "Closed";
+
+	void Start () {
+		sound01 = GetComponent<AudioSource>();
+	}
 
 	public void OnEnable()
 	{
@@ -37,10 +42,7 @@ public class PanelManager : MonoBehaviour {
 
 		CloseCurrent();
 
-		StartCoroutine("Blank");
-	 
 		m_PreviouslySelected = newPreviouslySelected;
-
 		m_Open = anim;
 		m_Open.SetBool(m_OpenParameterId, true);
 
@@ -48,13 +50,6 @@ public class PanelManager : MonoBehaviour {
 
 		SetSelected(go);
 	}
-
-	IEnumerator Blank()
-	{
-		yield return new WaitForSeconds(5.5f);
-//		print ("WaitAndPrint "+ Time.time);
-	}
-
 
 	static GameObject FindFirstEnabledSelectable (GameObject gameObject)
 	{
@@ -78,6 +73,7 @@ public class PanelManager : MonoBehaviour {
 		SetSelected(m_PreviouslySelected);
 		DisablePanelDeleyed(m_Open);
 		m_Open = null;
+		sound01.PlayOneShot(sound01.clip);
 	}
 
 	private void DisablePanelDeleyed(Animator anim)

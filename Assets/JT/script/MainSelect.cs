@@ -17,7 +17,7 @@ public class  MainSelect : MonoBehaviour
 	}
 
 	void scene(){
-		Application.LoadLevel ("selectScene");
+		Application.LoadLevel("selectScene");
 	}
 }
 
