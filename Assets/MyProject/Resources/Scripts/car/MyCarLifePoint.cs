@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MyCarLifePoint : MyCar  {
 
-	[SerializeField] private int       lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
+	static public int lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
 	[SerializeField] private AudioClip diedsound;
 
 	void Start() {
