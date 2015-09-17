@@ -12,6 +12,8 @@ public class  MyIron : MyItem {
 
 	protected override void destroyItem() {
 		gameObject.GetComponent<Detonator>().Explode();
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
+		itemsounds[0].Play();
 	}
 	
 	protected void explodeCar(GameObject collidedobject) {

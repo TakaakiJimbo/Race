@@ -4,10 +4,15 @@ using System.Collections.Generic;
 
 public class MyCheckPoint : MonoBehaviour {
 
-	[SerializeField]              private AudioClip checkedsound;
-	[SerializeField, Range(1, 3)] private int       checkpointnumber;
-	private int rank = 0;
-	
+	[SerializeField, Range(1, 3)] private int checkpointnumber;
+
+	private AudioSource checkedsound;
+	private int         rank           = 0;
+
+	void Awake() {
+		checkedsound = gameObject.GetComponent<AudioSource>();
+	}
+
 	// layer 8 is "Car"
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.layer == 8) {
@@ -26,7 +31,7 @@ public class MyCheckPoint : MonoBehaviour {
 		if (carrank.getCheckPoint() == checkpointnumber) {
 			rank++;
 			carrank.receiveRank(checkpointnumber, rank);
-			AudioSource.PlayClipAtPoint (checkedsound, carposition);
+			checkedsound.Play();
 		}
 	}
 }

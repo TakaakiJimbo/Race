@@ -3,8 +3,7 @@ using System.Collections;
 
 public class MyCarLifePoint : MyCar  {
 
-	static public int lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
-	[SerializeField] private AudioClip diedsound;
+	[SerializeField] public int lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
 
 	void Start() {
 		reflectLifePoint();
@@ -39,6 +38,6 @@ public class MyCarLifePoint : MyCar  {
 		gameObject.GetComponent<Rigidbody>().isKinematic = true;
 		gameObject.GetComponent<Detonator>().Explode();
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
-		AudioSource.PlayClipAtPoint (diedsound, gameObject.transform.position);
+		gameObject.GetComponents<AudioSource>()[0].Play();	// die sound
 	}
 }

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MyCourseOut : MonoBehaviour {
 
-	[SerializeField] private AudioClip returnsound;
 	private MyRoute route;
 
 	void Awake() {
@@ -21,7 +20,7 @@ public class MyCourseOut : MonoBehaviour {
 	
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		mycarpoint.fadeIn();
-		GetComponent<AudioSource>().PlayOneShot(returnsound,1);
+		carobject.GetComponents<AudioSource>()[1].Play();	// return
 		StartCoroutine(startReracing(1.0f, mycarpoint, carobject, nowposition, nextposition));
 	}
 
