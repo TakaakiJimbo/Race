@@ -10,6 +10,7 @@ public class MyBanana : MyItem {
 	protected override void setItemAppearedPosition(Transform cartransform) {
 		Transform gameobjecttransform = gameObject.transform;
 		gameobjecttransform.position  = cartransform.position +  cartransform.up * 0.5f +  cartransform.forward * (-4);
+		itemsounds[1].Play(); // set
 	}
 
 	private void slipCar(GameObject collidedobject) {

@@ -28,6 +28,7 @@ public class  MyIron : MyItem {
 	protected override void setItemAppearedPosition (Transform cartransform) {
 		gameObject.transform.position = cartransform.position +  cartransform.up  * 0.5f +  cartransform.forward * 4;
 		initializeIron(cartransform);
+		itemsounds[1].Play(); // set
 		Invoke("destroyItem", 2);
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class MyItem : MonoBehaviour {
 
-	[SerializeField] private int       damagecarvalue = 0;
+	[SerializeField] private int damagecarvalue = 0;
 
 	protected AudioSource[] itemsounds;	// 0:hit, 1:set
 

@@ -2867,14 +2867,6 @@ Prefab:
       propertyPath: m_Name
       value: itembox (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 141940, guid: c7928c71598034c7cb726cba4fcc94b7, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5441940, guid: c7928c71598034c7cb726cba4fcc94b7, type: 2}
-      propertyPath: m_Drag
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7928c71598034c7cb726cba4fcc94b7, type: 2}
   m_IsPrefabParent: 0
