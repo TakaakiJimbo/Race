@@ -43,7 +43,7 @@ public class MyItemBox : MyItem {
 
 	protected IEnumerator revivalItem(float delay) {
 		yield return new WaitForSeconds (delay);
-		iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 1.0f));
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 1.5, "y", 1.5, "z", 1.5, "time", 1.0f));
 	}
 
 	private void setItemList() {
