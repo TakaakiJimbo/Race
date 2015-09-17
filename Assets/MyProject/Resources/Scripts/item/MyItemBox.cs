@@ -8,6 +8,8 @@ public class MyItemBox : MyItem {
 
 	private List<string> itemlist = new List<string> ();
 
+	[SerializeField] private float revivaltime = 1f;
+
 	protected override void setItemAppearedPosition(Transform cartransform) {}
 
 	void Awake() {
@@ -26,12 +28,22 @@ public class MyItemBox : MyItem {
 		return (type.Name.Substring (2)).ToLower();
 	}
 
+	protected override void destroyItem() {
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
+		StartCoroutine(revivalItem(revivaltime));
+	}
+	
 	private void giveItem(MyCarItem caritem, string item) {
 		caritem.getItem(item);
 	}
 
 	private bool enableItemboxType(Type type) {
 		return type == typeof(MyItemBox) || type == typeof(MySubIron);
+	}
+
+	protected IEnumerator revivalItem(float delay) {
+		yield return new WaitForSeconds (delay);
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "time", 1.0f));
 	}
 
 	private void setItemList() {
