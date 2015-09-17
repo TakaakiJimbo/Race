@@ -6,8 +6,9 @@ public class MyCarPoint : MyCar {
 	private int nowpointnumber    = 0;
 	private int beforepointnumber = -1;
 	private int maxpointnumber;
-	private MyRoute myroute;
-	[SerializeField] private AudioClip reverseaudio;
+	private AudioSource reversesound;
+
+	private MyRoute     myroute;
 
 	protected override void initialize() {
 		myroute = GameObject.Find ("Route").GetComponent<MyRoute> ();
@@ -18,6 +19,7 @@ public class MyCarPoint : MyCar {
 	}
 
 	void Start() {
+		reversesound   = gameObject.GetComponent<AudioSource>();
 		maxpointnumber = myroute.getPointMaxNumber();
 		reflectReverse(false);
 		if(isBattleMode()) {
@@ -68,7 +70,7 @@ public class MyCarPoint : MyCar {
 	private void warnReverseRun(){
 		if (checkReverseRun (nowpointnumber)) {
 			reflectReverse (true);
-			GetComponent<AudioSource>().Play();
+			reversesound.Play();
 		}
 		else {
 			reflectReverse (false);

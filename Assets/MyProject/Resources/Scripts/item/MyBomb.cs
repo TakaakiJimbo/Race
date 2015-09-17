@@ -9,6 +9,8 @@ public class MyBomb : MyItem {
 	
 	protected override void destroyItem() {
 		gameObject.GetComponent<Detonator>().Explode();
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
+		itemsounds[0].Play();
 	}
 
 	private void explodeCar(GameObject collidedobject) {

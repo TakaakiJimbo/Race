@@ -29,10 +29,10 @@ GameObject:
   - 54: {fileID: 5443308}
   - 65: {fileID: 6543308}
   - 114: {fileID: 11443308}
-  - 82: {fileID: 8287764}
-  - 82: {fileID: 8299088}
   - 114: {fileID: 11423162}
   - 114: {fileID: 11423164}
+  - 82: {fileID: 8299088}
+  - 82: {fileID: 8287764}
   m_Layer: 0
   m_Name: bomb
   m_TagString: Item
@@ -199,6 +199,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -268,6 +269,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -351,16 +353,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 10
-  color:
-    r: 1
-    g: .423000008
-    b: 0
-    a: .5
+  color: {r: 1, g: .423000008, b: 0, a: .5}
   explodeOnStart: 0
   duration: 3
   detail: 1
   upwardsBias: 0
-  destroyTime: .100000001
+  destroyTime: 1
   useWorldSpace: 1
   direction: {x: 0, y: 0, z: 0}
   fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
@@ -401,16 +399,8 @@ MonoBehaviour:
   timeScale: 1
   startDetail: 1
   detail: 1
-  startColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  color:
-    r: .5
-    g: .5
-    b: .5
-    a: .5
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: .5, g: .5, b: .5, a: .5}
   startLocalPosition: {x: 0, y: 0, z: 0}
   localPosition: {x: 0, y: 0, z: 0}
   startForce: {x: 0, y: 0, z: 0}
@@ -434,15 +424,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagecarvalue: -2
-  setitemsound: {fileID: 8300000, guid: 51ee511a3fe3b49b5993d461697bfc54, type: 3}
-  hititemsound: {fileID: 8300000, guid: 2565fae86708640cc919ce109f3f463e, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: destroyTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143306}

@@ -13,10 +13,10 @@ GameObject:
   - 135: {fileID: 13546254}
   - 23: {fileID: 2346254}
   - 114: {fileID: 11446254}
-  - 82: {fileID: 8274408}
-  - 82: {fileID: 8234492}
   - 114: {fileID: 11469768}
   - 114: {fileID: 11469770}
+  - 82: {fileID: 8234492}
+  - 82: {fileID: 8274408}
   m_Layer: 0
   m_Name: subiron
   m_TagString: Item
@@ -97,6 +97,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -166,6 +167,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 400
@@ -235,6 +237,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 10
@@ -304,6 +307,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -370,8 +374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagecarvalue: 0
-  setitemsound: {fileID: 8300000, guid: 84131f2da06c844358902828e464630e, type: 3}
-  hititemsound: {fileID: 8300000, guid: 232aecaf8dc2a453ebdcf10434ba11b6, type: 3}
 --- !u!114 &11469768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,7 +391,7 @@ MonoBehaviour:
   duration: 3
   detail: 1
   upwardsBias: 0
-  destroyTime: .100000001
+  destroyTime: 1
   useWorldSpace: 1
   direction: {x: 0, y: 0, z: 0}
   fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
@@ -472,6 +474,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 494ff0e46adff43ff836435e05d111df, type: 2}
+    - target: {fileID: 0}
+      propertyPath: destroyTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146254}

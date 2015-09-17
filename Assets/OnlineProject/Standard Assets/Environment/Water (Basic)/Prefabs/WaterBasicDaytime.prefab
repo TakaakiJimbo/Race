@@ -10,10 +10,10 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
-  - 82: {fileID: 8280882}
   - 65: {fileID: 6541042}
+  - 114: {fileID: 11400000}
   - 114: {fileID: 11456706}
+  - 82: {fileID: 8280882}
   m_Layer: 0
   m_Name: WaterBasicDaytime
   m_TagString: Untagged
@@ -103,6 +103,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -182,7 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075491a0b726046218ccf2d362486d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnsound: {fileID: 8300000, guid: b59b8d0a84d1044fb985f1c87c7ac792, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
