@@ -7,6 +7,7 @@ using System.Reflection;
 public class MyItemBox : MyItem {
 
 	private List<string> itemlist = new List<string> ();
+	private Rigidbody    itemboxrigidbody;
 
 	[SerializeField] private float revivaltime = 1f;
 
@@ -14,13 +15,14 @@ public class MyItemBox : MyItem {
 	protected override void OnEnableItemAction(){}
 
 	void Awake() {
+		itemboxrigidbody = gameObject.GetComponent<Rigidbody>();
 		setItemList ();
 	}
 
 	void FixedUpdate() {
 		gameObject.transform.Rotate(0, 4f, 0);	
 	}
-	
+
 	protected override void collidedItemAction(GameObject collidedobject) {
 		giveItem(collidedobject.GetComponent<MyCarItem> (), itemlist[UnityEngine.Random.Range(0, itemlist.Count)]);
 	}
@@ -31,6 +33,7 @@ public class MyItemBox : MyItem {
 
 	protected override void destroyItem() {
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
+		itemboxrigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
 		StartCoroutine(revivalItem(revivaltime));
 	}
 	
@@ -45,6 +48,7 @@ public class MyItemBox : MyItem {
 	protected IEnumerator revivalItem(float delay) {
 		yield return new WaitForSeconds (delay);
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 1.5, "y", 1.5, "z", 1.5, "time", 1.0f));
+		itemboxrigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 		touchflag = false;
 	}
 
