@@ -5,36 +5,40 @@ public abstract class MyItem : MonoBehaviour {
 
 	[SerializeField] private int damagecarvalue = 0;
 
+	protected bool          touchflag = false;
+
 	protected AudioSource[] itemsounds;	// 0:hit, 1:set
 
 	protected abstract void collidedItemAction (GameObject collidedobject);
-	protected abstract void setItemAppearedPosition (Transform cartransform); 
+	protected abstract void setItemAppearedPosition (Transform cartransform);
+	protected abstract void destroyItem();
+	protected abstract void OnEnableItemAction();
 
 	void OnEnable() {
 		itemsounds = gameObject.GetComponents<AudioSource>();
+		OnEnableItemAction();
 	}
 
 	// layer 8 is "Car"
-	void OnCollisionEnter(Collision other) {
-		if (other.gameObject.layer == 8) {
-			GameObject carobject = other.gameObject;
-			collidedItemAction(carobject);
-			damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
-			itemsounds[0].Play();
-			destroyItem();
-		}
-		else if(other.gameObject.tag == "Item") {
-			destroyItem();
+	protected virtual void OnCollisionEnter(Collision other) {
+		if(!touchflag) {
+			if (other.gameObject.layer == 8) {
+				touchflag = true;
+				GameObject carobject = other.gameObject;
+				collidedItemAction(carobject);
+				damageCarByItem(carobject.GetComponent<MyCarLifePoint> ());
+				itemsounds[0].Play();
+				destroyItem();
+			}
+			else if(other.gameObject.tag == "Item") {
+				touchflag = true;
+				destroyItem();
+			}
 		}
 	}
 	
 	protected void damageCarByItem(MyCarLifePoint carlifepoint) {
 		carlifepoint.changeLifePoint(damagecarvalue);
-	}
-	
-	protected virtual void destroyItem() {
-		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
-		StartCoroutine(keepAndDestroyItem(1f));
 	}
 
 	protected IEnumerator keepAndDestroyItem(float delay) {

@@ -11,6 +11,7 @@ public class MyItemBox : MyItem {
 	[SerializeField] private float revivaltime = 1f;
 
 	protected override void setItemAppearedPosition(Transform cartransform) {}
+	protected override void OnEnableItemAction(){}
 
 	void Awake() {
 		setItemList ();
@@ -44,6 +45,7 @@ public class MyItemBox : MyItem {
 	protected IEnumerator revivalItem(float delay) {
 		yield return new WaitForSeconds (delay);
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 1.5, "y", 1.5, "z", 1.5, "time", 1.0f));
+		touchflag = false;
 	}
 
 	private void setItemList() {

@@ -21,9 +21,6 @@ public class MyCheckPoint : MonoBehaviour {
 			MyCarRank  carrank       = carobject.GetComponent<MyCarRank>();
 			Vector3    carposition   = carobject.transform.position;
 			markCheckPoint(checkpointnumber, carrank , carposition);
-			if(checkpointnumber == 2) {
-				GameObject.Find("Stage").GetComponent<AudioSource>().pitch = 1.25f;
-			}
 		}
 	}
 
@@ -32,6 +29,9 @@ public class MyCheckPoint : MonoBehaviour {
 			rank++;
 			carrank.receiveRank(checkpointnumber, rank);
 			checkedsound.Play();
+			if(checkpointnumber == 2) {
+				GameObject.Find("Stage").GetComponent<AudioSource>().pitch = 1.25f;
+			}
 		}
 	}
 }

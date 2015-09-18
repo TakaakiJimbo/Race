@@ -20,7 +20,7 @@ public class MyCourseOut : MonoBehaviour {
 	
 	private void backPoint (MyCarPoint mycarpoint, GameObject carobject, Vector3 nowposition, Vector3 nextposition) {
 		mycarpoint.fadeIn();
-		carobject.GetComponents<AudioSource>()[1].Play();	// return
+		gameObject.GetComponents<AudioSource>()[1].Play();	// return
 		StartCoroutine(startReracing(1.0f, mycarpoint, carobject, nowposition, nextposition));
 	}
 
