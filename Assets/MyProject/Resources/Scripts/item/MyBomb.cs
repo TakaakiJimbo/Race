@@ -4,7 +4,7 @@ using System.Collections;
 public class MyBomb : MyItem {
 
 	private Rigidbody bombvelocity;
-	private float     destroyVelocityLimit = 3f;
+	private float     destroyVelocityLimit = 2.5f;
 
 	protected override void OnEnableItemAction() {
 		bombvelocity = gameObject.GetComponent<Rigidbody>();
@@ -37,6 +37,7 @@ public class MyBomb : MyItem {
 	}
 
 	private bool enableToDestroyItemByForce() {
+		Debug.Log("bomb:" + bombvelocity.velocity.magnitude);
 		return bombvelocity.velocity.magnitude > destroyVelocityLimit;
 	}
 

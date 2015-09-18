@@ -77,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 143306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 443304}
   - {fileID: 443308}
@@ -164,7 +164,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143306}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -404,9 +404,9 @@ MonoBehaviour:
   startLocalPosition: {x: 0, y: 0, z: 0}
   localPosition: {x: 0, y: 0, z: 0}
   startForce: {x: 0, y: 0, z: 0}
-  force: {x: 3, y: 3, z: 3}
+  force: {x: 0, y: 0, z: 0}
   startVelocity: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 100, y: 100, z: 100}
   detailThreshold: 0
   smokeAMaterial: {fileID: 0}
   smokeBMaterial: {fileID: 0}
@@ -437,35 +437,47 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: velocity.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: velocity.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: velocity.z
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force.y
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: autoCreateForce
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

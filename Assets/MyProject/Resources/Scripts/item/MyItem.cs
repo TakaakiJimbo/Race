@@ -30,7 +30,7 @@ public abstract class MyItem : MonoBehaviour {
 				itemsounds[0].Play();
 				destroyItem();
 			}
-			else if(other.gameObject.tag == "Item") {
+			else if(other.gameObject.tag == "Item" || other.gameObject.tag == "Gimmick") {
 				touchflag = true;
 				destroyItem();
 			}
