@@ -2,9 +2,16 @@
 using System.Collections;
 
 public class MyBanana : MyItem {
-	
+
+	protected override void OnEnableItemAction(){}
+
 	protected override void collidedItemAction(GameObject collidedobject) {
 		slipCar(collidedobject);
+	}
+
+	protected override void destroyItem() {
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 0.0f));
+		StartCoroutine(keepAndDestroyItem(1f));
 	}
 	
 	protected override void setItemAppearedPosition(Transform cartransform) {
