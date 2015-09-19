@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TestSlider :  MonoBehaviour {
+public class LifeSlider :  MonoBehaviour {
 
 	private int value;
+	public static int CarLife;
 
 	void Start () {
-//		MyCarLifePoint.lifepoint = 3;
+		CarLife = 3;
 		Slider slider = this.GetComponent <Slider> ();
 		slider.onValueChanged.AddListener((value) => {
-//		MyCarLifePoint.lifepoint = (int) value;
+		CarLife = (int) value;
 		});
 	}
 }

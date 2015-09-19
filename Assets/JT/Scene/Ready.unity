@@ -128,7 +128,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93468b35925f74988b79b826b2299a64, type: 2}
-  m_RootGameObject: {fileID: 517195122}
   m_IsPrefabParent: 0
 --- !u!1 &517195122
 GameObject:
@@ -354,7 +353,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 813f302fa922d4581a1b2ea6a40d5b35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c81e4db61b68f43b6b1f49a64e2c9851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1477391056
 Transform:

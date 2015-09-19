@@ -15,5 +15,14 @@ public class MyRankControl : MyGameControl {
 
 	public void setCarRank(int identifier, int changepoint, int nowrank) {
 		ranklist[identifier][changepoint] = nowrank;
+		if (changepoint == 3 && ranklist[identifier][changepoint] == 1) {
+			ResultScene.PlayerNum = identifier;
+			Invoke ("result", 4.0f);
+
+		}
+	}
+
+	void result(){
+		Application.LoadLevel ("Goal");
 	}
 }

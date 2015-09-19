@@ -6,6 +6,7 @@ public class MyCarLifePoint : MyCar  {
 	[SerializeField] public int lifepoint = 3;	//  if lifepoint  > 0, the car will be alive
 
 	void Start() {
+		lifepoint = LifeSlider.CarLife;
 		reflectLifePoint();
 	}
 

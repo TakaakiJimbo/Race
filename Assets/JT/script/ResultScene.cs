@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class ResultScene : MonoBehaviour {
 
+	public static int PlayerNum;
+
 	// Use this for initialization
 	void Start () {
-
-		winP(ButtonA.playerNum);
+		winP(PlayerNum);
 	}
 
 
