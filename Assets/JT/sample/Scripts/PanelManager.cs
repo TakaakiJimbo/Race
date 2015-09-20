@@ -84,10 +84,10 @@ public class PanelManager : MonoBehaviour {
 		{
 			if (!anim.IsInTransition(0))
 				closedStateReached = anim.GetCurrentAnimatorStateInfo(0).IsName(k_ClosedStateName);
-
+			
 			wantToClose = !anim.GetBool(m_OpenParameterId);
 		}
-
+		
 		if (wantToClose)
 			anim.gameObject.SetActive(false);
 	}
