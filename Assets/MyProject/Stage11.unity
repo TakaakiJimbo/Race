@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -502,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &156317769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +522,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &156317770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,7 +1784,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1887,7 +1888,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1994,7 +1994,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2111,15 +2110,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 134.699997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -300.700012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2139,7 +2138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_Name
@@ -3400,15 +3399,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 134.699997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -300.700012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466792, guid: 395a3fbb184954543a9b64f3518f9f23, type: 2}
       propertyPath: m_LocalRotation.x
