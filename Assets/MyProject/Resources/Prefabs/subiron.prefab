@@ -97,7 +97,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -167,7 +166,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 400
@@ -237,7 +235,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 10
@@ -307,7 +304,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -373,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6515a3b4bd972445f89554c34dd8fce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagecarvalue: 0
+  damagecarvalue: -1
 --- !u!114 &11469768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,7 +464,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: damagecarvalue
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]

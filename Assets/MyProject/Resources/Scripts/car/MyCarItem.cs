@@ -65,7 +65,7 @@ public class MyCarItem : MyCar {
 
 	private void setItem(string getitem) {
 		item     = getitem;
-		subitem += 1;
+		subitem += 20;
 	}
 
 	public void useItem(bool usemain, bool usesub){
@@ -80,7 +80,7 @@ public class MyCarItem : MyCar {
 				appearSubItem();
 				deleteSubItem();
 				reflectSubItem();
-				StartCoroutine(enableShotSubItem(3, true));
+				StartCoroutine(enableShotSubItem(0.5f, true));
 			}
 		}
 	}

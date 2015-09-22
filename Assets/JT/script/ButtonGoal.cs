@@ -16,7 +16,7 @@ public class ButtonGoal : MonoBehaviour {
 	}
 
 	void BackTitle(){
-		Application.LoadLevel ("Main");
+		Application.LoadLevel ("selectScene");
 	}
 
 	public void OnClick (int number){
