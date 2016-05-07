@@ -33,17 +33,19 @@ public class MyCarRank : MyCar {
 			int player           = identifier - 1;
 			player               = Mathf.Abs(player);
 			string    targetname = "/Car" + player + "/Car";
+			/*
 			MyCarRank playerrank = GameObject.Find(targetname).GetComponent<MyCarRank>();
 			playerrank.setRank(1,1);
 			playerrank.setRank(2,1);
 			playerrank.receiveRank(3,1);
+*/
 		}
 		setRank(changepoint, nowrank);
 		reflectRank(changepoint, nowrank);
 	}
 
 	private void reflectRank(int changepoint, int nowrank) {
-		rankcontrol.setCarRank(identifier, changepoint, nowrank);
+		//rankcontrol.setCarRank(identifier, changepoint, nowrank);
 		targetcamera.receiveGoal(changepoint, nowrank);
 		targetcamera.showNowRank(changepoint, nowrank);
 	}

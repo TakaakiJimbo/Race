@@ -7,39 +7,46 @@ public class Ready : MonoBehaviour
 	
 	IEnumerator Start(){
 		// 非同期でロード開始
-		if (ButtonB.modeNum == 0) {
-			switch (ButtonC.courceNum) {
-			case 1:
-				async0 = Application.LoadLevelAsync ("Stage00");
-				async0.allowSceneActivation = false;
-				yield return async0;
-				break;
 
-			case 2:
-				async0 = Application.LoadLevelAsync ("Stage01");
-				async0.allowSceneActivation = false;
-				yield return async0;
-				break;
+		if (ButtonA.playerNum == 2) {
+			async0 = Application.LoadLevelAsync ("Solo");
+			async0.allowSceneActivation = false;
+			yield return async0;
+		} else {
+			if (ButtonB.modeNum == 0) {
+				switch (ButtonC.courceNum) {
+				case 1:
+					async0 = Application.LoadLevelAsync ("Stage00");
+					async0.allowSceneActivation = false;
+					yield return async0;
+					break;
+
+				case 2:
+					async0 = Application.LoadLevelAsync ("Stage01");
+					async0.allowSceneActivation = false;
+					yield return async0;
+					break;
 	
-			default:
-				break;
-			}
-		}else{
-			switch(ButtonC.courceNum){
-			case 1:
-				async0 = Application.LoadLevelAsync("Stage10");
-				async0.allowSceneActivation= false;
-				yield return async0;
-				break;
+				default:
+					break;
+				}
+			} else {
+				switch (ButtonC.courceNum) {
+				case 1:
+					async0 = Application.LoadLevelAsync ("Stage10");
+					async0.allowSceneActivation = false;
+					yield return async0;
+					break;
 			
-			case 2:
-				async0 = Application.LoadLevelAsync("Stage11");
-				async0.allowSceneActivation= false;
-				yield return async0;
-				break;
+				case 2:
+					async0 = Application.LoadLevelAsync ("Stage11");
+					async0.allowSceneActivation = false;
+					yield return async0;
+					break;
 			
-			default:
-				break;
+				default:
+					break;
+				}
 			}
 		}
 	}
